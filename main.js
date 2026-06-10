@@ -2,8 +2,9 @@ let currentQuestion = 0;
 
 const scores = {
     fox: 0,
-    owl: 0,
-    wolf: 0
+    bird: 0,
+    cat: 0,
+    turtle: 0
 };
 
 const questionElement = document.getElementById("question");
@@ -54,36 +55,6 @@ function showResult() {
         scores[a] > scores[b] ? a : b
     );
 
-   const animal = animals[winner];
-
-resultTitle.textContent =
-    `あなたの動物は「${animal.name}」です！`;
-
-function showResult() {
-
-    document.getElementById("question-container").classList.add("hidden");
-
-    resultContainer.classList.remove("hidden");
-
-    let winner = Object.keys(scores).reduce((a, b) =>
-        scores[a] > scores[b] ? a : b
-    );
-
-    const animal = animals[winner];
-
-    resultTitle.textContent =
-        `あなたの動物は「${animal.name}」です！`;
-
-function showResult() {
-
-    document.getElementById("question-container").classList.add("hidden");
-
-    resultContainer.classList.remove("hidden");
-
-    let winner = Object.keys(scores).reduce((a, b) =>
-        scores[a] > scores[b] ? a : b
-    );
-
     const animal = animals[winner];
 
     resultTitle.textContent =
@@ -92,4 +63,5 @@ function showResult() {
     resultText.textContent =
         animal.keywords.join(" ・ ");
 }
+
 showQuestion();
