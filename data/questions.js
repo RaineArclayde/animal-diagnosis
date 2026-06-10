@@ -4,11 +4,11 @@ const questions = [
         choices: [
             {
                 text: "みんなで遊ぶ",
-                animal: "wolf"
+                animal: "bird"
             },
             {
                 text: "一人でゆっくり",
-                animal: "owl"
+                animal: "cat"
             }
         ]
     },
@@ -22,7 +22,7 @@ const questions = [
             },
             {
                 text: "様子を見る",
-                animal: "owl"
+                animal: "cat"
             }
         ]
     },
@@ -36,7 +36,7 @@ const questions = [
             },
             {
                 text: "安定",
-                animal: "wolf"
+                animal: "turtle"
             }
         ]
     }
