@@ -1,3 +1,5 @@
+alert("main.js 読み込み成功");
+
 let currentQuestion = 0;
 
 const scores = {
