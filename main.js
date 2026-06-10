@@ -74,7 +74,7 @@ function showResult() {
     resultTitle.textContent =
         `あなたの動物は「${animal.name}」です！`;
 
-   function showResult() {
+function showResult() {
 
     document.getElementById("question-container").classList.add("hidden");
 
@@ -92,5 +92,4 @@ function showResult() {
     resultText.textContent =
         animal.keywords.join(" ・ ");
 }
-
 showQuestion();
