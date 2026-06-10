@@ -59,7 +59,38 @@ function showResult() {
 resultTitle.textContent =
     `あなたの動物は「${animal.name}」です！`;
 
-resultText.textContent =
-    animal.keywords.join(" ・ ");
-   
+function showResult() {
+
+    document.getElementById("question-container").classList.add("hidden");
+
+    resultContainer.classList.remove("hidden");
+
+    let winner = Object.keys(scores).reduce((a, b) =>
+        scores[a] > scores[b] ? a : b
+    );
+
+    const animal = animals[winner];
+
+    resultTitle.textContent =
+        `あなたの動物は「${animal.name}」です！`;
+
+   function showResult() {
+
+    document.getElementById("question-container").classList.add("hidden");
+
+    resultContainer.classList.remove("hidden");
+
+    let winner = Object.keys(scores).reduce((a, b) =>
+        scores[a] > scores[b] ? a : b
+    );
+
+    const animal = animals[winner];
+
+    resultTitle.textContent =
+        `あなたの動物は「${animal.name}」です！`;
+
+    resultText.textContent =
+        animal.keywords.join(" ・ ");
+}
+
 showQuestion();
