@@ -54,26 +54,12 @@ function showResult() {
         scores[a] > scores[b] ? a : b
     );
 
-    const resultData = {
-        fox: {
-            name: "キツネ",
-            description: "好奇心旺盛でアイデア豊富なタイプ"
-        },
-        owl: {
-            name: "フクロウ",
-            description: "観察力が高く冷静なタイプ"
-        },
-        wolf: {
-            name: "オオカミ",
-            description: "仲間思いで行動力のあるタイプ"
-        }
-    };
+   const animal = animals[winner];
 
-    resultTitle.textContent =
-        `あなたの動物は「${resultData[winner].name}」です！`;
+resultTitle.textContent =
+    `あなたの動物は「${animal.name}」です！`;
 
-    resultText.textContent =
-        resultData[winner].description;
-}
-
+resultText.textContent =
+    animal.keywords.join(" ・ ");
+   
 showQuestion();
