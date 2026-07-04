@@ -51,7 +51,12 @@ function showQuestion() {
     const q = questions[currentQuestion];
 
     questionElement.textContent = q.question;
-
+    
+    // 進捗表示
+    progressText.textContent = `${currentQuestion + 1} / ${questions.length}`;
+    
+    const percentage = (currentQuestion / questions.length) * 100;
+    progress.style.width = `${percentage}%`;
     choicesElement.innerHTML = "";
 
     q.choices.forEach(choice => {
@@ -83,6 +88,9 @@ function showQuestion() {
 
 function showResult() {
 
+    progress.style.width = "100%";
+    progressText.textContent = `${questions.length} / ${questions.length}`;
+    
     document.getElementById("question-container").classList.add("hidden");
     resultContainer.classList.remove("hidden");
 
