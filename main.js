@@ -137,26 +137,3 @@ function showResult() {
         }
 
     }, 80);
-}
-
-    // MBTIタイプを作る
-    let type = "";
-
-    type += scores.E >= scores.I ? "E" : "I";
-    type += scores.N >= scores.S ? "N" : "S";
-    type += scores.F >= scores.T ? "F" : "T";
-    type += scores.J >= scores.P ? "J" : "P";
-
-    // 動物を取得
-    const animalKey = typeToAnimal[type];
-    const animal = animals[animalKey];
-
-    resultTitle.textContent =
-        `あなたは ${type}「${animal.name}」タイプ！`;
-
-    resultText.textContent =
-        animal.description;
-}
-
-showQuestion();
-
