@@ -43,8 +43,12 @@ const choicesElement = document.getElementById("choices");
 const resultContainer = document.getElementById("result-container");
 const resultTitle = document.getElementById("result-title");
 const resultText = document.getElementById("result-text");
+
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
+
+const loadingContainer =　document.getElementById("loading-container");
+const loadingProgress =　document.getElementById("loading-progress");
 
 function showQuestion() {
 
@@ -90,30 +94,50 @@ function showResult() {
 
     progress.style.width = "100%";
     progressText.textContent = `${questions.length} / ${questions.length}`;
-    
-   document.getElementById("question-container").classList.add("hidden");
 
-loadingContainer.classList.remove("hidden");
+    // 質問画面を隠す
+    document.getElementById("question-container").classList.add("hidden");
 
-let width = 0;
+    // ローディング画面を表示
+    loadingContainer.classList.remove("hidden");
 
-const interval = setInterval(() => {
+    let width = 0;
 
-    width += 5;
+    const interval = setInterval(() => {
 
-    loadingProgress.style.width = width + "%";
+        width += 5;
+        loadingProgress.style.width = width + "%";
 
-    if(width >= 100){
+        if (width >= 100) {
 
-        clearInterval(interval);
+            clearInterval(interval);
 
-        loadingContainer.classList.add("hidden");
+            // MBTIタイプを作る
+            let type = "";
 
-        resultContainer.classList.remove("hidden");
+            type += scores.E >= scores.I ? "E" : "I";
+            type += scores.N >= scores.S ? "N" : "S";
+            type += scores.F >= scores.T ? "F" : "T";
+            type += scores.J >= scores.P ? "J" : "P";
 
-    }
+            // 動物を取得
+            const animalKey = typeToAnimal[type];
+            const animal = animals[animalKey];
 
-},80);
+            // 結果をセット
+            resultTitle.textContent =
+                `あなたは ${type}「${animal.name}」タイプ！`;
+
+            resultText.textContent =
+                animal.description;
+
+            // ローディングを隠して結果を表示
+            loadingContainer.classList.add("hidden");
+            resultContainer.classList.remove("hidden");
+        }
+
+    }, 80);
+}
 
     // MBTIタイプを作る
     let type = "";
@@ -136,10 +160,3 @@ const interval = setInterval(() => {
 
 showQuestion();
 
-const loadingContainer =
-
-    document.getElementById("loading-container");
-
-const loadingProgress =
-
-    document.getElementById("loading-progress");
