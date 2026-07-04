@@ -137,3 +137,6 @@ function showResult() {
         }
 
     }, 80);
+}
+
+showQuestion();
