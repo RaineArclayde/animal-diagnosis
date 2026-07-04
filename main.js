@@ -1,8 +1,9 @@
-alert("main.js 読み込み成功");
-
 let currentQuestion = 0;
 
-// MBTIのスコア
+// ======================
+// MBTIスコア
+// ======================
+
 const scores = {
     E: 0,
     I: 0,
@@ -14,7 +15,10 @@ const scores = {
     P: 0
 };
 
-// MBTIタイプ → 動物
+// ======================
+// MBTI → 動物
+// ======================
+
 const typeToAnimal = {
     ISTP: "fox",
     ISFP: "rabbit",
@@ -37,6 +41,10 @@ const typeToAnimal = {
     ESFJ: "bird"
 };
 
+// ======================
+// HTML取得
+// ======================
+
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 
@@ -47,20 +55,22 @@ const resultText = document.getElementById("result-text");
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
-const loadingContainer = document.getElementById("loading-container");
-const loadingProgress = document.getElementById("loading-progress");
+// ======================
+// 質問表示
+// ======================
 
 function showQuestion() {
 
     const q = questions[currentQuestion];
 
     questionElement.textContent = q.question;
-    
-    // 進捗表示
-    progressText.textContent = `${currentQuestion + 1} / ${questions.length}`;
-    
-    const percentage = (currentQuestion / questions.length) * 100;
-    progress.style.width = `${percentage}%`;
+
+    progressText.textContent =
+        `${currentQuestion + 1} / ${questions.length}`;
+
+    progress.style.width =
+        `${currentQuestion / questions.length * 100}%`;
+
     choicesElement.innerHTML = "";
 
     q.choices.forEach(choice => {
@@ -69,20 +79,19 @@ function showQuestion() {
 
         button.textContent = choice.text;
 
-        button.addEventListener("click", () => {
+        button.onclick = () => {
 
-            // MBTIスコア加算
             scores[choice.type]++;
 
             currentQuestion++;
 
-            if (currentQuestion < questions.length) {
+            if(currentQuestion < questions.length){
                 showQuestion();
-            } else {
+            }else{
                 showResult();
             }
 
-        });
+        };
 
         choicesElement.appendChild(button);
 
@@ -90,53 +99,41 @@ function showQuestion() {
 
 }
 
-function showResult() {
+// ======================
+// 結果表示
+// ======================
+
+function showResult(){
+
+    document.getElementById("question-container")
+        .classList.add("hidden");
 
     progress.style.width = "100%";
-    progressText.textContent = `${questions.length} / ${questions.length}`;
 
-    // 質問画面を隠す
-    document.getElementById("question-container").classList.add("hidden");
+    progressText.textContent =
+        `${questions.length} / ${questions.length}`;
 
-    // ローディング画面を表示
-    loadingContainer.classList.remove("hidden");
+    let type = "";
 
-    let width = 0;
+    type += scores.E >= scores.I ? "E" : "I";
+    type += scores.N >= scores.S ? "N" : "S";
+    type += scores.F >= scores.T ? "F" : "T";
+    type += scores.J >= scores.P ? "J" : "P";
 
-    const interval = setInterval(() => {
+    const animal = animals[typeToAnimal[type]];
 
-        width += 5;
-        loadingProgress.style.width = width + "%";
+    resultContainer.classList.remove("hidden");
 
-        if (width >= 100) {
+    resultTitle.textContent =
+        `あなたは ${type}「${animal.name}」タイプ！`;
 
-            clearInterval(interval);
+    resultText.textContent =
+        animal.description;
 
-            // MBTIタイプを作る
-            let type = "";
-
-            type += scores.E >= scores.I ? "E" : "I";
-            type += scores.N >= scores.S ? "N" : "S";
-            type += scores.F >= scores.T ? "F" : "T";
-            type += scores.J >= scores.P ? "J" : "P";
-
-            // 動物を取得
-            const animalKey = typeToAnimal[type];
-            const animal = animals[animalKey];
-
-            // 結果をセット
-            resultTitle.textContent =
-                `あなたは ${type}「${animal.name}」タイプ！`;
-
-            resultText.textContent =
-                animal.description;
-
-            // ローディングを隠して結果を表示
-            loadingContainer.classList.add("hidden");
-            resultContainer.classList.remove("hidden");
-        }
-
-    }, 80);
 }
+
+// ======================
+// 開始
+// ======================
 
 showQuestion();
