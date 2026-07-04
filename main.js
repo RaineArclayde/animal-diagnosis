@@ -47,8 +47,8 @@ const resultText = document.getElementById("result-text");
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
-const loadingContainer =　document.getElementById("loading-container");
-const loadingProgress =　document.getElementById("loading-progress");
+const loadingContainer = document.getElementById("loading-container");
+const loadingProgress = document.getElementById("loading-progress");
 
 function showQuestion() {
 
