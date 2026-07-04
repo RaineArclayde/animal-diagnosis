@@ -1,17 +1,49 @@
 const questions = [
+  const questions = [
+
     {
-        question: "休日はどう過ごしたい？",
+        question: "単独で作業する仕事が苦手",
         choices: [
             {
-                text: "みんなで遊ぶ",
-                animal: "bird"
+                text: "はい",
+                type: "E"
             },
             {
-                text: "一人でゆっくり",
-                animal: "cat"
+                text: "いいえ",
+                type: "I"
             }
         ]
     },
+
+    {
+        question: "人脈を広げたり、自分を売り込むことが得意",
+        choices: [
+            {
+                text: "はい",
+                type: "E"
+            },
+            {
+                text: "いいえ",
+                type: "I"
+            }
+        ]
+    },
+
+    {
+        question: "静かな場所より賑やかな場所が好き",
+        choices: [
+            {
+                text: "はい",
+                type: "E"
+            },
+            {
+                text: "いいえ",
+                type: "I"
+            }
+        ]
+    }
+
+];,
 
     {
         question: "新しい場所では？",
