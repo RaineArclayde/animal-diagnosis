@@ -114,3 +114,11 @@ function showResult() {
 }
 
 showQuestion();
+
+const loadingContainer =
+
+    document.getElementById("loading-container");
+
+const loadingProgress =
+
+    document.getElementById("loading-progress");
