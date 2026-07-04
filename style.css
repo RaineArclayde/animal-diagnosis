@@ -29,3 +29,32 @@ button {
 .hidden {
     display: none;
 }
+/* ===== 進捗バー ===== */
+
+#progress-container{
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#progress-text{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+#progress-bar{
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#progress{
+    width: 0%;
+    height: 100%;
+    background: #6abf69;
+    transition: width 0.4s ease;
+}
