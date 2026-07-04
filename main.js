@@ -43,6 +43,8 @@ const choicesElement = document.getElementById("choices");
 const resultContainer = document.getElementById("result-container");
 const resultTitle = document.getElementById("result-title");
 const resultText = document.getElementById("result-text");
+const progress = document.getElementById("progress");
+const progressText = document.getElementById("progress-text");
 
 function showQuestion() {
 
