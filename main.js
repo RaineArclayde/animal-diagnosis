@@ -55,6 +55,12 @@ const resultText = document.getElementById("result-text");
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
+const keywordContainer =
+    document.getElementById("result-keywords");
+
+const restartBtn =
+    document.getElementById("restart-btn");
+
 // ======================
 // 質問表示
 // ======================
