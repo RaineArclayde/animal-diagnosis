@@ -91,8 +91,29 @@ function showResult() {
     progress.style.width = "100%";
     progressText.textContent = `${questions.length} / ${questions.length}`;
     
-    document.getElementById("question-container").classList.add("hidden");
-    resultContainer.classList.remove("hidden");
+   document.getElementById("question-container").classList.add("hidden");
+
+loadingContainer.classList.remove("hidden");
+
+let width = 0;
+
+const interval = setInterval(() => {
+
+    width += 5;
+
+    loadingProgress.style.width = width + "%";
+
+    if(width >= 100){
+
+        clearInterval(interval);
+
+        loadingContainer.classList.add("hidden");
+
+        resultContainer.classList.remove("hidden");
+
+    }
+
+},80);
 
     // MBTIタイプを作る
     let type = "";
