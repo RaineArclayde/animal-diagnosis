@@ -2,20 +2,19 @@ alert("main.js 読み込み成功");
 
 let currentQuestion = 0;
 
+// MBTIのスコア
 const scores = {
     E: 0,
     I: 0,
-
     N: 0,
     S: 0,
-
     F: 0,
     T: 0,
-
     J: 0,
     P: 0
 };
 
+// MBTIタイプ → 動物
 const typeToAnimal = {
     ISTP: "fox",
     ISFP: "rabbit",
@@ -61,7 +60,8 @@ function showQuestion() {
 
         button.addEventListener("click", () => {
 
-           scores[choice.type]++;
+            // MBTIスコア加算
+            scores[choice.type]++;
 
             currentQuestion++;
 
@@ -70,36 +70,37 @@ function showQuestion() {
             } else {
                 showResult();
             }
+
         });
 
         choicesElement.appendChild(button);
+
     });
+
 }
 
 function showResult() {
 
     document.getElementById("question-container").classList.add("hidden");
-
     resultContainer.classList.remove("hidden");
 
-   // MBTIタイプを作る
-let type = "";
+    // MBTIタイプを作る
+    let type = "";
 
-type += scores.E >= scores.I ? "E" : "I";
-type += scores.N >= scores.S ? "N" : "S";
-type += scores.F >= scores.T ? "F" : "T";
-type += scores.J >= scores.P ? "J" : "P";
+    type += scores.E >= scores.I ? "E" : "I";
+    type += scores.N >= scores.S ? "N" : "S";
+    type += scores.F >= scores.T ? "F" : "T";
+    type += scores.J >= scores.P ? "J" : "P";
 
-// タイプに対応する動物を取得
-const animalKey = typeToAnimal[type];
-const animal = animals[animalKey];
+    // 動物を取得
+    const animalKey = typeToAnimal[type];
+    const animal = animals[animalKey];
 
-// 結果表示
-resultTitle.textContent =
-    `あなたは ${type}タイプ「${animal.name}」です！`;
+    resultTitle.textContent =
+        `あなたは ${type}「${animal.name}」タイプ！`;
 
-resultText.textContent =
-    animal.keywords.join(" ・ ");
+    resultText.textContent =
+        animal.description;
 }
 
 showQuestion();
