@@ -137,16 +137,14 @@ button {
     }
 
 }
+
 /* ===== 質問アニメーション ===== */
 
-.fade-out{
-    opacity:0;
-    transform:translateY(-15px);
-    transition:0.25s;
+#question-container{
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.fade-in{
-    opacity:1;
-    transform:translateY(0);
-    transition:0.25s;
+.fade-out{
+    opacity: 0;
+    transform: translateY(20px);
 }
