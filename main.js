@@ -71,62 +71,56 @@ restartBtn.onclick = ()=>{
 };
 
 function showQuestion() {
-    
-        const q = questions[currentQuestion];
 
-        questionElement.textContent = q.question;
+    const q = questions[currentQuestion];
 
-        progressText.textContent =
-            `${currentQuestion + 1} / ${questions.length}`;
+    questionElement.textContent = q.question;
 
-        progress.style.width =
-            `${currentQuestion / questions.length * 100}%`;
+    progressText.textContent =
+        `${currentQuestion + 1} / ${questions.length}`;
 
-        choicesElement.innerHTML = "";
+    progress.style.width =
+        `${currentQuestion / questions.length * 100}%`;
 
-        q.choices.forEach(choice => {
+    choicesElement.innerHTML = "";
 
-            const button = document.createElement("button");
+    q.choices.forEach(choice => {
 
-            button.textContent = choice.text;
+        const button = document.createElement("button");
 
-            button.onclick = () => {
+        button.textContent = choice.text;
 
-    scores[choice.type]++;
+        button.onclick = () => {
 
-    currentQuestion++;
+            scores[choice.type]++;
 
-    if(currentQuestion < questions.length){
+            currentQuestion++;
 
-        const container =
-            document.getElementById("question-container");
+            if(currentQuestion < questions.length){
 
-        container.classList.add("fade-out");
+                const container = document.getElementById("question-container");
 
-        setTimeout(() => {
+                container.classList.add("fade-out");
 
-            container.classList.remove("fade-out");
+                setTimeout(() => {
 
-            showQuestion();
+                    container.classList.remove("fade-out");
 
-        },300);
+                    showQuestion();
 
-    }else{
+                },300);
 
-        showResult();
+            }else{
 
-    }
+                showResult();
 
-};
-   
-            choicesElement.appendChild(button);
+            }
 
-        });
+        };
 
-        container.classList.remove("fade-out");
-        container.classList.add("fade-in");
+        choicesElement.appendChild(button);
 
-    },250);
+    });
 
 }
 // ======================
