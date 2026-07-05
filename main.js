@@ -76,6 +76,49 @@ restartBtn.onclick = ()=>{
 
 };
 
+function drawRadar(){
+
+    ctx.clearRect(0,0,320,320);
+
+    const centerX = 160;
+    const centerY = 160;
+    const radius = 100;
+
+    // 外側の菱形
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY - radius);
+    ctx.lineTo(centerX + radius, centerY);
+    ctx.lineTo(centerX, centerY + radius);
+    ctx.lineTo(centerX - radius, centerY);
+    ctx.closePath();
+
+    ctx.strokeStyle = "#cccccc";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // 縦線
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY - radius);
+    ctx.lineTo(centerX, centerY + radius);
+    ctx.stroke();
+
+    // 横線
+    ctx.beginPath();
+    ctx.moveTo(centerX - radius, centerY);
+    ctx.lineTo(centerX + radius, centerY);
+    ctx.stroke();
+
+    // ラベル
+    ctx.fillStyle = "#333";
+    ctx.font = "20px sans-serif";
+
+    ctx.fillText("E", centerX - 8, centerY - radius - 15);
+    ctx.fillText("F", centerX + radius + 10, centerY + 6);
+    ctx.fillText("I", centerX - 6, centerY + radius + 25);
+    ctx.fillText("J", centerX - radius - 25, centerY + 6);
+
+}
+
 function showQuestion() {
 
     const q = questions[currentQuestion];
@@ -171,6 +214,8 @@ resultText.innerHTML = `
 <br><br>
 ${animal.description}
 `;
+drawRadar();
+
 }
 
 // ======================
