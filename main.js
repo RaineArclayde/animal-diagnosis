@@ -102,12 +102,25 @@ function showQuestion() {
 
                 currentQuestion++;
 
-                if(currentQuestion < questions.length){
-                    showQuestion();
-                }else{
-                    showResult();
-                }
+               if(currentQuestion < questions.length){
 
+    const container = document.getElementById("question-container");
+
+    container.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        showQuestion();
+
+        container.classList.remove("fade-out");
+
+    },300);
+
+}else{
+
+    showResult();
+
+}
             };
 
             choicesElement.appendChild(button);
