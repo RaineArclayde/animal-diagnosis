@@ -118,25 +118,7 @@ function showQuestion() {
     }
 
 };
-    const container = document.getElementById("question-container");
-
-    container.classList.add("fade-out");
-
-    setTimeout(() => {
-
-        showQuestion();
-
-        container.classList.remove("fade-out");
-
-    },300);
-
-}else{
-
-    showResult();
-
-}
-            };
-
+   
             choicesElement.appendChild(button);
 
         });
