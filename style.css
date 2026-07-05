@@ -137,3 +137,16 @@ button {
     }
 
 }
+/* ===== 質問アニメーション ===== */
+
+.fade-out{
+    opacity:0;
+    transform:translateY(-15px);
+    transition:0.25s;
+}
+
+.fade-in{
+    opacity:1;
+    transform:translateY(0);
+    transition:0.25s;
+}
