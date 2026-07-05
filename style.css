@@ -58,28 +58,6 @@ button {
     background: #6abf69;
     transition: width 0.4s ease;
 }
-/* ===== ローディング ===== */
-
-#loading-container{
-    text-align:center;
-    padding:40px 20px;
-}
-
-#loading-bar{
-    width:100%;
-    max-width:400px;
-    height:16px;
-    background:#ddd;
-    border-radius:999px;
-    margin:30px auto;
-    overflow:hidden;
-}
-
-#loading-progress{
-    width:0%;
-    height:100%;
-    background:#6abf69;
-}
 
 /* ===== 結果画面 ===== */
 
