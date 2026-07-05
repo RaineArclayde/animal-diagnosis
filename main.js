@@ -71,13 +71,7 @@ restartBtn.onclick = ()=>{
 };
 
 function showQuestion() {
-
-    const container = document.getElementById("question-container");
-
-    container.classList.add("fade-out");
-
-    setTimeout(() => {
-
+    
         const q = questions[currentQuestion];
 
         questionElement.textContent = q.question;
@@ -98,12 +92,32 @@ function showQuestion() {
 
             button.onclick = () => {
 
-                scores[choice.type]++;
+    scores[choice.type]++;
 
-                currentQuestion++;
+    currentQuestion++;
 
-               if(currentQuestion < questions.length){
+    if(currentQuestion < questions.length){
 
+        const container =
+            document.getElementById("question-container");
+
+        container.classList.add("fade-out");
+
+        setTimeout(() => {
+
+            container.classList.remove("fade-out");
+
+            showQuestion();
+
+        },300);
+
+    }else{
+
+        showResult();
+
+    }
+
+};
     const container = document.getElementById("question-container");
 
     container.classList.add("fade-out");
