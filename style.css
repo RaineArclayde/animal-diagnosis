@@ -148,3 +148,11 @@ button {
     opacity:0;
     transform:translateY(15px);
 }
+
+#radarChart{
+
+    display:block;
+
+    margin:30px auto;
+
+}
