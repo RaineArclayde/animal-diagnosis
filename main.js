@@ -58,6 +58,12 @@ const progressText = document.getElementById("progress-text");
 const keywordContainer =
     document.getElementById("result-keywords");
 
+const radarCanvas =
+    document.getElementById("radarChart");
+
+const ctx =
+    radarCanvas.getContext("2d");
+
 const restartBtn =
     document.getElementById("restart-btn");
 
