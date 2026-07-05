@@ -64,6 +64,11 @@ const restartBtn =
 // ======================
 // 質問表示
 // ======================
+restartBtn.onclick = ()=>{
+
+    location.reload();
+
+};
 
 function showQuestion() {
 
@@ -131,11 +136,22 @@ function showResult(){
     resultContainer.classList.remove("hidden");
 
     resultTitle.textContent =
-        `あなたは ${type}「${animal.name}」タイプ！`;
+    `${animal.name} タイプ`;
 
-    resultText.textContent =
-        animal.description;
+keywordContainer.innerHTML = "";
 
+animal.keywords.forEach(keyword=>{
+
+    keywordContainer.innerHTML +=
+        `<span class="keyword">${keyword}</span>`;
+
+});
+
+resultText.innerHTML = `
+<b>MBTIタイプ：</b> ${type}
+<br><br>
+${animal.description}
+`;
 }
 
 // ======================
