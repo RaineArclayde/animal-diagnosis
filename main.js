@@ -72,44 +72,54 @@ restartBtn.onclick = ()=>{
 
 function showQuestion() {
 
-    const q = questions[currentQuestion];
+    const container = document.getElementById("question-container");
 
-    questionElement.textContent = q.question;
+    container.classList.add("fade-out");
 
-    progressText.textContent =
-        `${currentQuestion + 1} / ${questions.length}`;
+    setTimeout(() => {
 
-    progress.style.width =
-        `${currentQuestion / questions.length * 100}%`;
+        const q = questions[currentQuestion];
 
-    choicesElement.innerHTML = "";
+        questionElement.textContent = q.question;
 
-    q.choices.forEach(choice => {
+        progressText.textContent =
+            `${currentQuestion + 1} / ${questions.length}`;
 
-        const button = document.createElement("button");
+        progress.style.width =
+            `${currentQuestion / questions.length * 100}%`;
 
-        button.textContent = choice.text;
+        choicesElement.innerHTML = "";
 
-        button.onclick = () => {
+        q.choices.forEach(choice => {
 
-            scores[choice.type]++;
+            const button = document.createElement("button");
 
-            currentQuestion++;
+            button.textContent = choice.text;
 
-            if(currentQuestion < questions.length){
-                showQuestion();
-            }else{
-                showResult();
-            }
+            button.onclick = () => {
 
-        };
+                scores[choice.type]++;
 
-        choicesElement.appendChild(button);
+                currentQuestion++;
 
-    });
+                if(currentQuestion < questions.length){
+                    showQuestion();
+                }else{
+                    showResult();
+                }
+
+            };
+
+            choicesElement.appendChild(button);
+
+        });
+
+        container.classList.remove("fade-out");
+        container.classList.add("fade-in");
+
+    },250);
 
 }
-
 // ======================
 // 結果表示
 // ======================
@@ -157,5 +167,9 @@ ${animal.description}
 // ======================
 // 開始
 // ======================
+
+document
+.getElementById("question-container")
+.classList.add("fade-in");
 
 showQuestion();
