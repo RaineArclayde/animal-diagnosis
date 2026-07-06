@@ -73,6 +73,8 @@ const compatibility = {
 // HTML取得
 // ======================
 
+const compatibilityContainer =
+    document.getElementById("compatibility");
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 
@@ -244,6 +246,29 @@ ${animal.description}
 `;
 drawRadar();
 
+    compatibilityContainer.innerHTML = "";
+
+const compatibleTypes = compatibility[type];
+
+compatibleTypes.forEach(type => {
+
+    const animalKey = typeToAnimal[type];
+
+    const animalData = animals[animalKey];
+
+    compatibilityContainer.innerHTML += `
+        <div class="compatibility-card">
+
+            <h4>${animalData.name}</h4>
+
+            <p>${type}</p>
+
+            <p>${animalData.description}</p>
+
+        </div>
+    `;
+
+});
 }
 
 // ======================
