@@ -42,6 +42,34 @@ const typeToAnimal = {
 };
 
 // ======================
+// MBTI相性表
+// ======================
+
+const compatibility = {
+
+    ISTP: ["ENFP", "ESFJ"],
+    ISFP: ["ENTJ", "ENFJ"],
+    ESTP: ["INFJ", "ISFJ"],
+    ESFP: ["INTJ", "ISTJ"],
+
+    INFJ: ["ENFP", "ENTP"],
+    INFP: ["ENFJ", "ENTJ"],
+    ENFJ: ["INFP", "ISFP"],
+    ENFP: ["INFJ", "INTJ"],
+
+    INTJ: ["ENFP", "ESFP"],
+    INTP: ["ENTJ", "ESTJ"],
+    ENTJ: ["INFP", "ISFP"],
+    ENTP: ["INFJ", "INTJ"],
+
+    ISTJ: ["ESFP", "ENFP"],
+    ISFJ: ["ESTP", "ESFP"],
+    ESTJ: ["ISFP", "INTP"],
+    ESFJ: ["ISTP", "ISFP"]
+
+};
+
+// ======================
 // HTML取得
 // ======================
 
