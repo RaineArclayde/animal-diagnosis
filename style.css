@@ -189,3 +189,28 @@ button {
     margin:8px 0;
 
 }
+/* ===== 動物画像 ===== */
+
+#animal-image{
+
+    display:block;
+
+    width:260px;
+
+    height:260px;
+
+    object-fit:contain;
+
+    margin:25px auto;
+
+    background:#f8f5ea;
+
+    border:5px solid #c9b48a;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
