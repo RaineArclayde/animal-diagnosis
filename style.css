@@ -156,3 +156,36 @@ button {
     margin:30px auto;
 
 }
+#compatibility{
+
+    margin-top:30px;
+
+}
+
+.compatibility-card{
+
+    background:#f6f6f6;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-top:15px;
+
+    border:2px solid #ddd;
+
+}
+
+.compatibility-card h4{
+
+    margin:0;
+
+    font-size:22px;
+
+}
+
+.compatibility-card p{
+
+    margin:8px 0;
+
+}
