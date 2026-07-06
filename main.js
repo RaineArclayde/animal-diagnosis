@@ -81,7 +81,8 @@ const choicesElement = document.getElementById("choices");
 const resultContainer = document.getElementById("result-container");
 const resultTitle = document.getElementById("result-title");
 const resultText = document.getElementById("result-text");
-
+const animalImage =
+    document.getElementById("animal-image");
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
@@ -225,6 +226,9 @@ function showResult(){
 
     const animal = animals[typeToAnimal[type]];
 
+    animalImage.src = animal.image;
+    animalImage.alt = animal.name;
+    
     resultContainer.classList.remove("hidden");
 
     resultTitle.textContent =
