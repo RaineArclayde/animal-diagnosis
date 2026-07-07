@@ -130,6 +130,13 @@ restartBtn.onclick = ()=>{
 
 };
 
+backBtn.onclick = () => {
+
+    if(currentQuestion === 0) return;
+
+    currentQuestion--;
+
+
 function drawRadar(){
 
     ctx.clearRect(0,0,320,320);
@@ -175,12 +182,6 @@ function drawRadar(){
 
 function showQuestion() {
  
-    backBtn.onclick = () => {
-
-    if(currentQuestion === 0) return;
-
-    currentQuestion--;
-
     const lastType = answerHistory.pop();
 
     scores[lastType]--;
