@@ -124,6 +124,7 @@ const restartBtn =
 // ======================
 // 質問表示
 // ======================
+
 restartBtn.onclick = ()=>{
 
     location.reload();
@@ -132,7 +133,7 @@ restartBtn.onclick = ()=>{
 
 backBtn.onclick = () => {
 
-    if(currentQuestion === 0) return;
+    if (currentQuestion === 0) return;
 
     currentQuestion--;
 
@@ -188,7 +189,7 @@ function drawRadar(){
 }
 
 function showQuestion() {
-        
+
     const q = questions[currentQuestion];
 
     questionElement.textContent = q.question;
@@ -209,15 +210,16 @@ function showQuestion() {
 
         button.onclick = () => {
 
-           answerHistory.push(choice.type);
+            answerHistory.push(choice.type);
 
-scores[choice.type]++;
+            scores[choice.type]++;
 
-currentQuestion++;
-            
-            if(currentQuestion < questions.length){
+            currentQuestion++;
 
-                const container = document.getElementById("question-container");
+            if (currentQuestion < questions.length) {
+
+                const container =
+                    document.getElementById("question-container");
 
                 container.classList.add("fade-out");
 
@@ -227,9 +229,9 @@ currentQuestion++;
 
                     showQuestion();
 
-                },300);
+                }, 300);
 
-            }else{
+            } else {
 
                 showResult();
 
@@ -241,17 +243,19 @@ currentQuestion++;
 
     });
 
-    if(currentQuestion === 0){
+    // 戻るボタン表示切替
+    if (currentQuestion === 0) {
 
-    backBtn.classList.add("hidden");
+        backBtn.classList.add("hidden");
 
-}else{
+    } else {
 
-    backBtn.classList.remove("hidden");
+        backBtn.classList.remove("hidden");
 
+    }
 
 }
-}
+
 // ======================
 // 結果表示
 // ======================
