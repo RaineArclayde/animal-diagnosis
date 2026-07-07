@@ -1,3 +1,39 @@
+/* ===== 開始画面 ===== */
+
+#start-screen{
+
+    text-align:center;
+
+    padding:70px 30px;
+
+}
+
+#start-screen h1{
+
+    font-size:42px;
+
+}
+
+#start-screen p{
+
+    line-height:2;
+
+    color:#666;
+
+    margin:35px 0;
+
+}
+
+#start-btn{
+
+    width:280px;
+
+    margin:auto;
+
+    font-size:18px;
+
+}
+
 body {
     font-family: sans-serif;
     background: #f4f4f4;
