@@ -136,6 +136,13 @@ backBtn.onclick = () => {
 
     currentQuestion--;
 
+    const lastType = answerHistory.pop();
+
+    scores[lastType]--;
+
+    showQuestion();
+
+};
 
 function drawRadar(){
 
@@ -181,12 +188,6 @@ function drawRadar(){
 }
 
 function showQuestion() {
- 
-    const lastType = answerHistory.pop();
-
-    scores[lastType]--;
-
-    showQuestion();
         
     const q = questions[currentQuestion];
 
@@ -240,8 +241,6 @@ currentQuestion++;
 
     });
 
-};
-
     if(currentQuestion === 0){
 
     backBtn.classList.add("hidden");
@@ -249,6 +248,7 @@ currentQuestion++;
 }else{
 
     backBtn.classList.remove("hidden");
+
 
 }
 }
