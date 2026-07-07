@@ -74,6 +74,9 @@ const compatibility = {
 // HTML取得
 // ======================
 
+const backBtn =
+    document.getElementById("back-btn");
+
 const startScreen =
     document.getElementById("start-screen");
 
@@ -171,7 +174,19 @@ function drawRadar(){
 }
 
 function showQuestion() {
+ 
+    backBtn.onclick = () => {
 
+    if(currentQuestion === 0) return;
+
+    currentQuestion--;
+
+    const lastType = answerHistory.pop();
+
+    scores[lastType]--;
+
+    showQuestion();
+        
     const q = questions[currentQuestion];
 
     questionElement.textContent = q.question;
@@ -192,10 +207,12 @@ function showQuestion() {
 
         button.onclick = () => {
 
-            scores[choice.type]++;
+           answerHistory.push(choice.type);
 
-            currentQuestion++;
+scores[choice.type]++;
 
+currentQuestion++;
+            
             if(currentQuestion < questions.length){
 
                 const container = document.getElementById("question-container");
@@ -222,6 +239,17 @@ function showQuestion() {
 
     });
 
+};
+
+    if(currentQuestion === 0){
+
+    backBtn.classList.add("hidden");
+
+}else{
+
+    backBtn.classList.remove("hidden");
+
+}
 }
 // ======================
 // 結果表示
