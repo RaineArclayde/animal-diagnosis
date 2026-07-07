@@ -1,3 +1,4 @@
+let answerHistory = [];
 let currentQuestion = 0;
 
 // ======================
