@@ -73,6 +73,15 @@ const compatibility = {
 // HTML取得
 // ======================
 
+const startScreen =
+    document.getElementById("start-screen");
+
+const quizScreen =
+    document.getElementById("quiz-screen");
+
+const startBtn =
+    document.getElementById("start-btn");
+
 const compatibilityContainer =
     document.getElementById("compatibility");
 const questionElement = document.getElementById("question");
@@ -94,6 +103,16 @@ const radarCanvas =
 
 const ctx =
     radarCanvas.getContext("2d");
+
+startBtn.onclick = ()=>{
+
+    startScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    showQuestion();
+
+};
 
 const restartBtn =
     document.getElementById("restart-btn");
@@ -283,4 +302,4 @@ document
 .getElementById("question-container")
 .classList.add("fade-in");
 
-showQuestion();
+
