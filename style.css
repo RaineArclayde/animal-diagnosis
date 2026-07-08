@@ -89,14 +89,14 @@ button {
 
 #start-btn span {
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     color: #F6E8C3;
     text-shadow: 2px 2px 4px rgba(0,0,0,.4);
     font-family: "Yu Mincho","Hiragino Mincho ProN",serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
     letter-spacing: 2px;
 
