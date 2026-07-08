@@ -25,56 +25,45 @@
 }
 
 #start-btn{
-    animation: floatIn .8s ease;
-}
-
-@keyframes floatIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-#start-btn{
-
-    width:300px;
-    height:120px;
-
-    background-image:url("images/start_button.png");
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:contain;
-
+    position:relative;
+    background:none;
     border:none;
+    cursor:pointer;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-size:26px;
+    margin:auto;
+}
+
+#start-btn img{
+    width:300px;
+    display:block;
+}
+
+#start-btn span{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    color:#F6E8C3;
+    text-shadow:2px 2px 4px rgba(0,0,0,.4);
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+    font-size:28px;
     font-weight:bold;
+    letter-spacing:2px;
 
-    color:#f9f3e8;
-
-    cursor:pointer;
+    pointer-events:none;
 }
 
 #start-btn:hover{
-    transform: scale(1.05);
+    transform:scale(1.05);
 }
 
 #start-btn:active{
-    transform: scale(0.96);
-}
-
-#start-btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    transform:scale(0.96);
 }
 
 body {
