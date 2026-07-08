@@ -14,23 +14,21 @@
    共通設定
 =================================== */
 
-body {
-    font-family: sans-serif;
-    background: #f4f4f4;
-    margin: 0;
-    padding: 40px;
+body{
+    background:#E6E3DC;
+    color:#331700;
 }
 
-#app {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
+#app{
+    background:#F8F5EA;
+    border:4px solid #BBA576;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-h1 {
-    text-align: center;
+h1{
+    color:#331700;
+    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
 }
 
 .hidden {
@@ -41,13 +39,17 @@ h1 {
    共通ボタン
 =================================== */
 
-button {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    padding: 15px;
-    font-size: 16px;
-    cursor: pointer;
+button{
+    background:#BBA576;
+    color:#331700;
+    border:2px solid #6A4C25;
+    border-radius:10px;
+    transition:.2s;
+}
+
+button:hover{
+    background:#6A4C25;
+    color:#F1EEA2;
 }
 
 /* ===================================
@@ -93,7 +95,7 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    color: #F6E8C3;
+    color: #F1EEA2;
     text-shadow: 2px 2px 4px rgba(0,0,0,.4);
     font-family: "Yu Mincho","Hiragino Mincho ProN",serif;
     font-size: 22px;
@@ -207,8 +209,8 @@ button {
 
     margin: 25px auto;
 
-    background: #f8f5ea;
-    border: 5px solid #c9b48a;
+    background: #E6E3DC;
+    border: 5px solid #BBA576;
     border-radius: 15px;
     padding: 15px;
 
@@ -228,7 +230,8 @@ button {
     margin: 6px;
     padding: 8px 18px;
 
-    background: #eef6f2;
+    background: #B3C36A;
+    color:#331700;
     border-radius: 999px;
 
     font-size: 15px;
@@ -252,8 +255,8 @@ button {
 }
 
 .compatibility-card {
-    background: #f6f6f6;
-    border: 2px solid #ddd;
+    background: #F1EEA2;
+    border: 2px solid #BBA576;
     border-radius: 12px;
 
     padding: 18px;
