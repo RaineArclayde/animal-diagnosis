@@ -67,12 +67,10 @@ button {
 }
 
 #back-btn{
-
-    width:200px;
-
-    margin:20px auto;
-
-    background:#eee;
+    display:block;
+    width:100%;
+    margin-top:20px;
+}
 
 }
 
