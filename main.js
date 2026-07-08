@@ -244,15 +244,13 @@ function showQuestion() {
     });
 
     // 戻るボタン表示切替
-    if (currentQuestion === 0) {
+   console.log(currentQuestion);
 
-        backBtn.classList.add("hidden");
-
-    } else {
-
-        backBtn.classList.remove("hidden");
-
-    }
+if (currentQuestion === 0) {
+    backBtn.style.display = "none";
+} else {
+    backBtn.style.display = "block";
+}
 
 }
 
