@@ -232,20 +232,17 @@ button:hover{
    動物画像
 =================================== */
 
-#animal-image {
-    display: block;
-    width: 260px;
-    height: 260px;
-    object-fit: contain;
-
-    margin: 25px auto;
-
-    background: var(--paper);
-    border: 5px solid var(--paper);
-    border-radius: 15px;
-    padding: 15px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+#animal-image{
+    display:block;
+    width:220px;
+    height:220px;
+    object-fit:contain;
+    margin:30px auto;
+    padding:20px;
+    background:var(--paper);
+    border:4px solid var(--beige);
+    border-radius:18px;
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
 
 /* ===================================
