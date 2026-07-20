@@ -181,11 +181,10 @@ function drawRadar(){
     ctx.fillStyle = "#333";
     ctx.font = "20px sans-serif";
 
-    ctx.fillText("E", centerX - 8, centerY - radius - 15);
-    ctx.fillText("F", centerX + radius + 10, centerY + 6);
-    ctx.fillText("I", centerX - 6, centerY + radius + 25);
-    ctx.fillText("J", centerX - radius - 25, centerY + 6);
-
+   ctx.fillText("活動性", centerX - 25, centerY - radius - 15);
+   ctx.fillText("探索性", centerX + radius + 12, centerY + 6);
+   ctx.fillText("共感性", centerX - 25, centerY + radius + 25);
+   ctx.fillText("適応性", centerX - radius - 60, centerY + 6);
 }
 
 function showQuestion() {
