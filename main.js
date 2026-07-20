@@ -294,7 +294,7 @@ animal.keywords.forEach(keyword=>{
 });
 
 resultText.innerHTML = `
-<b>MBTIタイプ：</b> ${type}
+<b>分類コード：</b> ${type}
 <br><br>
 ${animal.description}
 `;
