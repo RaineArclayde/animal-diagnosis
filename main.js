@@ -178,14 +178,24 @@ function drawRadar(){
     ctx.stroke();
 
     // ラベル
-    ctx.fillStyle = "#333";
-    ctx.font = "20px sans-serif";
+    ctx.fillStyle = "#434C1F";
+    ctx.font = "18px 'Yu Mincho'";
 
-   ctx.fillText("活動性", centerX - 25, centerY - radius - 15);
-   ctx.fillText("探索性", centerX + radius + 12, centerY + 6);
-   ctx.fillText("共感性", centerX - 25, centerY + radius + 25);
-   ctx.fillText("適応性", centerX - radius - 60, centerY + 6);
-}
+    // 上
+    ctx.textAlign = "center";
+    ctx.fillText("活動性", centerX, centerY - radius - 18);
+
+    // 右
+    ctx.textAlign = "left";
+    ctx.fillText("探索性", centerX + radius + 15, centerY + 6);
+
+    // 下
+    ctx.textAlign = "center";
+    ctx.fillText("共感性", centerX, centerY + radius + 28);
+
+    // 左
+    ctx.textAlign = "right";
+    ctx.fillText("適応性", centerX - radius - 15, centerY + 6);
 
 function showQuestion() {
 
