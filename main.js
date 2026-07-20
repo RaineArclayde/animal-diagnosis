@@ -107,6 +107,9 @@ const radarCanvas =
 
 const ctx =
     radarCanvas.getContext("2d");
+const centerX = 190;
+const centerY = 190;
+const radius = 120;
 
 startBtn.onclick = ()=>{
 
