@@ -107,9 +107,7 @@ const radarCanvas =
 
 const ctx =
     radarCanvas.getContext("2d");
-const centerX = 190;
-const centerY = 190;
-const radius = 120;
+
 
 startBtn.onclick = ()=>{
 
@@ -197,8 +195,10 @@ function drawRadar(){
     ctx.fillText("共感性", centerX, centerY + radius + 28);
 
     // 左
-    ctx.textAlign = "right";
-    ctx.fillText("適応性", centerX - radius - 15, centerY + 6);
+ctx.textAlign = "right";
+ctx.fillText("適応性", centerX - radius - 15, centerY + 6);
+
+} // ← drawRadar()終了
 
 function showQuestion() {
 
