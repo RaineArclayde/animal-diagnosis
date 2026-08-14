@@ -238,40 +238,6 @@ function showQuestion() {
 
 }
 
-                // --------------------
-                // 全問終了
-                // --------------------
-
-                showResult();
-
-            }
-
-        };
-
-
-        choicesElement.appendChild(
-            button
-        );
-
-    });
-
-
-    // ========================================
-    // 前に戻るボタンの表示
-    // ========================================
-
-    if (currentQuestion === 0) {
-
-        backBtn.style.display = "none";
-
-    } else {
-
-        backBtn.style.display = "block";
-
-    }
-
-}
-
 
 // ========================================
 // 結果表示
