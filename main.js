@@ -182,13 +182,13 @@ backBtn.onclick = () => {
 // レーダーチャート
 // ========================================
 
-function drawRadar() {
+function drawRadar(){
 
-    ctx.clearRect(0, 0, 320, 320);
+    ctx.clearRect(0, 0, 400, 400);
 
-    const centerX = 160;
-    const centerY = 160;
-    const radius = 100;
+    const centerX = 200;
+    const centerY = 200;
+    const radius = 120;
 
 
     // --------------------
@@ -271,45 +271,21 @@ function drawRadar() {
     ctx.font = "18px 'Yu Mincho'";
 
 
-    // 上
-    ctx.textAlign = "center";
+// 上
+ctx.textAlign = "center";
+ctx.fillText("活動性", centerX, centerY - radius - 25);
 
-    ctx.fillText(
-        "活動性",
-        centerX,
-        centerY - radius - 18
-    );
+// 右
+ctx.textAlign = "left";
+ctx.fillText("探索性", centerX + radius + 25, centerY + 6);
 
+// 下
+ctx.textAlign = "center";
+ctx.fillText("共感性", centerX, centerY + radius + 40);
 
-    // 右
-    ctx.textAlign = "left";
-
-    ctx.fillText(
-        "探索性",
-        centerX + radius + 15,
-        centerY + 6
-    );
-
-
-    // 下
-    ctx.textAlign = "center";
-
-    ctx.fillText(
-        "共感性",
-        centerX,
-        centerY + radius + 28
-    );
-
-
-    // 左
-    ctx.textAlign = "right";
-
-    ctx.fillText(
-        "適応性",
-        centerX - radius - 15,
-        centerY + 6
-    );
-
+// 左
+ctx.textAlign = "right";
+ctx.fillText("適応性", centerX - radius - 25, centerY + 6);
 }
 
 
