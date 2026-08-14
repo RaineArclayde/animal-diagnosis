@@ -538,16 +538,11 @@ function showResult() {
     // 説明
     // ========================================
 
-    resultText.innerHTML = `
-
-        <b>分類コード：</b> ${type}
-
-        <br><br>
-
-        ${animal.description}
-
-    `;
-
+   resultText.innerHTML = `
+<b>あなたの性質</b>
+<br><br>
+${animal.description}
+`;
 
     // ========================================
     // レーダーチャート
