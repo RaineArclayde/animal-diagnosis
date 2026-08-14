@@ -190,10 +190,25 @@ function drawRadar(){
     const centerY = 200;
     const radius = 120;
 
+    // ======================
+    // 4つの性質を数値化
+    // ======================
 
-    // --------------------
+    const activity =
+        Math.max(scores.E, scores.I);
+
+    const exploration =
+        Math.max(scores.N, scores.S);
+
+    const empathy =
+        Math.max(scores.F, scores.T);
+
+    const adaptability =
+        Math.max(scores.J, scores.P);
+
+    // ======================
     // 外側の菱形
-    // --------------------
+    // ======================
 
     ctx.beginPath();
 
@@ -221,13 +236,12 @@ function drawRadar(){
 
     ctx.strokeStyle = "#cccccc";
     ctx.lineWidth = 2;
-
     ctx.stroke();
 
 
-    // --------------------
+    // ======================
     // 縦線
-    // --------------------
+    // ======================
 
     ctx.beginPath();
 
@@ -244,9 +258,9 @@ function drawRadar(){
     ctx.stroke();
 
 
-    // --------------------
+    // ======================
     // 横線
-    // --------------------
+    // ======================
 
     ctx.beginPath();
 
@@ -263,29 +277,114 @@ function drawRadar(){
     ctx.stroke();
 
 
-    // --------------------
+    // ======================
+    // 診断結果の位置
+    // ======================
+
+    const maxScore = 3;
+
+    const points = [
+
+        {
+            x: centerX,
+            y: centerY - radius * activity / maxScore
+        },
+
+        {
+            x: centerX + radius * exploration / maxScore,
+            y: centerY
+        },
+
+        {
+            x: centerX,
+            y: centerY + radius * empathy / maxScore
+        },
+
+        {
+            x: centerX - radius * adaptability / maxScore,
+            y: centerY
+        }
+
+    ];
+
+
+    // ======================
+    // 診断結果の面
+    // ======================
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        points[0].x,
+        points[0].y
+    );
+
+    points.slice(1).forEach(point => {
+
+        ctx.lineTo(
+            point.x,
+            point.y
+        );
+
+    });
+
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(179,195,106,0.35)";
+    ctx.fill();
+
+    ctx.strokeStyle = "#7D8F16";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+
+    // ======================
     // ラベル
-    // --------------------
+    // ======================
 
     ctx.fillStyle = "#434C1F";
     ctx.font = "18px 'Yu Mincho'";
 
 
-// 上
-ctx.textAlign = "center";
-ctx.fillText("活動性", centerX, centerY - radius - 25);
+    // 上
+    ctx.textAlign = "center";
 
-// 右
-ctx.textAlign = "left";
-ctx.fillText("探索性", centerX + radius + 25, centerY + 6);
+    ctx.fillText(
+        "活動性",
+        centerX,
+        centerY - radius - 25
+    );
 
-// 下
-ctx.textAlign = "center";
-ctx.fillText("共感性", centerX, centerY + radius + 40);
 
-// 左
-ctx.textAlign = "right";
-ctx.fillText("適応性", centerX - radius - 25, centerY + 6);
+    // 右
+    ctx.textAlign = "left";
+
+    ctx.fillText(
+        "探索性",
+        centerX + radius + 25,
+        centerY + 6
+    );
+
+
+    // 下
+    ctx.textAlign = "center";
+
+    ctx.fillText(
+        "共感性",
+        centerX,
+        centerY + radius + 40
+    );
+
+
+    // 左
+    ctx.textAlign = "right";
+
+    ctx.fillText(
+        "適応性",
+        centerX - radius - 25,
+        centerY + 6
+    );
+
 }
 
 
