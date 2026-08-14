@@ -121,12 +121,6 @@ const keywordContainer =
 const compatibilityContainer =
     document.getElementById("compatibility");
 
-const radarCanvas =
-    document.getElementById("radarChart");
-
-const ctx =
-    radarCanvas.getContext("2d");
-
 const restartBtn =
     document.getElementById("restart-btn");
 
@@ -407,12 +401,6 @@ function showResult() {
 <br><br>
 ${animal.description}
 `;
-
-    // ========================================
-    // レーダーチャート
-    // ========================================
-
-    drawRadar();
 
 
     // ========================================
