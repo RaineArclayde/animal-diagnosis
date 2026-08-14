@@ -179,18 +179,7 @@ function showQuestion() {
 
     const q = questions[currentQuestion];
 
-
-    // --------------------
-    // 質問文
-    // --------------------
-
-    questionElement.textContent =
-        q.question;
-
-
-    // --------------------
-    // 進捗
-    // --------------------
+    questionElement.textContent = q.question;
 
     progressText.textContent =
         `${currentQuestion + 1} / ${questions.length}`;
@@ -198,72 +187,56 @@ function showQuestion() {
     progress.style.width =
         `${currentQuestion / questions.length * 100}%`;
 
-
-    // --------------------
-    // 選択肢をリセット
-    // --------------------
-
     choicesElement.innerHTML = "";
-
-
-    // --------------------
-    // 選択肢を作る
-    // --------------------
 
     q.choices.forEach(choice => {
 
-        const button =
-            document.createElement("button");
+        const button = document.createElement("button");
 
-        button.textContent =
-            choice.text;
-
+        button.textContent = choice.text;
 
         button.onclick = () => {
 
-            // 回答を記録
-            answerHistory.push(
-                choice.type
-            );
+            answerHistory.push(choice.type);
 
-            // スコア加算
             scores[choice.type]++;
 
-            // 次の質問へ
             currentQuestion++;
 
-
-            // --------------------
-            // まだ質問が残っている
-            // --------------------
-
-            if (
-                currentQuestion <
-                questions.length
-            ) {
+            if (currentQuestion < questions.length) {
 
                 const container =
-                    document.getElementById(
-                        "question-container"
-                    );
+                    document.getElementById("question-container");
 
-                container.classList.add(
-                    "fade-out"
-                );
-
+                container.classList.add("fade-out");
 
                 setTimeout(() => {
 
-                    container.classList.remove(
-                        "fade-out"
-                    );
+                    container.classList.remove("fade-out");
 
                     showQuestion();
 
                 }, 300);
 
-
             } else {
+
+                showResult();
+
+            }
+
+        };
+
+        choicesElement.appendChild(button);
+
+    });
+
+    if (currentQuestion === 0) {
+        backBtn.style.display = "none";
+    } else {
+        backBtn.style.display = "block";
+    }
+
+}
 
                 // --------------------
                 // 全問終了
