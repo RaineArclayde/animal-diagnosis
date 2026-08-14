@@ -137,9 +137,13 @@ const restartBtn =
 
 startBtn.onclick = () => {
 
+    alert("ボタンは押せています");
+
     startScreen.classList.add("hidden");
 
     quizScreen.classList.remove("hidden");
+
+    alert("質問画面を表示しました");
 
     showQuestion();
 
