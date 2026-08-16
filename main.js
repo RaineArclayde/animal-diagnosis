@@ -292,43 +292,7 @@ function showResult() {
     const animal =
         animals[typeToAnimal[type]];
 
-// ========================================
-// 4軸の割合を計算
-// ========================================
 
-// 活動性 ←→ 内省性
-const activityRate =
-    scores.E / (scores.E + scores.I) * 100;
-
-// 探索性 ←→ 安定性
-const explorationRate =
-    scores.N / (scores.N + scores.S) * 100;
-
-// 共感性 ←→ 論理性
-const empathyRate =
-    scores.F / (scores.F + scores.T) * 100;
-
-// 適応性 ←→ 計画性
-const adaptabilityRate =
-    scores.P / (scores.P + scores.J) * 100;
-
-    // ========================================
-// 4軸バーに反映
-// ========================================
-
-document.getElementById("axis-activity").style.left =
-    `${activityRate}%`;
-
-document.getElementById("axis-exploration").style.left =
-    `${explorationRate}%`;
-
-document.getElementById("axis-empathy").style.left =
-    `${empathyRate}%`;
-
-document.getElementById("axis-adaptability").style.left =
-    `${adaptabilityRate}%`;
-
-    
     // ========================================
     // 動物画像
     // ========================================
