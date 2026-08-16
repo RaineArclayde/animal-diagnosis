@@ -328,13 +328,9 @@ function showResult() {
     // 結果画面表示
     // ========================================
 
-    resultContainer.classList.remove(
-        "hidden"
-    );
+    resultContainer.classList.remove("hidden");
 
-    // ========================================
-    // 4軸バーの位置を変更
-    // ========================================
+requestAnimationFrame(() => {
 
     document.getElementById("axis-activity").style.left =
         `${activityRate}%`;
@@ -348,9 +344,7 @@ function showResult() {
     document.getElementById("axis-adaptability").style.left =
         `${adaptabilityRate}%`;
 
-    resultTitle.textContent =
-        `${animal.name} タイプ`;
-
+});
 
     // ========================================
     // キーワード
