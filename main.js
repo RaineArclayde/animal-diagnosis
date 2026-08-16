@@ -310,7 +310,7 @@ function showResult() {
 
     // 適応性 ←→ 計画性
     const adaptabilityRate =
-        scores.P / (scores.P + scores.J) * 100;
+        scores.J / (scores.P + scores.J) * 100;
 
     
     // ========================================
