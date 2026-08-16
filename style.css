@@ -361,3 +361,114 @@ button:hover{
         transform: translateY(0);
     }
 }
+/* ===================================
+   スマホ対応
+=================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 15px;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 開始画面 */
+#start-screen {
+    padding: 35px 15px;
+}
+
+#start-screen h1 {
+    font-size: 32px;
+    line-height: 1.4;
+}
+
+#start-screen p {
+    font-size: 16px;
+}
+
+/* スタートボタン */
+#start-btn img {
+    width: min(300px, 80vw);
+}
+
+/* 質問 */
+#question {
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+/* 結果タイトル */
+#result-title {
+    font-size: 32px;
+}
+
+/* 動物画像 */
+#animal-image {
+    width: min(220px, 70vw);
+    height: min(220px, 70vw);
+    padding: 10px;
+}
+
+/* 4軸 */
+#axis-result {
+    width: 100%;
+}
+
+.axis-item {
+    margin: 25px 0;
+}
+
+.axis-label {
+    font-size: 14px;
+}
+
+/* 相性カード */
+.compatibility-card {
+    padding: 15px;
+}
+
+
+/* ===================================
+   さらに小さいスマホ
+=================================== */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 8px;
+    }
+
+    #app {
+        padding: 15px;
+        border-width: 3px;
+    }
+
+    #start-screen h1 {
+        font-size: 27px;
+    }
+
+    #start-screen {
+        padding: 25px 10px;
+    }
+
+    #start-screen p {
+        font-size: 14px;
+    }
+
+    #question {
+        font-size: 19px;
+    }
+
+    #result-title {
+        font-size: 27px;
+    }
+
+}
