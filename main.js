@@ -312,22 +312,6 @@ function showResult() {
     const adaptabilityRate =
         scores.P / (scores.P + scores.J) * 100;
 
-
-    // ========================================
-    // 4軸バーの位置を変更
-    // ========================================
-
-    document.getElementById("axis-activity").style.left =
-        `${activityRate}%`;
-
-    document.getElementById("axis-exploration").style.left =
-        `${explorationRate}%`;
-
-    document.getElementById("axis-empathy").style.left =
-        `${empathyRate}%`;
-
-    document.getElementById("axis-adaptability").style.left =
-        `${adaptabilityRate}%`;
     
     // ========================================
     // 動物画像
@@ -348,6 +332,21 @@ function showResult() {
         "hidden"
     );
 
+    // ========================================
+    // 4軸バーの位置を変更
+    // ========================================
+
+    document.getElementById("axis-activity").style.left =
+        `${activityRate}%`;
+
+    document.getElementById("axis-exploration").style.left =
+        `${explorationRate}%`;
+
+    document.getElementById("axis-empathy").style.left =
+        `${empathyRate}%`;
+
+    document.getElementById("axis-adaptability").style.left =
+        `${adaptabilityRate}%`;
 
     resultTitle.textContent =
         `${animal.name} タイプ`;
