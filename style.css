@@ -31,17 +31,13 @@
 =================================== */
 
 body{
+    body{
     font-family:sans-serif;
     background:var(--bg);
     color:var(--text);
     margin:0;
-    padding:20px;
-    min-height:100vh;
-    box-sizing:border-box;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    padding:30px 15px;
+}
 }
 
 #app{
@@ -475,6 +471,17 @@ body {
 
     #result-title {
         font-size: 27px;
+    }
+
+}
+@media (max-width: 600px){
+
+    body{
+        padding:20px 10px;
+    }
+
+    #app{
+        padding:20px;
     }
 
 }
