@@ -1,134 +1,319 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>動物診断</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>動物診断テスト</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
+
 <body>
 
 <div id="app">
 
-    <h1>動物診断テスト</h1>
-    
-<div id="start-screen">
 
-    <h1>📖 モチーフアニマル図鑑</h1>
+    <!-- ====================================
+         スタート画面
+    ==================================== -->
 
-    <p>
-        12個の質問から<br>
-        あなたのモチーフアニマルを診断します。
-    </p>
+    <section id="start-screen">
 
-<button id="start-btn">
-    <img src="images/start_button.png" alt="">
-    <span>図鑑を開く</span>
-</button>
+        <h1>
+            動物診断テスト
+        </h1>
+
+        <p>
+            12個の質問から<br>
+            あなたのモチーフアニマルを診断します。
+        </p>
+
+
+        <button id="start-btn">
+
+            <!--
+                ↓ ここは今使っている
+                スタート画像のパスに合わせる
+            -->
+            <img
+                src="images/book.webp"
+                alt="モチーフアニマル図鑑"
+            >
+
+            <span>
+                図鑑を開く
+            </span>
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ====================================
+         診断画面
+    ==================================== -->
+
+    <section
+        id="quiz-screen"
+        class="hidden"
+    >
+
+        <!-- 進捗 -->
+
+        <div id="progress-container">
+
+            <div id="progress-text">
+                1 / 12
+            </div>
+
+            <div id="progress-bar">
+
+                <div id="progress"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 質問 -->
+
+        <div id="question-container">
+
+            <h2 id="question"></h2>
+
+            <div id="choices"></div>
+
+            <button id="back-btn">
+                ← 前の質問へ戻る
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ====================================
+         結果画面
+    ==================================== -->
+
+    <section
+        id="result-container"
+        class="hidden"
+    >
+
+        <div id="result-label">
+            診断結果
+        </div>
+
+
+        <h2 id="result-title"></h2>
+
+
+        <!-- 動物画像 -->
+
+        <img
+            id="animal-image"
+            src=""
+            alt=""
+        >
+
+
+        <!-- キーワード -->
+
+        <div id="result-keywords"></div>
+
+
+        <!-- 性質 -->
+
+        <div id="result-text"></div>
+
+
+
+        <!-- =================================
+             4軸
+        ================================== -->
+
+        <div id="axis-result">
+
+
+            <!-- 活動性 ↔ 内省性 -->
+
+            <div class="axis-item">
+
+                <div class="axis-label">
+
+                    <span>
+                        旅立ちの性質
+                    </span>
+
+                    <span>
+                        静寂の性質
+                    </span>
+
+                </div>
+
+
+                <div class="axis-bar">
+
+                    <div
+                        class="axis-point"
+                        id="axis-activity"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 探索性 ↔ 安定性 -->
+
+            <div class="axis-item">
+
+                <div class="axis-label">
+
+                    <span>
+                        未知の性質
+                    </span>
+
+                    <span>
+                        大地の性質
+                    </span>
+
+                </div>
+
+
+                <div class="axis-bar">
+
+                    <div
+                        class="axis-point"
+                        id="axis-exploration"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 共感性 ↔ 論理性 -->
+
+            <div class="axis-item">
+
+                <div class="axis-label">
+
+                    <span>
+                        心の性質
+                    </span>
+
+                    <span>
+                        知恵の性質
+                    </span>
+
+                </div>
+
+
+                <div class="axis-bar">
+
+                    <div
+                        class="axis-point"
+                        id="axis-empathy"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 適応性 ↔ 計画性 -->
+
+            <div class="axis-item">
+
+                <div class="axis-label">
+
+                    <span>
+                        風の性質
+                    </span>
+
+                    <span>
+                        道標の性質
+                    </span>
+
+                </div>
+
+
+                <div class="axis-bar">
+
+                    <div
+                        class="axis-point"
+                        id="axis-adaptability"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             相性
+        ================================== -->
+
+        <div id="compatibility">
+
+            <h3>
+                相性の良いモチーフアニマル
+            </h3>
+
+        </div>
+
+
+
+        <!-- =================================
+             もう一度診断
+        ================================== -->
+
+        <button id="restart-btn">
+            もう一度診断する
+        </button>
+
+
+    </section>
+
+
 </div>
-</div>
-    
-<div id="quiz-screen" class="hidden">
-
-    <div id="progress-container">
-
-    <div id="progress-text">
-        1 / 12
-    </div>
-
-    <div id="progress-bar">
-        <div id="progress"></div>
-    </div>
-
-</div>
-
-<div id="question-container">
-       <h2 id="question"></h2>
-
-       <div id="choices"></div>
-
-       <button id="back-btn" class="hidden">← 前の質問へ戻る
-       </button>    
-</div>
-
-   
-    <div id="result-container" class="hidden">
-
-    <h3 id="result-label">
-        診断結果
-    </h3>
-
-    <h1 id="result-title"></h1>
-    <img id="animal-image" src="" alt="動物イラスト">
-    <div id="result-keywords"></div>
-
-       <h3>生態データ</h3>
-       
-      <div id="axis-result">
-
-   <div class="axis-item">
-    <div class="axis-label">
-        <span>旅立ちの性質</span>
-        <span>静寂の性質</span>
-    </div>
-
-    <div class="axis-bar">
-        <div class="axis-point" id="axis-activity"></div>
-    </div>
-</div>
 
 
-<div class="axis-item">
-    <div class="axis-label">
-        <span>未知の性質</span>
-        <span>大地の性質</span>
-    </div>
-
-    <div class="axis-bar">
-        <div class="axis-point" id="axis-exploration"></div>
-    </div>
-</div>
-
-
-<div class="axis-item">
-    <div class="axis-label">
-        <span>心の性質</span>
-        <span>知恵の性質</span>
-    </div>
-
-    <div class="axis-bar">
-        <div class="axis-point" id="axis-empathy"></div>
-    </div>
-</div>
-
-
-<div class="axis-item">
-    <div class="axis-label">
-        <span>風の性質</span>
-        <span>道標の性質</span>
-    </div>
-
-    <div class="axis-bar">
-        <div class="axis-point" id="axis-adaptability"></div>
-    </div>
-</div>
-</div>
-  <p id="result-text"></p>
-
-<h3>相性の良いモチーフアニマル</h3>
-
-<div id="compatibility"></div>
-
-<button id="restart-btn">
-    もう一度診断する
-</button>
-
-</div>
-
-</div>
+<!-- ========================================
+     JavaScript
+======================================== -->
 
 <script src="data/questions.js"></script>
+
 <script src="data/animals.js"></script>
+
 <script src="main.js"></script>
 
+
 </body>
+
 </html>
