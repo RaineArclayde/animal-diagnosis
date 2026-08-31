@@ -23,523 +23,847 @@
     /* 文字 */
     --title: #331700;
     --text: #434C1F;
-
 }
 
-/* ===================================
-   共通設定
-=================================== */
 
-body{
-    font-family:sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    margin:0;
-    padding:40px;
-}
-
-#app{
-    max-width:600px;
-    margin:auto;
-    background:var(--paper);
-    border:4px solid var(--beige);
-    border-radius:18px;
-    padding:30px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-
-h1{
-    text-align:center;
-    color:var(--title);
-}
-
-.hidden {
-    display: none;
-}
-
-/* ===================================
-   共通ボタン
-=================================== */
-
-button{
-    display:block;
-    width:100%;
-    margin-top:10px;
-    padding:15px;
-    background:var(--beige);
-    color:var(--title);
-    border:2px solid var(--brown);
-    border-radius:10px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-button:hover{
-    background:var(--brown);
-    color:var(--yellow);
-}
-
-/* ===================================
-   開始画面
-=================================== */
-
-#start-screen {
-    text-align: center;
-    padding: 70px 30px;
-}
-
-#start-screen h1 {
-    font-size: 42px;
-}
-
-#start-screen p{
-    line-height:2;
-    color:var(--brown);
-    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
-    font-size:18px;
-    letter-spacing:1px;
-    margin:35px 0;
-}
-
-#start-btn {
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: auto;
-}
-
-#start-btn img {
-    width: 300px;
-    display: block;
-}
-
-#start-btn span {
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    color: #F1EEA2;
-    text-shadow: 2px 2px 4px rgba(0,0,0,.4);
-    font-family: "Yu Mincho","Hiragino Mincho ProN",serif;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 2px;
-
-    pointer-events: none;
-}
-
-#start-btn:hover {
-    transform: scale(1.05);
-}
-
-#start-btn:active {
-    transform: scale(0.96);
-}
-
-/* ===================================
-   質問画面
-=================================== */
-
-#question-container {
-    transition: all .3s ease;
-}
-
-.fade-out {
-    opacity: 0;
-    transform: translateY(15px);
-}
-
-#back-btn {
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    font-size: 16px;
-    white-space: nowrap;
-}
-
-/* ===================================
-   プログレスバー
-=================================== */
-
-#progress-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-}
-
-#progress-text {
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: var(--brown);
-}
-
-#progress-bar {
-    width: 100%;
-    height: 12px;
-    background: var(--paper);
-    border-radius: 999px;
-    overflow: hidden;
-}
-
-#progress {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(
-    90deg,
-    var(--green),
-    var(--darkGreen)
-);
-    transition: width .4s ease;
-}
-
-/* ===================================
-   結果画面
-=================================== */
-
-#result-container {
-    text-align: center;
-    animation: fadeIn .8s;
-}
-
-#result-label {
-    color: var(--brown);
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-}
-
-#result-title {
-    font-size: 40px;
-    margin: 10px 0;
-    color: var(--title);
-}
-
-#result-text {
-    line-height: 2;
-    margin: 30px 0;
-   color: var(--text);
-}
-
-#restart-btn {
-    margin-top: 25px;
-}
-
-/* ===================================
-   動物画像
-=================================== */
-
-#animal-image{
-    display:block;
-    width:220px;
-    height:220px;
-    object-fit:contain;
-    margin:30px auto;
-    padding:20px;
-    background:var(--paper);
-    border:4px solid var(--beige);
-    border-radius:18px;
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
-}
-
-/* ===================================
-   キーワード
-=================================== */
-
-#result-keywords {
-    margin: 25px 0;
-}
-
-.keyword {
-    display: inline-block;
-    margin: 6px;
-    padding: 8px 18px;
-
-    background:var(--green);
-    color:var(--title);
-    border-radius: 999px;
-
-    font-size: 15px;
-}
-
-/* ===================================
-   4軸性格バー
-=================================== */
-
-#axis-result{
-    margin:40px auto;
-    max-width:500px;
-}
-
-.axis-item{
-    margin:30px 0;
-}
-
-.axis-label{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
-
-    color:var(--darkGreen);
-    font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
-    font-weight:bold;
-}
-
-.axis-bar{
-    position:relative;
-
-    width:100%;
-    height:10px;
-
-    background:var(--paper);
-    border:2px solid var(--beige);
-    border-radius:999px;
-}
-
-.axis-point{
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    width:16px;
-    height:16px;
-
-    background:var(--brown);
-    border:3px solid var(--yellow);
-    border-radius:50%;
-
-    transform:translate(-50%,-50%);
-
-    transition:left .6s ease;
-}
-
-/* ===================================
-   相性動物
-=================================== */
-
-#compatibility {
-    margin-top: 30px;
-}
-
-.compatibility-card {
-    background: var(--paper);
-    border: 2px solid var(--beige);
-    border-radius: 12px;
-
-    padding: 18px;
-    margin-top: 15px;
-}
-
-.compatibility-card h4 {
-    margin: 0;
-    font-size: 22px;
-}
-
-.compatibility-card p {
-    margin: 8px 0;
-}
-
-/* ===================================
-   アニメーション
-=================================== */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ===================================
-   スマホ対応
-=================================== */
+/* ========================================
+   リセット・共通設定
+======================================== */
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    padding: 15px;
-}
-
-#app {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* 開始画面 */
-#start-screen {
-    padding: 35px 15px;
-}
-
-#start-screen h1 {
-    font-size: 32px;
-    line-height: 1.4;
-}
-
-#start-screen p {
-    font-size: 16px;
-}
-
-/* スタートボタン */
-#start-btn img {
-    width: min(300px, 80vw);
-}
-
-/* 質問 */
-#question {
-    font-size: 22px;
-    line-height: 1.7;
-}
-
-/* 結果タイトル */
-#result-title {
-    font-size: 32px;
-}
-
-/* 動物画像 */
-#animal-image {
-    width: min(220px, 70vw);
-    height: min(220px, 70vw);
-    padding: 10px;
-}
-
-/* 4軸 */
-#axis-result {
-    width: 100%;
-}
-
-.axis-item {
-    margin: 25px 0;
-}
-
-.axis-label {
-    font-size: 14px;
-}
-
-/* 相性カード */
-.compatibility-card {
-    padding: 15px;
-}
-
-
-/* ===================================
-   さらに小さいスマホ
-=================================== */
-
-@media (max-width: 400px) {
-
-    body {
-        padding: 8px;
-    }
-
-    #app {
-        padding: 15px;
-        border-width: 3px;
-    }
-
-    #start-screen h1 {
-        font-size: 27px;
-    }
-
-    #start-screen {
-        padding: 25px 10px;
-    }
-
-    #start-screen p {
-        font-size: 14px;
-    }
-
-    #question {
-        font-size: 19px;
-    }
-
-    #result-title {
-        font-size: 27px;
-    }
-
-}
-@media (max-width: 600px){
-
-    body{
-        padding:20px 10px;
-    }
-
-    #app{
-        padding:20px;
-    }
-
-}
-/* ===================================
-   画面全体のレイアウト調整
-=================================== */
-
-html,
-body {
-    margin: 0;
+html {
     width: 100%;
     min-height: 100%;
 }
 
 body {
-    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
     padding: 20px;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 診断全体を中央に固定 */
+
+/* ========================================
+   アプリ本体
+======================================== */
+
 #app {
+
     width: 100%;
     max-width: 600px;
+
     margin: 0 auto;
-    box-sizing: border-box;
+
+    background: var(--paper);
+
+    border: 4px solid var(--beige);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
 }
 
-/* 質問・結果は横並びにしない */
-#start-screen,
-#quiz-screen,
-#result-container {
+
+/* ========================================
+   見出し
+======================================== */
+
+h1 {
+    text-align: center;
+    color: var(--title);
+}
+
+
+/* ========================================
+   非表示
+======================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================
+   共通ボタン
+======================================== */
+
+button {
+
+    display: block;
+
     width: 100%;
-    box-sizing: border-box;
+
+    margin-top: 10px;
+
+    padding: 16px;
+
+    background: var(--beige);
+    color: var(--title);
+
+    border: 2px solid var(--brown);
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
-/* ===================================
-   スマホ
-=================================== */
+button:hover {
+
+    background: var(--brown);
+    color: var(--yellow);
+
+}
+
+button:active {
+
+    transform: scale(.98);
+
+}
+
+
+/* ========================================
+   開始画面
+======================================== */
+
+#start-screen {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 60px 30px;
+
+}
+
+#start-screen h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 35px;
+
+}
+
+#start-screen p {
+
+    line-height: 2;
+
+    color: var(--brown);
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    margin: 35px 0;
+
+}
+
+
+/* ========================================
+   スタートボタン
+======================================== */
+
+#start-btn {
+
+    position: relative;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin: auto;
+
+    padding: 0;
+
+}
+
+#start-btn img {
+
+    width: 300px;
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+#start-btn span {
+
+    position: absolute;
+
+    top: 47%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: #F1EEA2;
+
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,.4);
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    pointer-events: none;
+
+}
+
+#start-btn:hover {
+
+    transform: scale(1.05);
+
+}
+
+#start-btn:active {
+
+    transform: scale(.96);
+
+}
+
+
+/* ========================================
+   質問画面
+======================================== */
+
+#quiz-screen {
+
+    width: 100%;
+
+}
+
+#question-container {
+
+    width: 100%;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+
+}
+
+.fade-out {
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+}
+
+
+/* ========================================
+   質問文
+======================================== */
+
+#question {
+
+    color: var(--darkGreen);
+
+    font-size: 26px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    margin: 35px 0 30px;
+
+    font-weight: bold;
+
+}
+
+
+/* ========================================
+   選択肢
+======================================== */
+
+#choices {
+
+    width: 100%;
+
+}
+
+#choices button {
+
+    min-height: 58px;
+
+    font-size: 18px;
+
+}
+
+
+/* ========================================
+   戻るボタン
+======================================== */
+
+#back-btn {
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+
+}
+
+
+/* ========================================
+   プログレスバー
+======================================== */
+
+#progress-container {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 20px auto;
+
+}
+
+#progress-text {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+
+    color: var(--brown);
+
+}
+
+#progress-bar {
+
+    width: 100%;
+
+    height: 12px;
+
+    background: var(--paper);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+#progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            var(--darkGreen)
+        );
+
+    transition:
+        width .4s ease;
+
+}
+
+
+/* ========================================
+   結果画面
+======================================== */
+
+#result-container {
+
+    width: 100%;
+
+    text-align: center;
+
+    animation:
+        fadeIn .8s;
+
+}
+
+#result-label {
+
+    color: var(--brown);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+}
+
+#result-title {
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+    color: var(--title);
+
+}
+
+#result-text {
+
+    line-height: 2;
+
+    margin: 30px 0;
+
+    color: var(--text);
+
+    font-size: 18px;
+
+}
+
+
+/* ========================================
+   動物画像
+======================================== */
+
+#animal-image {
+
+    display: block;
+
+    width: 220px;
+    height: 220px;
+
+    object-fit: contain;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    background: var(--paper);
+
+    border: 4px solid var(--beige);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.15);
+
+}
+
+
+/* ========================================
+   キーワード
+======================================== */
+
+#result-keywords {
+
+    margin: 25px 0;
+
+}
+
+.keyword {
+
+    display: inline-block;
+
+    margin: 6px;
+
+    padding: 8px 18px;
+
+    background: var(--green);
+
+    color: var(--title);
+
+    border-radius: 999px;
+
+    font-size: 16px;
+
+}
+
+
+/* ========================================
+   4軸性格バー
+======================================== */
+
+#axis-result {
+
+    width: 100%;
+
+    margin: 40px auto;
+
+    max-width: 500px;
+
+}
+
+.axis-item {
+
+    margin: 30px 0;
+
+}
+
+.axis-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    color: var(--darkGreen);
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+}
+
+.axis-bar {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 10px;
+
+    background: var(--paper);
+
+    border: 2px solid var(--beige);
+
+    border-radius: 999px;
+
+}
+
+.axis-point {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 16px;
+    height: 16px;
+
+    background: var(--brown);
+
+    border: 3px solid var(--yellow);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        left .6s ease;
+
+}
+
+
+/* ========================================
+   相性動物
+======================================== */
+
+#compatibility {
+
+    margin-top: 30px;
+
+}
+
+.compatibility-card {
+
+    background: var(--paper);
+
+    border: 2px solid var(--beige);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin-top: 15px;
+
+}
+
+.compatibility-card h4 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+}
+
+.compatibility-card p {
+
+    margin: 8px 0;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ========================================
+   やり直す
+======================================== */
+
+#restart-btn {
+
+    margin-top: 25px;
+
+}
+
+
+/* ========================================
+   アニメーション
+======================================== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ========================================
+   スマートフォン
+======================================== */
 
 @media (max-width: 600px) {
 
     body {
+
         padding: 12px;
+
+        /*
+         * スマホでは縦方向の中央寄せ。
+         * ただしコンテンツが長い場合は
+         * 上から自然にスクロールできるようにする。
+         */
+
+        align-items: flex-start;
+
     }
 
     #app {
+
         width: 100%;
+
         max-width: 100%;
+
+        margin: 20px auto;
+
+        padding: 22px;
+
+        border-width: 3px;
+
+        border-radius: 16px;
+
     }
 
+
+    /* -------------------------------
+       スタート画面
+    ------------------------------- */
+
     #start-screen {
-        padding: 50px 20px;
+
+        padding: 45px 15px;
+
     }
 
     #start-screen h1 {
+
         font-size: 32px;
+
     }
 
     #start-screen p {
+
         font-size: 16px;
+
+        line-height: 1.9;
+
+    }
+
+
+    /* -------------------------------
+       質問
+    ------------------------------- */
+
+    #question {
+
+        font-size: 22px;
+
+        line-height: 1.7;
+
+        margin:
+            30px 0 25px;
+
+    }
+
+
+    #choices button {
+
+        min-height: 56px;
+
+        padding: 14px 12px;
+
+        font-size: 17px;
+
+    }
+
+
+    /* -------------------------------
+       結果
+    ------------------------------- */
+
+    #result-title {
+
+        font-size: 32px;
+
+    }
+
+    #result-text {
+
+        font-size: 17px;
+
+        line-height: 1.9;
+
+    }
+
+    #animal-image {
+
+        width: 180px;
+        height: 180px;
+
+        margin: 25px auto;
+
+    }
+
+
+    /* -------------------------------
+       4軸
+    ------------------------------- */
+
+    #axis-result {
+
+        margin-top: 35px;
+
+    }
+
+    .axis-item {
+
+        margin: 27px 0;
+
+    }
+
+    .axis-label {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* ========================================
+   小さいスマートフォン
+======================================== */
+
+@media (max-width: 380px) {
+
+    body {
+
+        padding: 8px;
+
+    }
+
+    #app {
+
+        padding: 18px;
+
+    }
+
+    #start-screen h1 {
+
+        font-size: 28px;
+
+    }
+
+    #question {
+
+        font-size: 20px;
+
+    }
+
+    #choices button {
+
+        font-size: 16px;
+
     }
 
 }
