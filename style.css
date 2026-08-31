@@ -31,13 +31,11 @@
 =================================== */
 
 body{
-    body{
     font-family:sans-serif;
     background:var(--bg);
     color:var(--text);
     margin:0;
-    padding:30px 15px;
-}
+    padding:40px;
 }
 
 #app{
