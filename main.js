@@ -510,10 +510,6 @@ resultText.innerHTML = `
                 </h4>
 
                 <p>
-                    ${type}
-                </p>
-
-                <p>
                     ${animalData.description}
                 </p>
 
