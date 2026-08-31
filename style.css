@@ -34,6 +34,11 @@
     box-sizing: border-box;
 }
 
+html,
+body{
+    margin: 0;
+}
+
 html {
     width: 100%;
     min-height: 100%;
@@ -278,8 +283,7 @@ button:active {
     inset: 0;
 
     width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
+    height: 100dvh;
 
     box-sizing: border-box;
 
@@ -287,11 +291,14 @@ button:active {
     padding: 40px;
 
     background-image: url("images/play-bg-pc.webp");
-    background-size: cover;
-    background-position: center top;
+    background-size: 100% 100%;
+    background-position: center;
     background-repeat: no-repeat;
 
     overflow-y: auto;
+
+    overscroll-behavior: none;
+
 }
 
 /* ===================================
@@ -302,14 +309,17 @@ button:active {
 
     #quiz-screen{
         width: 100vw;
-        min-height: 100vh;
+        height: 100dvh;
+        min-height: 100dvh;
 
         padding: 20px;
 
         background-image: url("images/play-bg-sp.webp");
-        background-size: cover;
-        background-position: center top;
+        background-size: 100% 100%;
+        background-position: center;
         background-repeat: no-repeat;
+
+        overflow-y: auto;
     }
 
 }
