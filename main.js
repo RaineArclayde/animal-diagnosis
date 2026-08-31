@@ -247,6 +247,9 @@ function showQuestion() {
 
 function showResult() {
 
+    // 質問画面の全画面表示を解除
+    quizScreen.classList.add("showing-result");
+
     // 質問を隠す
     document
         .getElementById("question-container")
