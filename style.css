@@ -269,67 +269,47 @@ button:active {
 }
 
 
-/* ========================================
-   質問画面
-======================================== */
-
-#quiz-screen {
-
-    width: 100%;
-
-}
-
-#question-container {
-
-    width: 100%;
-
-    transition:
-        opacity .3s ease,
-        transform .3s ease;
-
-}
-
-.fade-out {
-
-    opacity: 0;
-
-    transform:
-        translateY(15px);
-
-}
-
 /* ===================================
-   質問画面の背景
+   質問画面
 =================================== */
 
 #quiz-screen{
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 40px;
+
     background-image: url("images/play-bg-pc.webp");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
 
-    min-height: 100vh;
-
-    margin: -30px;
-    padding: 30px;
+    overflow-y: auto;
 }
 
 /* ===================================
-   スマホ用
+   質問画面・スマホ
 =================================== */
 
 @media (max-width: 600px){
 
     #quiz-screen{
-        background-image: url("images/play-bg-sp.webp");
-
-        background-size: cover;
-        background-position: center top;
-
+        width: 100vw;
         min-height: 100vh;
 
-        margin: -20px;
         padding: 20px;
+
+        background-image: url("images/play-bg-sp.webp");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
     }
 
 }
