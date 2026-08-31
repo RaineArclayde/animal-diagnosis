@@ -124,6 +124,8 @@ const compatibilityContainer =
 const restartBtn =
     document.getElementById("restart-btn");
 
+const exitBtn =
+    document.getElementById("exit-btn");
 
 // ========================================
 // 診断開始
@@ -520,6 +522,42 @@ resultText.innerHTML = `
 
 }
 
+// ========================================
+// 診断終了
+// ========================================
+
+exitBtn.onclick = () => {
+
+    const confirmed =
+        confirm("診断を終了して最初の画面に戻りますか？");
+
+    if (!confirmed) {
+        return;
+    }
+
+    currentQuestion = 0;
+    answerHistory = [];
+
+    Object.keys(scores).forEach(key => {
+        scores[key] = 0;
+    });
+
+    quizScreen.classList.add("hidden");
+
+    resultContainer.classList.add("hidden");
+
+    startScreen.classList.remove("hidden");
+
+    document
+        .getElementById("question-container")
+        .classList.remove("hidden");
+
+    progress.style.width = "0%";
+
+    progressText.textContent =
+        `1 / ${questions.length}`;
+
+};
 
 // ========================================
 // 最初の画面
