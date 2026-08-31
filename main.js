@@ -248,6 +248,8 @@ function showQuestion() {
 
 function showResult() {
 
+    document.body.style.overflow = "";
+    
     // 質問画面の全画面表示を解除
     quizScreen.classList.add("showing-result");
 
