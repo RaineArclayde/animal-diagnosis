@@ -483,3 +483,63 @@ body {
     }
 
 }
+/* ===================================
+   画面全体のレイアウト調整
+=================================== */
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* 診断全体を中央に固定 */
+#app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 質問・結果は横並びにしない */
+#start-screen,
+#quiz-screen,
+#result-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===================================
+   スマホ
+=================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+    }
+
+    #app {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #start-screen {
+        padding: 50px 20px;
+    }
+
+    #start-screen h1 {
+        font-size: 32px;
+    }
+
+    #start-screen p {
+        font-size: 16px;
+    }
+
+}
