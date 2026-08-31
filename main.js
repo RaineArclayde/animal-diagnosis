@@ -137,10 +137,11 @@ startBtn.onclick = () => {
 
     quizScreen.classList.remove("hidden");
 
+    document.body.style.overflow = "hidden";
+
     showQuestion();
 
 };
-
 
 // ========================================
 // やり直す
