@@ -3,7 +3,7 @@ const questions = [
     // ===== E / I =====
 
     {
-        question: "単独で作業する仕事が苦手",
+        question: "一人で静かに過ごすより、誰かと語らいながら旅をする方が好きだ",
         choices: [
             { text: "はい", type: "E" },
             { text: "いいえ", type: "I" }
@@ -11,7 +11,7 @@ const questions = [
     },
 
     {
-        question: "人脈を広げたり、自分を売り込むことが得意",
+        question: "初めて訪れた街でも、知らない旅人に声をかけて仲間を増やすほうだ",
         choices: [
             { text: "はい", type: "E" },
             { text: "いいえ", type: "I" }
@@ -19,7 +19,7 @@ const questions = [
     },
 
     {
-        question: "静かな隠れ家のような場所より、賑やかな雰囲気の方が好き",
+        question: "静かな森の奥よりも、旅人が集う賑やかな酒場に惹かれる",
         choices: [
             { text: "はい", type: "E" },
             { text: "いいえ", type: "I" }
@@ -29,7 +29,7 @@ const questions = [
     // ===== N / S =====
 
     {
-        question: "単純明快なアイデアよりも、複雑で斬新なアイデアの方が好き",
+        question: "決められた道を進むより、誰も知らない新しい道を見つける方がワクワクする",
         choices: [
             { text: "はい", type: "N" },
             { text: "いいえ", type: "S" }
@@ -37,7 +37,7 @@ const questions = [
     },
 
     {
-        question: "新しい経験や知識を知るのは楽しい",
+        question: "知らない土地や、見たことのないものに出会うと心が躍る",
         choices: [
             { text: "はい", type: "N" },
             { text: "いいえ", type: "S" }
@@ -45,7 +45,7 @@ const questions = [
     },
 
     {
-        question: "生計を立てるために架空の物語を書く自分を想像できる",
+        question: "まだ見ぬ世界を想像し、そこに自分だけの物語を描くことが好きだ",
         choices: [
             { text: "はい", type: "N" },
             { text: "いいえ", type: "S" }
@@ -55,7 +55,7 @@ const questions = [
     // ===== F / T =====
 
     {
-        question: "事実に基づいた議論より、人の物語や感情の方が心に響く",
+        question: "古い記録を読むより、そこに生きた人々の物語を聞く方が心に残る",
         choices: [
             { text: "はい", type: "F" },
             { text: "いいえ", type: "T" }
@@ -63,7 +63,7 @@ const questions = [
     },
 
     {
-        question: "事実と感情が反対する場合、たいていは心に従う",
+        question: "旅の途中で迷った時、地図よりも自分の心が示す道を選ぶことが多い",
         choices: [
             { text: "はい", type: "F" },
             { text: "いいえ", type: "T" }
@@ -71,7 +71,7 @@ const questions = [
     },
 
     {
-        question: "完全に正直であることよりも、思いやりを持つことを優先する",
+        question: "仲間を傷つけてしまう真実なら、すべてをそのまま伝える必要はないと思う",
         choices: [
             { text: "はい", type: "F" },
             { text: "いいえ", type: "T" }
@@ -81,7 +81,7 @@ const questions = [
     // ===== J / P =====
 
     {
-        question: "予定表やリストなどの整理・管理ツールを使うのが好き",
+        question: "旅に出る前に、行き先や持ち物を細かく決めておきたい",
         choices: [
             { text: "はい", type: "J" },
             { text: "いいえ", type: "P" }
@@ -89,7 +89,7 @@ const questions = [
     },
 
     {
-        question: "生活や仕事のスペースは整理整頓されている",
+        question: "旅の荷物はいつでも決まった場所に整理されている",
         choices: [
             { text: "はい", type: "J" },
             { text: "いいえ", type: "P" }
@@ -97,7 +97,7 @@ const questions = [
     },
 
     {
-        question: "順序を追って、ステップを省略せず進めることが多い",
+        question: "旅では、その時々の状況に合わせるより、決めた順序に沿って進む方が安心する",
         choices: [
             { text: "はい", type: "J" },
             { text: "いいえ", type: "P" }
