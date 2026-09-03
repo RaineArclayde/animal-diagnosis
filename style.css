@@ -985,3 +985,63 @@ button:active {
 
     overflow: visible;
 }
+
+/* =========================
+   プレイ画面 フレーム
+========================= */
+
+.play-frame{
+    position:fixed;
+    z-index:10;
+    pointer-events:none;
+    display:block;
+}
+
+/* PC */
+.frame-pc-left{
+    top:0;
+    left:0;
+    width:50vw;
+}
+
+.frame-pc-right{
+    top:0;
+    right:0;
+    width:50vw;
+}
+
+/* スマホは一旦非表示 */
+.frame-sp-left,
+.frame-sp-right{
+    display:none;
+}
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width:600px){
+
+    .frame-pc-left,
+    .frame-pc-right{
+        display:none;
+    }
+
+    .frame-sp-left,
+    .frame-sp-right{
+        display:block;
+    }
+
+    .frame-sp-left{
+        top:0;
+        left:0;
+        width:50vw;
+    }
+
+    .frame-sp-right{
+        top:0;
+        right:0;
+        width:50vw;
+    }
+}
