@@ -257,9 +257,18 @@ button:active{
 
 /* スマホではPCフレームを非表示 */
 
-.frame-sp-left,
+.frame-sp-left{
+    display:block;
+    width:65vw;
+    top:0;
+    left:0;
+}
+
 .frame-sp-right{
-    display:none;
+    display:block;
+    width:65vw;
+    top:0;
+    right:0;
 }
 
 
