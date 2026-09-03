@@ -1057,3 +1057,13 @@ button:active {
         width:50vw;
     }
 }
+
+@media (max-width:600px){
+
+    #question{
+        font-size:20px;
+        line-height:1.7;
+        margin:25px 10px;
+    }
+
+}
