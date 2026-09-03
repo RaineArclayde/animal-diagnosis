@@ -246,13 +246,13 @@ button:active{
 .frame-pc-left{
     top:0;
     left:0;
-    width:60vw;
+    width:75vw;
 }
 
 .frame-pc-right{
     top:0;
     right:0;
-    width:60vw;
+    width:75vw;
 }
 
 /* スマホではPCフレームを非表示 */
