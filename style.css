@@ -1082,3 +1082,16 @@ button:active {
 #quiz-screen.showing-result #bottom-progress{
     display:none;
 }
+
+/* 質問画面の内容を下げる */
+#question-container{
+    margin-top:120px;
+}
+
+@media (max-width:600px){
+
+    #question-container{
+        margin-top:100px;
+    }
+
+}
