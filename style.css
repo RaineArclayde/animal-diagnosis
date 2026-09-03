@@ -854,6 +854,18 @@ button:active {
 
 }
 
+#exit-btn{
+    display:block;
+    margin-top:15px;
+    color:var(--brown);
+    font-size:14px;
+    text-decoration:underline;
+    text-underline-offset:4px;
+}
+
+#exit-btn:hover{
+    color:var(--darkGreen);
+}
 
 /* ========================================
    小さいスマートフォン
