@@ -1095,3 +1095,12 @@ button:active {
     }
 
 }
+
+@media (max-width:600px){
+
+    .frame-sp-left,
+    .frame-sp-right{
+        width:65vw;
+    }
+
+}
