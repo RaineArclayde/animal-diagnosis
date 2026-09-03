@@ -1104,3 +1104,9 @@ button:active {
     }
 
 }
+
+/* PCのフレームを少し大きく */
+.frame-pc-left,
+.frame-pc-right{
+    width:60vw;
+}
