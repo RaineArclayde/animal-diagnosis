@@ -255,20 +255,11 @@ button:active{
     width:75vw;
 }
 
-/* スマホではPCフレームを非表示 */
+/* スマホ用フレームはPCでは非表示 */
 
-.frame-sp-left{
-    display:block;
-    width:65vw;
-    top:0;
-    left:0;
-}
-
+.frame-sp-left,
 .frame-sp-right{
-    display:block;
-    width:65vw;
-    top:0;
-    right:0;
+    display:none;
 }
 
 
