@@ -693,13 +693,13 @@ button:active{
     pointer-events:none;
    }
    
-   .frame-pc-left{
+   .frame-sp-left{
     top:0;
     left:0;
     width:65vw;
    }
    
-   .frame-pc-right{
+   .frame-sp-right{
     top:0;
     right:0;
     width:65vw;
