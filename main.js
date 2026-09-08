@@ -109,8 +109,8 @@ const resultText =
 const animalImage =
     document.getElementById("animal-image");
 
-const progress =
-    document.getElementById("progress");
+const growthPlants =
+    document.querySelectorAll("#growth-progress img");
 
 const progressText =
     document.getElementById("progress-text");
@@ -186,10 +186,17 @@ function showQuestion() {
 
     progressText.textContent =
         `${currentQuestion + 1} / ${questions.length}`;
+    
+    growthPlants.forEach((plant, index) => {
 
-    progress.style.width =
-        `${currentQuestion / questions.length * 100}%`;
+    if (index < currentQuestion) {
+        plant.src = "images/seed-grown.png";
+    } else {
+        plant.src = "images/seed.png";
+    }
 
+});
+    
     choicesElement.innerHTML = "";
 
     q.choices.forEach(choice => {
@@ -258,9 +265,9 @@ function showResult() {
         .getElementById("question-container")
         .classList.add("hidden");
 
-
-    // 進捗を100%
-    progress.style.width = "100%";
+    growthPlants.forEach((plant) => {
+    plant.src = "images/seed-grown.png";
+});
 
     progressText.textContent =
         `${questions.length} / ${questions.length}`;
@@ -554,7 +561,9 @@ exitBtn.onclick = () => {
         .getElementById("question-container")
         .classList.remove("hidden");
 
-    progress.style.width = "0%";
+    growthPlants.forEach((plant) => {
+    plant.src = "images/seed.png";
+});
 
     progressText.textContent =
         `1 / ${questions.length}`;
