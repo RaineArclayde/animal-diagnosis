@@ -288,6 +288,29 @@ button:active{
     text-align:center;
 }
 
+/* ========================================
+   成長する進捗UI
+======================================== */
+
+#growth-progress{
+    width:min(600px, 80vw);
+
+    margin:30px auto 0;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:4px;
+}
+
+#growth-progress img{
+    display:block;
+
+    width:8%;
+    height:auto;
+
+    object-fit:contain;
+}
 
 /* ========================================
    09. 質問
@@ -753,13 +776,16 @@ button:active{
     }
 
 
-    /* プログレスバー */
+    #growth-progress{
+    width:85vw;
+    gap:2px;
 
-    #bottom-progress{
-        width:75vw;
-        bottom:75px;
-    }
+    margin-top:25px;
+}
 
+#growth-progress img{
+    width:8%;
+}
 
     /* -------------------------------
        結果画面
