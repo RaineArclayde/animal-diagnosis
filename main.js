@@ -178,8 +178,7 @@ backBtn.onclick = () => {
 // 質問表示
 // ========================================
 
-function showQuestion() {
-
+function showQuestion(growIndex = -1) {
     const q = questions[currentQuestion];
 
     questionElement.textContent = q.question;
@@ -188,25 +187,25 @@ function showQuestion() {
         `${currentQuestion + 1} / ${questions.length}`;
     
   growthPlants.forEach((plant, index) => {
+    plant.classList.remove("growing");
 
     if (index < currentQuestion) {
-
         plant.src = "images/seed-grown.webp";
-
-        plant.classList.remove("growing");
-
-        void plant.offsetWidth;
-
-        plant.classList.add("growing");
-
     } else {
-
         plant.src = "images/seed.webp";
-        plant.classList.remove("growing");
-
     }
-
 });
+
+if (growIndex >= 0 && growIndex < growthPlants.length) {
+    const plant = growthPlants[growIndex];
+
+    plant.src = "images/seed-grown.webp";
+
+    // アニメーションを確実に再発火
+    void plant.offsetWidth;
+
+    plant.classList.add("growing");
+}
     
     choicesElement.innerHTML = "";
 
@@ -222,28 +221,22 @@ function showQuestion() {
 
             scores[choice.type]++;
 
-            currentQuestion++;
+           currentQuestion++;
 
-            if (currentQuestion < questions.length) {
+if (currentQuestion < questions.length) {
+    const container = document.getElementById("question-container");
+    container.classList.add("fade-out");
 
-                const container =
-                    document.getElementById("question-container");
+    setTimeout(() => {
+        container.classList.remove("fade-out");
 
-                container.classList.add("fade-out");
+        // 今答えた問題の種を育てる
+        showQuestion(currentQuestion - 1);
 
-                setTimeout(() => {
-
-                    container.classList.remove("fade-out");
-
-                    showQuestion();
-
-                }, 300);
-
-            } else {
-
-                showResult();
-
-            }
+    }, 300);
+} else {
+    showResult();
+}
 
         };
 
