@@ -867,3 +867,44 @@ button:active{
     }
 
 }
+
+/* ========================================
+   芽の成長アニメーション
+======================================== */
+
+.seed{
+    display:block;
+
+    width:42px;
+    height:auto;
+
+    object-fit:contain;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+/* 成長した芽 */
+.seed.growing{
+    animation: seedGrow .6s ease;
+}
+
+@keyframes seedGrow{
+
+    0%{
+        opacity:0;
+        transform:scale(.75) translateY(6px);
+    }
+
+    60%{
+        opacity:1;
+        transform:scale(1.08) translateY(-2px);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+
+}
