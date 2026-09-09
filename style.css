@@ -22,7 +22,7 @@
 
 
 /* ========================================
-   02. リセット・共通設定
+   02. リセット
 ======================================== */
 
 *{
@@ -133,6 +133,7 @@ button:active{
 
 #start-screen h1{
     margin-bottom:35px;
+
     font-size:42px;
     color:var(--title);
 }
@@ -158,6 +159,7 @@ button:active{
     align-items:center;
 
     width:100%;
+
     margin:auto;
     padding:0;
 
@@ -167,13 +169,13 @@ button:active{
 
 #start-btn img{
     display:block;
-
     width:300px;
     max-width:100%;
 }
 
 #start-btn span{
     position:absolute;
+
     top:47%;
     left:50%;
 
@@ -210,6 +212,7 @@ button:active{
 
 #quiz-screen{
     position:fixed;
+
     inset:0;
 
     width:100vw;
@@ -219,11 +222,13 @@ button:active{
     padding:40px;
 
     background-image:url("images/play-bg-pc.webp");
+
     background-size:100% 100%;
     background-position:center;
     background-repeat:no-repeat;
 
     overflow-y:auto;
+
     overscroll-behavior:none;
 }
 
@@ -234,6 +239,7 @@ button:active{
 
 .play-frame{
     position:fixed;
+
     z-index:10;
 
     display:block;
@@ -241,21 +247,25 @@ button:active{
     pointer-events:none;
 }
 
+
 /* PC */
 
 .frame-pc-left{
     top:0;
     left:0;
+
     width:75vw;
 }
 
 .frame-pc-right{
     top:0;
     right:0;
+
     width:75vw;
 }
 
-/* スマホ用フレームはPCでは非表示 */
+
+/* PCではスマホフレームを隠す */
 
 .frame-sp-left,
 .frame-sp-right{
@@ -273,18 +283,34 @@ button:active{
     top:55px;
     left:50%;
 
-    width:auto;
+    width:max-content;
+
     margin:0;
 
     transform:translateX(-50%);
+
+    z-index:5;
 }
 
-#progress-text {
-  font-size: 100px;
-  font-weight: normal;
-  line-height: 1;
-  text-align: center;
+
+/*
+   ここを大きくする
+*/
+
+#progress-text{
+    font-size:100px;
+
+    font-weight:normal;
+
+    line-height:1;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+    color:var(--title);
 }
+
 
 /* ========================================
    09. 質問
@@ -293,7 +319,11 @@ button:active{
 #question-container{
     width:min(1000px,90vw);
 
-    margin:120px auto 0;
+    /*
+       大きな 1 / 12 と
+       重ならないように少し下げる
+    */
+    margin:210px auto 0;
 
     text-align:center;
 }
@@ -304,34 +334,12 @@ button:active{
     color:var(--darkGreen);
 
     font-size:26px;
+
     font-weight:bold;
+
     line-height:1.7;
 
     text-align:center;
-}
-
-/* ========================================
-   成長する進捗UI
-======================================== */
-
-#growth-progress{
-    width:min(600px, 80vw);
-
-    margin:30px auto 0;
-
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:4px;
-}
-
-#growth-progress img{
-    display:block;
-
-    width:8%;
-    height:auto;
-
-    object-fit:contain;
 }
 
 
@@ -351,72 +359,148 @@ button:active{
 
 
 /* ========================================
-   11. 前の質問へ
+   11. 成長する進捗UI
+======================================== */
+
+#growth-progress{
+    width:min(600px,80vw);
+
+    margin:30px auto 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:4px;
+}
+
+#growth-progress img{
+    display:block;
+
+    width:8%;
+
+    height:auto;
+
+    object-fit:contain;
+}
+
+
+/* 種 */
+
+.seed{
+    display:block;
+
+    width:42px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    transform-origin:center bottom;
+}
+
+
+/* ========================================
+   12. 芽の成長アニメーション
+======================================== */
+
+.seed.growing{
+    animation:seedGrow .7s ease-out;
+}
+
+@keyframes seedGrow{
+
+    0%{
+        opacity:.3;
+
+        transform:
+            scale(.75)
+            translateY(5px);
+    }
+
+    55%{
+        opacity:1;
+
+        transform:
+            scale(1.08)
+            translateY(-2px);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   13. 前の質問へ
 ======================================== */
 
 #back-btn{
     display:block;
 
     width:100%;
+
     margin-top:20px;
+
     padding:12px;
 
     font-size:16px;
+
     white-space:nowrap;
 }
 
 
 /* ========================================
-   12. 下部プログレスバー
+   14. 質問切り替えアニメーション
 ======================================== */
 
-#bottom-progress{
-    position:fixed;
-
-    left:50%;
-    bottom:85px;
-
-    width:min(600px,70vw);
-
-    transform:translateX(-50%);
-
-    z-index:20;
+.fade-out{
+    animation:fadeOut .3s ease forwards;
 }
 
-#progress-bar{
-    width:100%;
-    height:12px;
-
-    background:var(--paper);
-
-    border-radius:999px;
-    overflow:hidden;
+.fade-in{
+    animation:fadeIn .5s ease;
 }
 
-#progress{
-    width:0%;
-    height:100%;
+@keyframes fadeOut{
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--green),
-            var(--darkGreen)
-        );
+    from{
+        opacity:1;
+    }
 
-    transition:width .4s ease;
+    to{
+        opacity:0;
+    }
+
 }
 
+@keyframes fadeIn{
 
-/* 結果画面ではプログレスバーを消す */
+    from{
+        opacity:0;
 
-#quiz-screen.showing-result #bottom-progress{
-    display:none;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
 }
 
 
 /* ========================================
-   13. 結果画面
+   15. 結果画面
 ======================================== */
 
 #result-container{
@@ -449,12 +533,13 @@ button:active{
     color:var(--text);
 
     font-size:18px;
+
     line-height:2;
 }
 
 
 /* ========================================
-   14. 動物画像
+   16. 動物画像
 ======================================== */
 
 #animal-image{
@@ -464,6 +549,7 @@ button:active{
     height:220px;
 
     margin:30px auto;
+
     padding:20px;
 
     object-fit:contain;
@@ -471,6 +557,7 @@ button:active{
     background:var(--paper);
 
     border:4px solid var(--beige);
+
     border-radius:18px;
 
     box-shadow:0 8px 18px rgba(0,0,0,.15);
@@ -478,7 +565,7 @@ button:active{
 
 
 /* ========================================
-   15. キーワード
+   17. キーワード
 ======================================== */
 
 #result-keywords{
@@ -489,9 +576,11 @@ button:active{
     display:inline-block;
 
     margin:6px;
+
     padding:8px 18px;
 
     background:var(--green);
+
     color:var(--title);
 
     border-radius:999px;
@@ -501,11 +590,12 @@ button:active{
 
 
 /* ========================================
-   16. 4軸性格バー
+   18. 4軸性格バー
 ======================================== */
 
 #axis-result{
     width:100%;
+
     max-width:500px;
 
     margin:40px auto;
@@ -517,6 +607,7 @@ button:active{
 
 .axis-label{
     display:flex;
+
     justify-content:space-between;
 
     margin-bottom:8px;
@@ -524,6 +615,7 @@ button:active{
     color:var(--darkGreen);
 
     font-size:17px;
+
     font-weight:bold;
 }
 
@@ -536,6 +628,7 @@ button:active{
     background:var(--paper);
 
     border:2px solid var(--beige);
+
     border-radius:999px;
 }
 
@@ -553,6 +646,7 @@ button:active{
     background:var(--brown);
 
     border:3px solid var(--yellow);
+
     border-radius:50%;
 
     transition:left .6s ease;
@@ -560,7 +654,7 @@ button:active{
 
 
 /* ========================================
-   17. 相性動物
+   19. 相性動物
 ======================================== */
 
 #compatibility{
@@ -569,16 +663,19 @@ button:active{
 
 .compatibility-card{
     margin-top:15px;
+
     padding:18px;
 
     background:var(--paper);
 
     border:2px solid var(--beige);
+
     border-radius:12px;
 }
 
 .compatibility-card h4{
     margin:0;
+
     font-size:22px;
 }
 
@@ -586,12 +683,13 @@ button:active{
     margin:8px 0;
 
     font-size:16px;
+
     line-height:1.8;
 }
 
 
 /* ========================================
-   18. やり直す
+   20. やり直す
 ======================================== */
 
 #restart-btn{
@@ -600,20 +698,24 @@ button:active{
 
 
 /* ========================================
-   19. 結果画面への切り替え
+   21. 結果画面への切り替え
 ======================================== */
 
 #quiz-screen.showing-result{
     position:static;
 
     width:auto;
+
     height:auto;
+
     min-height:0;
 
     margin:0;
+
     padding:0;
 
     background-image:none;
+
     background-color:transparent;
 
     overflow:visible;
@@ -621,46 +723,29 @@ button:active{
 
 
 /* ========================================
-   20. アニメーション
+   22. スマートフォン
 ======================================== */
 
-@keyframes fadeIn{
+@media (max-width:600px){
 
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-
-/* ========================================
-   21. スマートフォン
-======================================== */
-
-@media (max-width: 600px) {
-  #progress-text {
-    font-size: 70px;
-  }
-}
     body{
         padding:12px;
+
         align-items:flex-start;
     }
 
+
     #app{
         width:100%;
+
         max-width:100%;
 
         margin:20px auto;
+
         padding:22px;
 
         border-width:3px;
+
         border-radius:16px;
     }
 
@@ -679,6 +764,7 @@ button:active{
 
     #start-screen p{
         font-size:16px;
+
         line-height:1.9;
     }
 
@@ -689,87 +775,97 @@ button:active{
 
     #quiz-screen{
         width:100vw;
+
         height:100dvh;
+
         min-height:100dvh;
 
         padding:20px;
 
         background-image:url("images/play-bg-sp.webp");
+
         background-size:100% 100%;
+
         background-position:center;
+
         background-repeat:no-repeat;
     }
 
 
-    /* フレーム */
+    /* -------------------------------
+       フレーム
+    ------------------------------- */
 
     .frame-pc-left,
     .frame-pc-right{
         display:none;
     }
 
-   .play-frame{
-    position:fixed;
-    z-index:10;
+    .play-frame{
+        position:fixed;
 
-    display:block;
+        z-index:10;
 
-    pointer-events:none;
-   }
-   
-   .frame-sp-left{
-    top:0;
-    left:0;
-    width:65vw;
-   }
-   
-   .frame-sp-right{
-    top:0;
-    right:0;
-    width:65vw;
-   }
+        display:block;
 
-    /* 問題数 */
+        pointer-events:none;
+    }
+
+    .frame-sp-left{
+        top:0;
+
+        left:0;
+
+        width:65vw;
+    }
+
+    .frame-sp-right{
+        top:0;
+
+        right:0;
+
+        width:65vw;
+    }
+
+
+    /* -------------------------------
+       問題数
+    ------------------------------- */
 
     #progress-container{
         top:70px;
     }
 
     #progress-text{
-        font-size:18px;
+        font-size:70px;
     }
 
 
-    /* 質問全体 */
+    /* -------------------------------
+       質問
+    ------------------------------- */
 
     #question-container{
         width:90vw;
-        margin-top:100px;
+
+        /*
+           大きくした数字との間隔
+        */
+        margin-top:150px;
     }
 
     #question{
         margin:25px 10px;
 
         font-size:20px;
+
         line-height:1.7;
     }
 
-   /* 成長する進捗UI */
 
-#growth-progress{
-    width:85vw;
-
-    margin-top:25px;
-
-    gap:2px;
-}
-
-#growth-progress img{
-    width:8%;
-    max-width:none;
-}
-
-    /* 選択肢 */
+    /* -------------------------------
+       選択肢
+    ------------------------------- */
 
     #choices button{
         min-height:56px;
@@ -777,30 +873,40 @@ button:active{
         padding:14px 12px;
 
         font-size:17px;
+
         line-height:1.6;
     }
 
 
-    /* 前の質問 */
+    /* -------------------------------
+       種
+    ------------------------------- */
+
+    #growth-progress{
+        width:85vw;
+
+        margin-top:25px;
+
+        gap:2px;
+    }
+
+    #growth-progress img{
+        width:8%;
+    }
+
+
+    /* -------------------------------
+       前の質問
+    ------------------------------- */
 
     #back-btn{
         margin-top:15px;
+
         padding:12px;
 
         font-size:15px;
     }
 
-
-    #growth-progress{
-    width:85vw;
-    gap:2px;
-
-    margin-top:25px;
-}
-
-#growth-progress img{
-    width:8%;
-}
 
     /* -------------------------------
        結果画面
@@ -812,6 +918,7 @@ button:active{
 
     #result-text{
         font-size:17px;
+
         line-height:1.9;
     }
 
@@ -823,7 +930,9 @@ button:active{
     }
 
 
-    /* 4軸 */
+    /* -------------------------------
+       4軸
+    ------------------------------- */
 
     #axis-result{
         margin-top:35px;
@@ -841,7 +950,7 @@ button:active{
 
 
 /* ========================================
-   22. 小さいスマートフォン
+   23. 小さいスマートフォン
 ======================================== */
 
 @media (max-width:380px){
@@ -866,45 +975,8 @@ button:active{
         font-size:16px;
     }
 
-}
+    #progress-text{
+        font-size:62px;
+    }
 
-/* ========================================
-   芽の成長アニメーション
-======================================== */
-
-.seed{
-    display:block;
-
-    width:42px;
-    height:auto;
-
-    object-fit:contain;
-}
-
-
-/* 成長した瞬間 */
-
-.seed {
-  transform-origin: center bottom;
-}
-
-.seed.growing {
-  animation: seedGrow 0.7s ease-out;
-}
-
-@keyframes seedGrow {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.75) translateY(5px);
-  }
-
-  55% {
-    opacity: 1;
-    transform: scale(1.08) translateY(-2px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
 }
