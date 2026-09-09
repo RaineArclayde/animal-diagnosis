@@ -190,9 +190,9 @@ function showQuestion() {
     growthPlants.forEach((plant, index) => {
 
     if (index < currentQuestion) {
-        plant.src = "images/seed-grown.png";
+        plant.src = "images/seed-grown.webp";
     } else {
-        plant.src = "images/seed.png";
+        plant.src = "images/seed.webp";
     }
 
 });
@@ -266,7 +266,7 @@ function showResult() {
         .classList.add("hidden");
 
     growthPlants.forEach((plant) => {
-    plant.src = "images/seed-grown.png";
+    plant.src = "images/seed-grown.webp";
 });
 
     progressText.textContent =
@@ -562,7 +562,7 @@ exitBtn.onclick = () => {
         .classList.remove("hidden");
 
     growthPlants.forEach((plant) => {
-    plant.src = "images/seed.png";
+    plant.src = "images/seed.webp";
 });
 
     progressText.textContent =
