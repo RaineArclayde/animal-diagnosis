@@ -279,15 +279,12 @@ button:active{
     transform:translateX(-50%);
 }
 
-#progress-text{
-    margin:0;
-
-    color:var(--brown);
-
-    font-size:20px;
-    text-align:center;
+#progress-text {
+  font-size: 100px;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
 }
-
 
 /* ========================================
    09. 質問
@@ -646,8 +643,11 @@ button:active{
    21. スマートフォン
 ======================================== */
 
-@media (max-width:600px){
-
+@media (max-width: 600px) {
+  #progress-text {
+    font-size: 70px;
+  }
+}
     body{
         padding:12px;
         align-items:flex-start;
