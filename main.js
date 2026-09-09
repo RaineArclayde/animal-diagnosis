@@ -187,22 +187,17 @@ function showQuestion() {
     progressText.textContent =
         `${currentQuestion + 1} / ${questions.length}`;
     
-   growthPlants.forEach((plant, index) => {
+  growthPlants.forEach((plant, index) => {
 
     if (index < currentQuestion) {
 
-        // まだ成長していない芽だけアニメーション
-        if (plant.src.includes("seed.webp")) {
+        plant.src = "images/seed-grown.webp";
 
-            plant.src = "images/seed-grown.webp";
+        plant.classList.remove("growing");
 
-            plant.classList.remove("growing");
+        void plant.offsetWidth;
 
-            // アニメーションを再発火
-            void plant.offsetWidth;
-
-            plant.classList.add("growing");
-        }
+        plant.classList.add("growing");
 
     } else {
 
