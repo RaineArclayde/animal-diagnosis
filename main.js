@@ -1,6 +1,7 @@
 let answerHistory = [];
 let currentQuestion = 0;
 
+
 // ========================================
 // MBTIスコア
 // ========================================
@@ -127,6 +128,7 @@ const restartBtn =
 const exitBtn =
     document.getElementById("exit-btn");
 
+
 // ========================================
 // 診断開始
 // ========================================
@@ -142,6 +144,7 @@ startBtn.onclick = () => {
     showQuestion();
 
 };
+
 
 // ========================================
 // やり直す
@@ -166,7 +169,8 @@ backBtn.onclick = () => {
 
     currentQuestion--;
 
-    const lastType = answerHistory.pop();
+    const lastType =
+        answerHistory.pop();
 
     scores[lastType]--;
 
@@ -174,80 +178,185 @@ backBtn.onclick = () => {
 
 };
 
+
 // ========================================
 // 質問表示
 // ========================================
 
 function showQuestion(growIndex = -1) {
-    const q = questions[currentQuestion];
 
-    questionElement.textContent = q.question;
+    const q =
+        questions[currentQuestion];
+
+
+    // ------------------------------------
+    // 質問
+    // ------------------------------------
+
+    questionElement.textContent =
+        q.question;
+
+
+    // ------------------------------------
+    // 問題数
+    // ------------------------------------
 
     progressText.textContent =
         `${currentQuestion + 1} / ${questions.length}`;
-    
-  growthPlants.forEach((plant, index) => {
-    plant.classList.remove("growing");
 
-    if (index < currentQuestion) {
-        plant.src = "images/seed-grown.webp";
-    } else {
-        plant.src = "images/seed.webp";
+
+    // ------------------------------------
+    // 種の状態
+    // ------------------------------------
+
+    growthPlants.forEach((plant, index) => {
+
+        plant.classList.remove("growing");
+
+
+        if (index < currentQuestion) {
+
+            plant.src =
+                "images/seed-grown.webp";
+
+        } else {
+
+            plant.src =
+                "images/seed.webp";
+
+        }
+
+    });
+
+
+    // ------------------------------------
+    // 今回育った種だけアニメーション
+    // ------------------------------------
+
+    if (
+        growIndex >= 0 &&
+        growIndex < growthPlants.length
+    ) {
+
+        const plant =
+            growthPlants[growIndex];
+
+
+        plant.src =
+            "images/seed-grown.webp";
+
+
+        // アニメーションを確実に再発火
+
+        void plant.offsetWidth;
+
+
+        plant.classList.add("growing");
+
     }
-});
 
-if (growIndex >= 0 && growIndex < growthPlants.length) {
-    const plant = growthPlants[growIndex];
 
-    plant.src = "images/seed-grown.webp";
+    // ------------------------------------
+    // 選択肢
+    // ------------------------------------
 
-    // アニメーションを確実に再発火
-    void plant.offsetWidth;
-
-    plant.classList.add("growing");
-}
-    
     choicesElement.innerHTML = "";
+
 
     q.choices.forEach(choice => {
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
-        button.textContent = choice.text;
+
+        button.textContent =
+            choice.text;
+
 
         button.onclick = () => {
 
-            answerHistory.push(choice.type);
+
+            // ----------------------------
+            // 回答を記録
+            // ----------------------------
+
+            answerHistory.push(
+                choice.type
+            );
+
 
             scores[choice.type]++;
 
-           currentQuestion++;
 
-if (currentQuestion < questions.length) {
-    const container = document.getElementById("question-container");
-    container.classList.add("fade-out");
+            // ----------------------------
+            // 次の質問へ
+            // ----------------------------
 
-    setTimeout(() => {
-        container.classList.remove("fade-out");
+            currentQuestion++;
 
-        // 今答えた問題の種を育てる
-        showQuestion(currentQuestion - 1);
 
-    }, 300);
-} else {
-    showResult();
-}
+            if (
+                currentQuestion <
+                questions.length
+            ) {
+
+                const container =
+                    document.getElementById(
+                        "question-container"
+                    );
+
+
+                container.classList.add(
+                    "fade-out"
+                );
+
+
+                setTimeout(() => {
+
+                    container.classList.remove(
+                        "fade-out"
+                    );
+
+
+                    // 今答えた問題の種を育てる
+
+                    showQuestion(
+                        currentQuestion - 1
+                    );
+
+                }, 300);
+
+
+            } else {
+
+                // 全問終了
+
+                showResult();
+
+            }
 
         };
+
 
         choicesElement.appendChild(button);
 
     });
 
+
+    // ------------------------------------
+    // 戻るボタン
+    // ------------------------------------
+
     if (currentQuestion === 0) {
-        backBtn.style.display = "none";
+
+        backBtn.style.display =
+            "none";
+
     } else {
-        backBtn.style.display = "block";
+
+        backBtn.style.display =
+            "block";
+
     }
 
 }
@@ -260,43 +369,68 @@ if (currentQuestion < questions.length) {
 function showResult() {
 
     document.body.style.overflow = "";
-    
+
+
     // 質問画面の全画面表示を解除
-    quizScreen.classList.add("showing-result");
+
+    quizScreen.classList.add(
+        "showing-result"
+    );
+
 
     // 質問を隠す
+
     document
         .getElementById("question-container")
         .classList.add("hidden");
 
-    growthPlants.forEach((plant) => {
-    plant.src = "images/seed-grown.webp";
-});
+
+    // ------------------------------------
+    // 全ての種を成長状態にする
+    // ------------------------------------
+
+    growthPlants.forEach(plant => {
+
+        plant.classList.remove("growing");
+
+        plant.src =
+            "images/seed-grown.webp";
+
+    });
+
+
+    // ------------------------------------
+    // 問題数
+    // ------------------------------------
 
     progressText.textContent =
         `${questions.length} / ${questions.length}`;
 
 
-    // ========================================
+    // ====================================
     // MBTIタイプ判定
-    // ========================================
+    // ====================================
 
     let type = "";
+
 
     type +=
         scores.E >= scores.I
             ? "E"
             : "I";
 
+
     type +=
         scores.N >= scores.S
             ? "N"
             : "S";
 
+
     type +=
         scores.F >= scores.T
             ? "F"
             : "T";
+
 
     type +=
         scores.J >= scores.P
@@ -304,37 +438,45 @@ function showResult() {
             : "P";
 
 
-    // ========================================
+    // ====================================
     // 動物取得
-    // ========================================
+    // ====================================
 
     const animal =
         animals[typeToAnimal[type]];
 
-    // ========================================
-    // 4軸の割合を計算
-    // ========================================
 
-    // 活動性 ←→ 内省性
+    // ====================================
+    // 4軸割合
+    // ====================================
+
     const activityRate =
-        scores.E / (scores.E + scores.I) * 100;
+        scores.E /
+        (scores.E + scores.I) *
+        100;
 
-    // 探索性 ←→ 安定性
+
     const explorationRate =
-        scores.N / (scores.N + scores.S) * 100;
+        scores.N /
+        (scores.N + scores.S) *
+        100;
 
-    // 共感性 ←→ 論理性
+
     const empathyRate =
-        scores.F / (scores.F + scores.T) * 100;
+        scores.F /
+        (scores.F + scores.T) *
+        100;
 
-    // 適応性 ←→ 計画性
+
     const adaptabilityRate =
-        scores.J / (scores.P + scores.J) * 100;
+        scores.J /
+        (scores.P + scores.J) *
+        100;
 
-    
-    // ========================================
+
+    // ====================================
     // 動物画像
-    // ========================================
+    // ====================================
 
     animalImage.src =
         animal.image;
@@ -343,33 +485,49 @@ function showResult() {
         animal.name;
 
 
-    // ========================================
+    // ====================================
     // 結果画面表示
-    // ========================================
+    // ====================================
 
-    resultContainer.classList.remove("hidden");
+    resultContainer.classList.remove(
+        "hidden"
+    );
 
-requestAnimationFrame(() => {
 
-    document.getElementById("axis-activity").style.left =
-        `${activityRate}%`;
+    requestAnimationFrame(() => {
 
-    document.getElementById("axis-exploration").style.left =
-        `${explorationRate}%`;
+        document
+            .getElementById("axis-activity")
+            .style.left =
+            `${activityRate}%`;
 
-    document.getElementById("axis-empathy").style.left =
-        `${empathyRate}%`;
 
-    document.getElementById("axis-adaptability").style.left =
-        `${adaptabilityRate}%`;
+        document
+            .getElementById("axis-exploration")
+            .style.left =
+            `${explorationRate}%`;
 
-});
 
-    // ========================================
+        document
+            .getElementById("axis-empathy")
+            .style.left =
+            `${empathyRate}%`;
+
+
+        document
+            .getElementById("axis-adaptability")
+            .style.left =
+            `${adaptabilityRate}%`;
+
+    });
+
+
+    // ====================================
     // キーワード
-    // ========================================
+    // ====================================
 
     keywordContainer.innerHTML = "";
+
 
     animal.keywords.forEach(keyword => {
 
@@ -379,128 +537,128 @@ requestAnimationFrame(() => {
     });
 
 
-    // ========================================
-    // 説明
-    // ========================================
+    // ====================================
+    // 16タイプの結果文章
+    // ====================================
 
-// ========================================
-// 16タイプの結果文章
-// ========================================
+    const resultDescriptions = {
 
-const resultDescriptions = {
+        ISTP: `
+            静かな観察力と確かな判断力を持つ旅人。<br>
+            必要なときには迷わず動き、状況に合わせて進む道を選びます。<br>
+            誰かに決められた道ではなく、自分自身で見つけた道を歩むタイプです。
+        `,
 
-    ISTP: `
-        静かな観察力と確かな判断力を持つ旅人。<br>
-        必要なときには迷わず動き、状況に合わせて進む道を選びます。<br>
-        誰かに決められた道ではなく、自分自身で見つけた道を歩むタイプです。
-    `,
+        ISFP: `
+            穏やかな感性と自由な心を持つ旅人。<br>
+            周囲の空気や小さな変化を感じ取り、自分らしい方法で世界を楽しみます。<br>
+            静かな場所にも、自分だけの物語を見つけられるタイプです。
+        `,
 
-    ISFP: `
-        穏やかな感性と自由な心を持つ旅人。<br>
-        周囲の空気や小さな変化を感じ取り、自分らしい方法で世界を楽しみます。<br>
-        静かな場所にも、自分だけの物語を見つけられるタイプです。
-    `,
+        ESTP: `
+            冒険心と行動力にあふれた旅人。<br>
+            考えるより先に一歩を踏み出し、未知の場所でも自分の力で道を切り開きます。<br>
+            その場の状況を楽しみながら、仲間を巻き込んで進んでいくタイプです。
+        `,
 
-    ESTP: `
-        冒険心と行動力にあふれた旅人。<br>
-        考えるより先に一歩を踏み出し、未知の場所でも自分の力で道を切り開きます。<br>
-        その場の状況を楽しみながら、仲間を巻き込んで進んでいくタイプです。
-    `,
+        ESFP: `
+            明るさと人を惹きつける力を持つ旅人。<br>
+            新しい場所や出会いを楽しみ、その場にいる人たちを自然と笑顔にします。<br>
+            旅そのものを楽しみながら、たくさんの思い出を作るタイプです。
+        `,
 
-    ESFP: `
-        明るさと人を惹きつける力を持つ旅人。<br>
-        新しい場所や出会いを楽しみ、その場にいる人たちを自然と笑顔にします。<br>
-        旅そのものを楽しみながら、たくさんの思い出を作るタイプです。
-    `,
+        INFJ: `
+            静かな洞察力を持つ案内人。<br>
+            人の心や世界の奥にあるものをじっくり見つめ、まだ見えていない道を探します。<br>
+            自分だけでなく、誰かの旅にも意味を見つけようとするタイプです。
+        `,
 
-    INFJ: `
-        静かな洞察力を持つ案内人。<br>
-        人の心や世界の奥にあるものをじっくり見つめ、まだ見えていない道を探します。<br>
-        自分だけでなく、誰かの旅にも意味を見つけようとするタイプです。
-    `,
+        INFP: `
+            想像力と優しい心を持つ夢見る旅人。<br>
+            目に見えるものだけではなく、その奥にある物語や可能性を大切にします。<br>
+            自分の信じる理想を胸に、ゆっくりと自分だけの道を歩むタイプです。
+        `,
 
-    INFP: `
-        想像力と優しい心を持つ夢見る旅人。<br>
-        目に見えるものだけではなく、その奥にある物語や可能性を大切にします。<br>
-        自分の信じる理想を胸に、ゆっくりと自分だけの道を歩むタイプです。
-    `,
+        ENFJ: `
+            人を導く力を持つ旅の案内人。<br>
+            仲間の気持ちを感じ取りながら、それぞれが前へ進める道を見つけます。<br>
+            一人で進むよりも、誰かと一緒に未来を切り開くことを好むタイプです。
+        `,
 
-    ENFJ: `
-        人を導く力を持つ旅の案内人。<br>
-        仲間の気持ちを感じ取りながら、それぞれが前へ進める道を見つけます。<br>
-        一人で進むよりも、誰かと一緒に未来を切り開くことを好むタイプです。
-    `,
+        ENFP: `
+            好奇心と想像力に満ちた自由な旅人。<br>
+            「次は何があるんだろう」という気持ちを原動力に、未知の世界へ飛び込んでいきます。<br>
+            新しい出会いや偶然を楽しみながら、自分だけの物語を作るタイプです。
+        `,
 
-    ENFP: `
-        好奇心と想像力に満ちた自由な旅人。<br>
-        「次は何があるんだろう」という気持ちを原動力に、未知の世界へ飛び込んでいきます。<br>
-        新しい出会いや偶然を楽しみながら、自分だけの物語を作るタイプです。
-    `,
+        INTJ: `
+            静かに未来を見据える戦略家。<br>
+            周囲が見落としている可能性を見つけ、そこへ向かうための道筋を考えます。<br>
+            自分の描いた未来へ着実に進んでいくタイプです。
+        `,
 
-    INTJ: `
-        静かに未来を見据える戦略家。<br>
-        周囲が見落としている可能性を見つけ、そこへ向かうための道筋を考えます。<br>
-        自分の描いた未来へ着実に進んでいくタイプです。
-    `,
+        INTP: `
+            世界の仕組みを探る研究者。<br>
+            「なぜ？」という疑問を大切にし、物事の奥にある法則や仕組みを探し続けます。<br>
+            一人で考える時間を楽しみながら、自分なりの答えを見つけるタイプです。
+        `,
 
-    INTP: `
-        世界の仕組みを探る研究者。<br>
-        「なぜ？」という疑問を大切にし、物事の奥にある法則や仕組みを探し続けます。<br>
-        一人で考える時間を楽しみながら、自分なりの答えを見つけるタイプです。
-    `,
+        ENTJ: `
+            仲間を率いて道を切り開く指揮者。<br>
+            明確な目的を持ち、そこへ向かうために必要なものを冷静に判断します。<br>
+            未知の場所でも迷わず進み、周囲を導いていくタイプです。
+        `,
 
-    ENTJ: `
-        仲間を率いて道を切り開く指揮者。<br>
-        明確な目的を持ち、そこへ向かうために必要なものを冷静に判断します。<br>
-        未知の場所でも迷わず進み、周囲を導いていくタイプです。
-    `,
+        ENTP: `
+            新しい可能性を探し続ける冒険者。<br>
+            常識にとらわれず、「もっと面白い方法はないか」と考えながら未知へ進みます。<br>
+            予想外の出来事さえも楽しみ、新しい道を生み出していくタイプです。
+        `,
 
-    ENTP: `
-        新しい可能性を探し続ける冒険者。<br>
-        常識にとらわれず、「もっと面白い方法はないか」と考えながら未知へ進みます。<br>
-        予想外の出来事さえも楽しみ、新しい道を生み出していくタイプです。
-    `,
+        ISTJ: `
+            確かな足取りで旅を続ける堅実な旅人。<br>
+            一つひとつの経験を大切に積み重ね、決めたことを最後までやり遂げます。<br>
+            派手さよりも、確かな道を歩み続けることを大切にするタイプです。
+        `,
 
-    ISTJ: `
-        確かな足取りで旅を続ける堅実な旅人。<br>
-        一つひとつの経験を大切に積み重ね、決めたことを最後までやり遂げます。<br>
-        派手さよりも、確かな道を歩み続けることを大切にするタイプです。
-    `,
+        ISFJ: `
+            仲間の旅をそっと支える守り手。<br>
+            周囲の変化によく気づき、困っている人がいれば自然と手を差し伸べます。<br>
+            安心できる場所を作りながら、仲間とともに旅を続けるタイプです。
+        `,
 
-    ISFJ: `
-        仲間の旅をそっと支える守り手。<br>
-        周囲の変化によく気づき、困っている人がいれば自然と手を差し伸べます。<br>
-        安心できる場所を作りながら、仲間とともに旅を続けるタイプです。
-    `,
+        ESTJ: `
+            仲間をまとめ、目的地へ導く旅のリーダー。<br>
+            状況を整理し、必要なことを一つずつ確実に進めていきます。<br>
+            責任感が強く、仲間から頼られる存在になるタイプです。
+        `,
 
-    ESTJ: `
-        仲間をまとめ、目的地へ導く旅のリーダー。<br>
-        状況を整理し、必要なことを一つずつ確実に進めていきます。<br>
-        責任感が強く、仲間から頼られる存在になるタイプです。
-    `,
+        ESFJ: `
+            人とのつながりを大切にする旅の仲間。<br>
+            周囲の人に気を配り、誰もが安心して過ごせる場所を作ります。<br>
+            仲間との時間や思い出を大切にしながら旅を楽しむタイプです。
+        `
 
-    ESFJ: `
-        人とのつながりを大切にする旅の仲間。<br>
-        周囲の人に気を配り、誰もが安心して過ごせる場所を作ります。<br>
-        仲間との時間や思い出を大切にしながら旅を楽しむタイプです。
-    `
-};
+    };
 
 
-// ========================================
-// 結果文章を表示
-// ========================================
+    // ====================================
+    // 結果文章
+    // ====================================
 
-resultText.innerHTML = `
-    <b>あなたの性質</b>
-    <br><br>
-    ${resultDescriptions[type]}
-`;
-    // ========================================
+    resultText.innerHTML = `
+        <b>あなたの性質</b>
+        <br><br>
+        ${resultDescriptions[type]}
+    `;
+
+
+    // ====================================
     // 相性の良い動物
-    // ========================================
+    // ====================================
 
     compatibilityContainer.innerHTML = "";
+
 
     const compatibleTypes =
         compatibility[type];
@@ -510,6 +668,7 @@ resultText.innerHTML = `
 
         const animalKey =
             typeToAnimal[type];
+
 
         const animalData =
             animals[animalKey];
@@ -535,6 +694,7 @@ resultText.innerHTML = `
 
 }
 
+
 // ========================================
 // 診断終了
 // ========================================
@@ -542,40 +702,68 @@ resultText.innerHTML = `
 exitBtn.onclick = () => {
 
     const confirmed =
-        confirm("診断を終了して最初の画面に戻りますか？");
+        confirm(
+            "診断を終了して最初の画面に戻りますか？"
+        );
+
 
     if (!confirmed) {
         return;
     }
 
+
     currentQuestion = 0;
+
     answerHistory = [];
 
+
     Object.keys(scores).forEach(key => {
+
         scores[key] = 0;
+
     });
+
 
     quizScreen.classList.add("hidden");
 
-    resultContainer.classList.add("hidden");
+    quizScreen.classList.remove(
+        "showing-result"
+    );
 
-    startScreen.classList.remove("hidden");
+
+    resultContainer.classList.add(
+        "hidden"
+    );
+
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
 
     document
         .getElementById("question-container")
         .classList.remove("hidden");
 
-    growthPlants.forEach((plant) => {
-    plant.src = "images/seed.webp";
-});
+
+    growthPlants.forEach(plant => {
+
+        plant.classList.remove("growing");
+
+        plant.src =
+            "images/seed.webp";
+
+    });
+
 
     progressText.textContent =
         `1 / ${questions.length}`;
 
 };
 
+
 // ========================================
-// 最初の画面
+// 初期設定
 // ========================================
 
 document
