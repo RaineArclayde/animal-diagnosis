@@ -298,19 +298,24 @@ button:active{
 */
 
 #progress-text{
-    font-size:100px;
-
-    font-weight:normal;
-
-    line-height:1;
-
-    text-align:center;
-
-    white-space:nowrap;
-
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
     color:var(--title);
+    line-height:1;
+    white-space:nowrap;
 }
 
+#current-number{
+    font-size:100px;
+    font-weight:normal;
+}
+
+#total-number{
+    font-size:45px;
+    font-weight:normal;
+    margin-left:5px;
+}
 
 /* ========================================
    09. 質問
@@ -839,10 +844,18 @@ button:active{
         top:70px;
     }
 
-    #progress-text{
+   @media (max-width:600px){
+
+    #current-number{
         font-size:70px;
     }
 
+    #total-number{
+        font-size:32px;
+        margin-left:4px;
+    }
+
+}
 
     /* -------------------------------
        質問
