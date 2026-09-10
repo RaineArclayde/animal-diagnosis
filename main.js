@@ -201,8 +201,8 @@ function showQuestion(growIndex = -1) {
     // 問題数
     // ------------------------------------
 
-    progressText.textContent =
-        `${currentQuestion + 1} / ${questions.length}`;
+   document.getElementById("current-number").textContent = currentQuestion + 1;
+document.getElementById("total-number").textContent = `/${questions.length}`;
 
 
     // ------------------------------------
@@ -403,8 +403,8 @@ function showResult() {
     // 問題数
     // ------------------------------------
 
-    progressText.textContent =
-        `${questions.length} / ${questions.length}`;
+    document.getElementById("current-number").textContent = questions.length;
+document.getElementById("total-number").textContent = `/${questions.length}`;
 
 
     // ====================================
