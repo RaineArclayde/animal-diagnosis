@@ -276,7 +276,7 @@ button:active{
     position:absolute;
     left:0;
     bottom:0;
-    width:42vw;
+    width:84vw;
     height:auto;
     z-index:3;
     pointer-events:none;
