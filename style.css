@@ -395,8 +395,12 @@ button:active{
 
 #choices button.choice-b{
 
-    transform:translateY(-35px);
+    transform:translateY(-100px);
 
+}
+
+#choices button{
+    margin:0 auto;
 }
 
 /* Aのフレーム */
