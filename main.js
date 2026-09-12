@@ -265,12 +265,14 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
 
     q.choices.forEach(choice => {
 
-        const button =
-            document.createElement("button");
+        const button = document.createElement("button");
+button.textContent = choice.text;
 
-
-        button.textContent =
-            choice.text;
+if (q.choices.indexOf(choice) === 0) {
+    button.classList.add("choice-a");
+} else {
+    button.classList.add("choice-b");
+}
 
 
         button.onclick = () => {
