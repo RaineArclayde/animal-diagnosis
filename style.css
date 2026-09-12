@@ -272,6 +272,19 @@ button:active{
     display:none;
 }
 
+.frame-pc-bottom-left{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:42vw;
+    height:auto;
+    z-index:3;
+    pointer-events:none;
+}
+
+.frame-sp-bottom-left{
+    display:none;
+}
 
 /* ========================================
    08. 問題数
@@ -843,6 +856,21 @@ button:active{
 
         width:65vw;
     }
+
+   .frame-pc-bottom-left{
+    display:none;
+}
+
+.frame-sp-bottom-left{
+    display:block;
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:70vw;
+    height:auto;
+    z-index:3;
+    pointer-events:none;
+}
 
 
     /* -------------------------------
