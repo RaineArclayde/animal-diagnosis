@@ -377,11 +377,13 @@ button:active{
     background-size:100% 100%;
 
     border:none;
-   width:480px;
-   min-height:220px;
+  width:600px;
 
-    margin:10px auto;
-    padding:30px 40px;
+    min-height:280px;
+
+    margin:0 auto;
+
+    padding:30px 50px;
 
     font-size:20px;
 
