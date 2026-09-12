@@ -370,9 +370,34 @@ button:active{
 }
 
 #choices button{
-    min-height:58px;
+    position:relative;
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
 
-    font-size:18px;
+    border:none;
+    width:400px;
+    min-height:100px;
+
+    margin:10px auto;
+    padding:25px 40px;
+
+    font-family:inherit;
+    font-size:22px;
+    color:var(--title);
+
+    cursor:pointer;
+}
+
+/* Aのフレーム */
+#choices button.choice-a{
+    background-image:url("images/choice-frame-a.webp");
+}
+
+/* Bのフレーム */
+#choices button.choice-b{
+    background-image:url("images/choice-frame-b.webp");
 }
 
 
@@ -924,13 +949,15 @@ button:active{
     ------------------------------- */
 
     #choices button{
-        min-height:56px;
 
-        padding:14px 12px;
+        width:80vw;
 
-        font-size:17px;
+        min-height:80px;
 
-        line-height:1.6;
+        font-size:18px;
+
+        padding:20px 30px;
+
     }
 
 
