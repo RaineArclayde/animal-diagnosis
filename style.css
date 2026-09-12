@@ -951,15 +951,25 @@ button:active{
        選択肢
     ------------------------------- */
 
-    #choices button{
+     #choices button{
 
-        width:88vw;       /* 横幅：80 → 88（約1.1倍） */
+        width:95vw;
 
-        min-height:160px; /* 縦幅：80 → 160（約2倍） */
+        min-height:240px;
 
         font-size:18px;
 
         padding:20px 30px;
+
+        background-size:100% 100%;
+
+    }
+
+    /* 2つ目の選択肢を少し上へ */
+
+    #choices button.choice-b{
+
+        transform:translateY(-35px);
 
     }
 
