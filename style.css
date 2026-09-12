@@ -750,7 +750,10 @@ button:active{
 #quiz-screen.showing-result #progress-container{
     display:none;
 }
-
+#quiz-screen.showing-result .frame-pc-bottom-left,
+#quiz-screen.showing-result .frame-sp-bottom-left{
+    display:none;
+}
 
 /* ========================================
    22. スマートフォン
