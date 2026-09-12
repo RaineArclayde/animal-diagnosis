@@ -341,7 +341,7 @@ button:active{
        大きな 1 / 12 と
        重ならないように少し下げる
     */
-    margin:210px auto 0;
+    margin:170px auto 0;
 
     text-align:center;
 }
@@ -423,7 +423,7 @@ button:active{
 #growth-progress{
     position:relative;
     width:min(600px,80vw);
-    margin:30px auto 0;
+    margin:15px auto 0;
 }
 
 .seeds{
