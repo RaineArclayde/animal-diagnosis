@@ -950,9 +950,9 @@ button:active{
 
     #choices button{
 
-        width:80vw;
+        width:88vw;       /* 横幅：80 → 88（約1.1倍） */
 
-        min-height:80px;
+        min-height:160px; /* 縦幅：80 → 160（約2倍） */
 
         font-size:18px;
 
