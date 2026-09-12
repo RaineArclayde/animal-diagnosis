@@ -981,10 +981,12 @@ button:active{
 
     #choices button.choice-b{
 
-        transform:translateY(-50px);
+        transform:translateY(-80px);
 
     }
 
+   #choices button{
+    margin:0 auto;
 
     /* -------------------------------
        種
