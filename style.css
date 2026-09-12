@@ -423,7 +423,7 @@ button:active{
 #growth-progress{
     position:absolute;
     left:50%;
-    bottom:100px;
+    bottom:200px;
     transform:translateX(-50%);
 
     width:min(600px,80vw);
