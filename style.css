@@ -421,19 +421,24 @@ button:active{
 ======================================== */
 
 #growth-progress{
-    position:relative;
+    position:absolute;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+
     width:min(600px,80vw);
-    margin:15px auto 0;
+    margin:0;
+
+    z-index:5;
 }
 
 .seeds{
     position:relative;
-    z-index:2;
-
     display:flex;
     justify-content:center;
     align-items:flex-end;
     gap:4px;
+    z-index:2;
 }
 
 .seeds .seed{
