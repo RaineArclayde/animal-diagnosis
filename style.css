@@ -377,13 +377,13 @@ button:active{
     background-size:100% 100%;
 
     border:none;
-    width:440px;
-    min-height:180px;
+   width:480px;
+   min-height:220px;
 
     margin:10px auto;
     padding:30px 40px;
 
-    font-size:22px;
+    font-size:20px;
 
     background-size:100% 100%;
 
@@ -391,6 +391,12 @@ button:active{
     color:var(--title);
 
     cursor:pointer;
+}
+
+#choices button.choice-b{
+
+    transform:translateY(-35px);
+
 }
 
 /* Aのフレーム */
