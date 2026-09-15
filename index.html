@@ -69,44 +69,169 @@
          診断画面
     ==================================== -->
 
-    <section id="quiz-screen" class="hidden">
+   <section id="quiz-screen" class="hidden">
+
+    <!-- フレーム装飾 -->
+
+    <img
+        src="images/play-frame-sp-left.webp"
+        class="play-frame frame-sp-left"
+        alt=""
+    >
+
+    <img
+        src="images/play-frame-sp-right.webp"
+        class="play-frame frame-sp-right"
+        alt=""
+    >
+
+    <img
+        src="images/play-frame-pc-left.webp"
+        class="play-frame frame-pc-left"
+        alt=""
+    >
+
+    <img
+        src="images/play-frame-pc-right.webp"
+        class="play-frame frame-pc-right"
+        alt=""
+    >
+
+    <!-- 左下フレーム -->
+
+    <img
+        src="images/play-frame-pc-bottom-left.webp"
+        class="play-frame frame-bottom-left"
+        alt=""
+    >
+
+    <img
+        src="images/play-frame-sp-bottom-left.webp"
+        class="play-frame frame-bottom-left"
+        alt=""
+    >
 
 
-        <!-- フレーム装飾 -->
+    <!-- 問題数 -->
 
-        <img
-            src="images/play-frame-sp-left.webp"
-            class="play-frame frame-sp-left"
-            alt=""
-        >
+    <div id="progress-container">
 
-        <img
-            src="images/play-frame-sp-right.webp"
-            class="play-frame frame-sp-right"
-            alt=""
-        >
+        <div id="progress-text">
+            <span id="current-number">1</span>
+            <span id="total-number">/12</span>
+        </div>
 
-        <img
-            src="images/play-frame-pc-left.webp"
-            class="play-frame frame-pc-left"
-            alt=""
-        >
+    </div>
 
-        <img
-            src="images/play-frame-pc-right.webp"
-            class="play-frame frame-pc-right"
-            alt=""
-        >
 
-        <!-- 左下フレーム -->
-<img src="images/play-frame-pc-bottom-left.webp"
-     class="play-frame frame-pc-bottom-left"
-     alt="">
+    <!-- 質問全体 -->
 
-<img src="images/play-frame-sp-bottom-left.webp"
-     class="play-frame frame-sp-bottom-left"
-     alt="">
+    <div id="question-container">
 
+        <!-- 質問文 -->
+
+        <h2 id="question"></h2>
+
+
+        <!-- 選択肢 -->
+
+        <div id="choices"></div>
+
+
+        <!-- 成長する進捗UI -->
+
+        <div id="growth-progress">
+
+            <div class="soil-bar"></div>
+
+            <div class="seeds">
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+                <img
+                    class="seed"
+                    src="images/seed.webp"
+                    alt=""
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- 前の質問 -->
+
+        <button id="back-btn">
+            ← 前の質問へ戻る
+        </button>
+
+    </div>
+
+</section>
 
         <!-- ====================================
              問題数
