@@ -1,1100 +1,1033 @@
-/* ========================================
-   01. カラーパレット
-======================================== */
+/* =========================================
+   基本設定
+========================================= */
 
-:root{
+:root {
     --bg: #E6E3DC;
     --paper: #F8F5EA;
-
     --green: #B3C36A;
     --beige: #BBA576;
-
-    --pink: #FCCCD0;
-    --yellow: #F1EEA2;
-    --olive: #7D8F16;
-    --darkGreen: #434C1F;
-    --brown: #6A4C25;
-    --blue: #BDDDE8;
-
-    --title: #331700;
-    --text: #434C1F;
+    --dark-green: #434C1F;
+    --brown: #331700;
+    --white: #FFFFFF;
 }
 
-
-/* ========================================
-   02. リセット
-======================================== */
-
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-html,
-body{
-    width:100%;
-    min-height:100%;
-    margin:0;
+html {
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    padding:20px;
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100dvh;
 
     font-family:
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        YuGothic,
+        sans-serif;
 
-    background:var(--bg);
-    color:var(--text);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    color: var(--brown);
+    background: var(--bg);
 }
 
-.hidden{
-    display:none !important;
+button,
+a {
+    font: inherit;
 }
 
+button {
+    cursor: pointer;
+}
 
-/* ========================================
-   03. アプリ本体
-======================================== */
+img {
+    max-width: 100%;
+    display: block;
+}
 
-#app{
-    width:100%;
-    max-width:600px;
-
-    margin:0 auto;
-    padding:30px;
-
-    background:var(--paper);
-
-    border:4px solid var(--beige);
-    border-radius:18px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
+.hidden {
+    display: none !important;
 }
 
 
-/* ========================================
-   04. 共通ボタン
-======================================== */
+/* =========================================
+   アプリ全体
+========================================= */
 
-button{
-    display:block;
-    width:100%;
-
-    margin-top:10px;
-    padding:16px;
-
-    background:var(--beige);
-    color:var(--title);
-
-    border:2px solid var(--brown);
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-family:
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-
-    font-size:17px;
-    font-weight:bold;
-
-    transition:
-        background .2s ease,
-        color .2s ease,
-        transform .2s ease;
-}
-
-button:hover{
-    background:var(--brown);
-    color:var(--yellow);
-}
-
-button:active{
-    transform:scale(.98);
+#app {
+    width: 100%;
+    min-height: 100dvh;
 }
 
 
-/* ========================================
-   05. スタート画面
-======================================== */
+/* =========================================
+   スタート画面
+========================================= */
 
-#start-screen{
-    width:100%;
-    padding:60px 30px;
-    text-align:center;
-}
+#start-screen {
+    width: min(600px, calc(100% - 32px));
 
-#start-screen h1{
-    margin-bottom:35px;
+    margin:
+        clamp(24px, 8vh, 80px)
+        auto
+        20px;
 
-    font-size:42px;
-    color:var(--title);
-}
+    padding:
+        clamp(32px, 7vw, 60px)
+        clamp(20px, 6vw, 50px);
 
-#start-screen p{
-    margin:35px 0;
+    text-align: center;
 
-    color:var(--brown);
+    background: var(--paper);
 
-    font-size:18px;
-    line-height:2;
-    letter-spacing:1px;
-}
+    border:
+        clamp(3px, 0.5vw, 5px)
+        solid
+        var(--beige);
 
-
-/* スタートボタン */
-
-#start-btn{
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    width:100%;
-
-    margin:auto;
-    padding:0;
-
-    background:none;
-    border:none;
-}
-
-#start-btn img{
-    display:block;
-    width:300px;
-    max-width:100%;
-}
-
-#start-btn span{
-    position:absolute;
-
-    top:47%;
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    color:#F1EEA2;
-
-    text-shadow:2px 2px 4px rgba(0,0,0,.4);
-
-    font-family:
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-
-    font-size:22px;
-    font-weight:bold;
-    letter-spacing:2px;
-
-    pointer-events:none;
-}
-
-#start-btn:hover{
-    transform:scale(1.05);
-}
-
-#start-btn:active{
-    transform:scale(.96);
-}
-
-
-/* ========================================
-   06. 質問画面
-======================================== */
-
-#quiz-screen{
-    position:fixed;
-
-    inset:0;
-
-    width:100vw;
-    height:100dvh;
-
-    margin:0;
-    padding:40px;
-
-    background-image:url("images/play-bg-pc.webp");
-
-    background-size:100% 100%;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    overflow-y:auto;
-
-    overscroll-behavior:none;
-}
-
-
-/* ========================================
-   07. フレーム
-======================================== */
-
-.play-frame{
-    position:fixed;
-
-    z-index:10;
-
-    display:block;
-
-    pointer-events:none;
-}
-
-
-/* PC */
-
-.frame-pc-left{
-    top:0;
-    left:0;
-
-    width:75vw;
-}
-
-.frame-pc-right{
-    top:0;
-    right:0;
-
-    width:75vw;
-}
-
-
-/* PCではスマホフレームを隠す */
-
-.frame-sp-left,
-.frame-sp-right{
-    display:none;
-}
-
-.frame-pc-bottom-left{
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:84vw;
-    height:auto;
-    z-index:3;
-    pointer-events:none;
-}
-
-.frame-sp-bottom-left{
-    display:none;
-}
-
-/* ========================================
-   08. 問題数
-======================================== */
-
-#progress-container{
-    position:absolute;
-
-    top:55px;
-    left:50%;
-
-    width:max-content;
-
-    margin:0;
-
-    transform:translateX(-50%);
-
-    z-index:5;
-}
-
-
-/*
-   ここを大きくする
-*/
-
-#progress-text{
-    display:flex;
-    align-items:baseline;
-    justify-content:center;
-    color:var(--title);
-    line-height:1;
-    white-space:nowrap;
-}
-
-#current-number{
-    font-size:100px;
-    font-weight:normal;
-}
-
-#total-number{
-    font-size:45px;
-    font-weight:normal;
-    margin-left:5px;
-}
-
-/* ========================================
-   09. 質問
-======================================== */
-
-#question-container{
-    width:min(1000px,90vw);
-
-    /*
-       大きな 1 / 12 と
-       重ならないように少し下げる
-    */
-    margin:120px auto 0;
-
-    text-align:center;
-}
-
-#question{
-    margin:35px 0 30px;
-
-    color:var(--darkGreen);
-
-    font-size:26px;
-
-    font-weight:bold;
-
-    line-height:1.7;
-
-    text-align:center;
-}
-
-#question-lower{
-    transform:translateY(-40px);
-}
-
-/* ========================================
-   10. 選択肢
-======================================== */
-
-#choices{
-    width:100%;
-}
-
-#choices button{
-    position:relative;
-    background-color:transparent;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:100% 100%;
-
-    border:none;
-  width:600px;
-
-    min-height:280px;
-
-    margin:0 auto;
-
-    padding:30px 50px;
-
-    font-size:20px;
-
-    background-size:100% 100%;
-
-    font-family:inherit;
-    color:var(--title);
-
-    cursor:pointer;
-}
-
-#choices button.choice-b{
-
-    transform:translateY(-150px);
-
-}
-
-#choices button{
-    margin:0 auto;
-}
-
-/* Aのフレーム */
-#choices button.choice-a{
-    background-image:url("images/choice-frame-a.webp");
-}
-
-/* Bのフレーム */
-#choices button.choice-b{
-    background-image:url("images/choice-frame-b.webp");
-}
-
-
-/* ========================================
-   11. 成長する進捗UI
-======================================== */
-
-#growth-progress{
-    position:absolute;
-    left:50%;
-    bottom:200px;
-    transform:translateX(-50%);
-
-    width:min(600px,80vw);
-    margin:0;
-
-    z-index:5;
-}
-
-.seeds{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:4px;
-    z-index:2;
-}
-
-.seeds .seed{
-    display:block;
-    width:8%;
-    height:auto;
-    object-fit:contain;
-}
-
-/* 芽の下の土 */
-.soil-bar{
-    position:absolute;
-    left:0;
-    bottom:0;
-
-    width:100%;
-    height:12px;
-
-    background:
-        radial-gradient(circle at 8% 45%, rgba(70,45,20,.45) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 22% 65%, rgba(70,45,20,.35) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 38% 35%, rgba(70,45,20,.4) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 55% 70%, rgba(70,45,20,.35) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 72% 40%, rgba(70,45,20,.4) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 88% 65%, rgba(70,45,20,.35) 0 1.5px, transparent 2px),
-        #8A6338;
-
-    border-radius:50% 50% 4px 4px;
+    border-radius: 18px;
 
     box-shadow:
-        0 2px 0 rgba(70,45,20,.25),
-        inset 0 2px 2px rgba(255,255,255,.15);
-
-    z-index:1;
-}
-/* ========================================
-   12. 芽の成長アニメーション
-======================================== */
-
-.seed.growing{
-    animation:seedGrow .7s ease-out;
+        0 8px 30px rgba(51, 23, 0, 0.12);
 }
 
-@keyframes seedGrow{
+#start-screen h1 {
+    margin: 0 0 20px;
 
-    0%{
-        opacity:.3;
+    font-size: clamp(28px, 6vw, 42px);
+    line-height: 1.3;
 
-        transform:
-            scale(.75)
-            translateY(5px);
+    color: var(--brown);
+}
+
+#start-screen p {
+    margin: 0 0 35px;
+
+    font-size: clamp(14px, 2.5vw, 17px);
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   スタートボタン
+========================================= */
+
+#start-btn {
+    position: relative;
+
+    width: min(280px, 80vw);
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--brown);
+}
+
+#start-btn img {
+    width: 100%;
+    height: auto;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+#start-btn span {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    font-size: clamp(17px, 4vw, 23px);
+    font-weight: bold;
+
+    pointer-events: none;
+}
+
+#start-btn:hover img {
+    transform: scale(1.04);
+}
+
+#start-btn:active img {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   本サイトに戻る
+========================================= */
+
+#home-link {
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        30px;
+
+    color: var(--dark-green);
+
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#home-link:hover {
+    text-decoration: underline;
+}
+
+
+/* スタート画面が消えたらリンクも消す */
+
+#start-screen.hidden + #home-link {
+    display: none;
+}
+
+
+/* =========================================
+   診断画面
+========================================= */
+
+#quiz-screen {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    min-height: 600px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding:
+        clamp(90px, 12vh, 150px)
+        clamp(16px, 5vw, 60px)
+        clamp(70px, 10vh, 120px);
+
+    background-image: url("images/play-bg-pc.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================================
+   フレーム
+========================================= */
+
+.play-frame {
+    position: absolute;
+
+    height: auto;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* PC 左 */
+
+.frame-pc-left {
+    display: block;
+
+    top: 0;
+    left: 0;
+
+    width: clamp(240px, 62vw, 900px);
+}
+
+
+/* PC 右 */
+
+.frame-pc-right {
+    display: block;
+
+    top: 0;
+    right: 0;
+
+    width: clamp(180px, 48vw, 700px);
+}
+
+
+/* スマホ用は基本非表示 */
+
+.frame-sp-left,
+.frame-sp-right {
+    display: none;
+}
+
+
+/* =========================================
+   左下フレーム
+========================================= */
+
+.frame-pc-bottom-left {
+    display: block;
+
+    left: 0;
+    bottom: 0;
+
+    width: clamp(300px, 84vw, 1200px);
+}
+
+.frame-sp-bottom-left {
+    display: none;
+}
+
+
+/* =========================================
+   問題番号
+========================================= */
+
+#progress-container {
+    position: relative;
+
+    z-index: 3;
+
+    width: fit-content;
+
+    margin:
+        0
+        auto
+        clamp(10px, 2vh, 24px);
+
+    text-align: center;
+}
+
+#progress-text {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: center;
+
+    line-height: 1;
+}
+
+#current-number {
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+#total-number {
+    margin-left: 5px;
+
+    font-size: clamp(25px, 3.5vw, 45px);
+    font-weight: 600;
+}
+
+
+/* =========================================
+   質問全体
+========================================= */
+
+#question-container {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(1000px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    padding-bottom: clamp(30px, 6vh, 80px);
+}
+
+
+/* =========================================
+   質問文
+========================================= */
+
+#question {
+    margin:
+        0
+        auto
+        clamp(20px, 4vh, 40px);
+
+    max-width: 850px;
+
+    font-size: clamp(18px, 2.5vw, 27px);
+    line-height: 1.7;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   選択肢
+========================================= */
+
+#choices {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+
+/* 選択肢共通 */
+
+#choices button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: min(600px, 95%);
+
+    min-height: clamp(200px, 23vw, 280px);
+
+    padding:
+        35px
+        clamp(20px, 5vw, 60px);
+
+    border: none;
+
+    background-color: transparent;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    color: var(--brown);
+
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 700;
+
+    line-height: 1.8;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* A */
+
+#choices button.choice-a {
+    background-image: url("images/play-choice-a.webp");
+}
+
+
+/* B */
+
+#choices button.choice-b {
+    margin-top: clamp(-150px, -10vw, -60px);
+
+    background-image: url("images/play-choice-b.webp");
+}
+
+
+/* ホバー */
+
+#choices button:hover {
+    transform: scale(1.025);
+    filter: brightness(1.05);
+}
+
+
+/* Bだけ元の位置を維持しながら拡大 */
+
+#choices button.choice-b:hover {
+    transform: scale(1.025);
+}
+
+
+/* =========================================
+   フェード
+========================================= */
+
+#question-container {
+    opacity: 1;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+#question-container.fade-out {
+    opacity: 0;
+
+    transform: translateY(8px);
+}
+
+#question-container.fade-in {
+    opacity: 1;
+}
+
+
+/* =========================================
+   成長進捗
+========================================= */
+
+#growth-progress {
+    position: relative;
+
+    width: min(600px, 90%);
+
+    margin:
+        clamp(15px, 3vh, 30px)
+        auto
+        0;
+
+    z-index: 4;
+}
+
+
+/* 土 */
+
+.soil-bar {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: clamp(6px, 1vw, 11px);
+
+    background: var(--beige);
+
+    border-radius: 20px;
+}
+
+
+/* 種一覧 */
+
+.seeds {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-bottom: clamp(3px, 0.8vw, 8px);
+}
+
+
+/* 種 */
+
+.seeds .seed {
+    width: clamp(20px, 5vw, 40px);
+
+    height: auto;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* 成長アニメーション */
+
+.seeds .seed.growing {
+    animation: seed-grow 0.55s ease;
+}
+
+@keyframes seed-grow {
+
+    0% {
+        transform: translateY(8px) scale(0.8);
     }
 
-    55%{
-        opacity:1;
-
-        transform:
-            scale(1.08)
-            translateY(-2px);
+    45% {
+        transform: translateY(-5px) scale(1.15);
     }
 
-    100%{
-        opacity:1;
-
-        transform:
-            scale(1)
-            translateY(0);
+    100% {
+        transform: translateY(0) scale(1);
     }
 
 }
 
 
-/* ========================================
-   13. 前の質問へ
-======================================== */
+/* =========================================
+   前の質問ボタン
+========================================= */
 
-#back-btn{
-    display:block;
+#back-btn {
+    display: block;
 
-    width:100%;
+    width: min(420px, 90%);
 
-    margin-top:20px;
+    margin:
+        clamp(18px, 3vh, 30px)
+        auto
+        0;
 
-    padding:12px;
+    padding:
+        12px
+        20px;
 
-    font-size:16px;
+    border: 2px solid var(--dark-green);
 
-    white-space:nowrap;
+    border-radius: 999px;
+
+    background: rgba(248, 245, 234, 0.9);
+
+    color: var(--dark-green);
+
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#back-btn:hover {
+    background: var(--paper);
+
+    transform: translateY(-2px);
 }
 
 
-/* ========================================
-   14. 質問切り替えアニメーション
-======================================== */
+/* =========================================
+   結果画面
+========================================= */
 
-.fade-out{
-    animation:fadeOut .3s ease forwards;
-}
+#result-container {
+    width: min(600px, calc(100% - 32px));
 
-.fade-in{
-    animation:fadeIn .5s ease;
-}
+    margin:
+        clamp(24px, 7vh, 70px)
+        auto;
 
-@keyframes fadeOut{
+    padding:
+        clamp(28px, 6vw, 50px)
+        clamp(20px, 5vw, 45px);
 
-    from{
-        opacity:1;
-    }
+    background: var(--paper);
 
-    to{
-        opacity:0;
-    }
+    border:
+        clamp(3px, 0.5vw, 5px)
+        solid
+        var(--beige);
 
-}
+    border-radius: 18px;
 
-@keyframes fadeIn{
+    box-shadow:
+        0 8px 30px rgba(51, 23, 0, 0.12);
 
-    from{
-        opacity:0;
-
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-
-        transform:translateY(0);
-    }
-
+    text-align: center;
 }
 
 
-/* ========================================
-   15. 結果画面
-======================================== */
+/* 診断結果ラベル */
 
-#result-container{
-    width:100%;
+#result-label {
+    display: inline-block;
 
-    text-align:center;
+    margin-bottom: 15px;
 
-    animation:fadeIn .8s;
-}
+    padding: 7px 18px;
 
-#result-label{
-    margin-bottom:10px;
+    border-radius: 999px;
 
-    color:var(--brown);
+    background: var(--green);
 
-    letter-spacing:3px;
-}
+    color: var(--brown);
 
-#result-title{
-    margin:10px 0;
-
-    color:var(--title);
-
-    font-size:40px;
-}
-
-#result-text{
-    margin:30px 0;
-
-    color:var(--text);
-
-    font-size:18px;
-
-    line-height:2;
+    font-size: 13px;
+    font-weight: 700;
 }
 
 
-/* ========================================
-   16. 動物画像
-======================================== */
+/* 結果タイトル */
 
-#animal-image{
-    display:block;
+#result-title {
+    margin:
+        0
+        0
+        25px;
 
-    width:220px;
-    height:220px;
+    font-size: clamp(26px, 6vw, 40px);
 
-    margin:30px auto;
-
-    padding:20px;
-
-    object-fit:contain;
-
-    background:var(--paper);
-
-    border:4px solid var(--beige);
-
-    border-radius:18px;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    line-height: 1.4;
 }
 
 
-/* ========================================
-   17. キーワード
-======================================== */
+/* 動物画像 */
 
-#result-keywords{
-    margin:25px 0;
-}
+#animal-image {
+    width: min(320px, 80vw);
 
-.keyword{
-    display:inline-block;
-
-    margin:6px;
-
-    padding:8px 18px;
-
-    background:var(--green);
-
-    color:var(--title);
-
-    border-radius:999px;
-
-    font-size:16px;
+    margin:
+        0
+        auto
+        25px;
 }
 
 
-/* ========================================
-   18. 4軸性格バー
-======================================== */
+/* キーワード */
 
-#axis-result{
-    width:100%;
+#result-keywords {
+    display: flex;
 
-    max-width:500px;
+    flex-wrap: wrap;
 
-    margin:40px auto;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
 }
 
-.axis-item{
-    margin:30px 0;
-}
+.keyword {
+    display: inline-block;
 
-.axis-label{
-    display:flex;
+    padding: 6px 12px;
 
-    justify-content:space-between;
+    border-radius: 999px;
 
-    margin-bottom:8px;
+    background: var(--green);
 
-    color:var(--darkGreen);
+    color: var(--brown);
 
-    font-size:17px;
-
-    font-weight:bold;
-}
-
-.axis-bar{
-    position:relative;
-
-    width:100%;
-    height:10px;
-
-    background:var(--paper);
-
-    border:2px solid var(--beige);
-
-    border-radius:999px;
-}
-
-.axis-point{
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    width:16px;
-    height:16px;
-
-    transform:translate(-50%,-50%);
-
-    background:var(--brown);
-
-    border:3px solid var(--yellow);
-
-    border-radius:50%;
-
-    transition:left .6s ease;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 
-/* ========================================
-   19. 相性動物
-======================================== */
+/* 結果文章 */
 
-#compatibility{
-    margin-top:30px;
-}
+#result-text {
+    margin-bottom: 35px;
 
-.compatibility-card{
-    margin-top:15px;
+    font-size: 14px;
 
-    padding:18px;
-
-    background:var(--paper);
-
-    border:2px solid var(--beige);
-
-    border-radius:12px;
-}
-
-.compatibility-card h4{
-    margin:0;
-
-    font-size:22px;
-}
-
-.compatibility-card p{
-    margin:8px 0;
-
-    font-size:16px;
-
-    line-height:1.8;
+    line-height: 2;
 }
 
 
-/* ========================================
-   20. やり直す
-======================================== */
+/* =========================================
+   4軸
+========================================= */
 
-#restart-btn{
-    margin-top:25px;
+#axis-result {
+    width: 100%;
+
+    margin:
+        30px
+        auto
+        35px;
+}
+
+.axis-item {
+    margin-bottom: 25px;
+}
+
+.axis-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.axis-bar {
+    position: relative;
+
+    width: 100%;
+    height: 8px;
+
+    border-radius: 10px;
+
+    background: var(--beige);
+}
+
+.axis-point {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--dark-green);
+
+    transform:
+        translate(-50%, -50%);
 }
 
 
-/* ========================================
-   21. 結果画面への切り替え
-======================================== */
+/* =========================================
+   相性
+========================================= */
 
-#quiz-screen.showing-result{
-    position:static;
+#compatibility {
+    margin-top: 35px;
+}
 
-    width:auto;
-    height:auto;
-    min-height:0;
+#compatibility h3 {
+    margin-bottom: 20px;
 
-    margin:0;
-    padding:0;
+    font-size: clamp(17px, 4vw, 22px);
+}
 
-    background-image:none;
-    background-color:transparent;
+.compatibility-card {
+    margin-bottom: 15px;
 
-    overflow:visible;
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: var(--bg);
+}
+
+.compatibility-card h4 {
+    margin:
+        0
+        0
+        8px;
+
+    font-size: 18px;
+}
+
+.compatibility-card p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.8;
 }
 
 
-/* 結果画面では「○ / ○」を消す */
+/* =========================================
+   結果画面ボタン
+========================================= */
 
-#quiz-screen.showing-result #progress-container{
-    display:none;
+#restart-btn {
+    width: min(400px, 90%);
+
+    margin:
+        20px
+        auto
+        12px;
+
+    padding:
+        14px
+        20px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--dark-green);
+
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
 }
-#quiz-screen.showing-result .frame-pc-bottom-left,
-#quiz-screen.showing-result .frame-sp-bottom-left{
-    display:none;
+
+#restart-btn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.1);
 }
 
-/* ========================================
-   22. スマートフォン
-======================================== */
 
-@media (max-width:600px){
+/* 終了 */
 
-    body{
-        padding:12px;
+#exit-btn {
+    display: block;
 
-        align-items:flex-start;
-    }
+    width: fit-content;
 
+    margin: 15px auto 0;
 
-    #app{
-        width:100%;
+    color: var(--dark-green);
 
-        max-width:100%;
+    font-size: 13px;
 
-        margin:20px auto;
+    text-decoration: none;
+}
 
-        padding:22px;
-
-        border-width:3px;
-
-        border-radius:16px;
-    }
+#exit-btn:hover {
+    text-decoration: underline;
+}
 
 
-    /* -------------------------------
-       スタート画面
-    ------------------------------- */
+/* =========================================
+   結果表示時
+========================================= */
 
-    #start-screen{
-        padding:45px 15px;
-    }
-
-    #start-screen h1{
-        font-size:32px;
-    }
-
-    #start-screen p{
-        font-size:16px;
-
-        line-height:1.9;
-    }
+#quiz-screen.showing-result {
+    display: none;
+}
 
 
-    /* -------------------------------
-       質問画面
-    ------------------------------- */
+/* =========================================
+   スマホ
+========================================= */
 
-    #quiz-screen{
-        width:100vw;
+@media (max-width: 700px) {
 
-        height:100dvh;
+    #quiz-screen {
+        min-height: 100dvh;
 
-        min-height:100dvh;
+        padding:
+            75px
+            12px
+            60px;
 
-        padding:20px;
-
-        background-image:url("images/play-bg-sp.webp");
-
-        background-size:100% 100%;
-
-        background-position:center;
-
-        background-repeat:no-repeat;
+        background-image: url("images/play-bg-sp.webp");
     }
 
 
-    /* -------------------------------
-       フレーム
-    ------------------------------- */
+    /* スマホ用フレーム */
 
     .frame-pc-left,
-    .frame-pc-right{
-        display:none;
+    .frame-pc-right,
+    .frame-pc-bottom-left {
+        display: none;
     }
 
-    .play-frame{
-        position:fixed;
-
-        z-index:10;
-
-        display:block;
-
-        pointer-events:none;
-    }
-
-    .frame-sp-left{
-        top:0;
-
-        left:0;
-
-        width:65vw;
-    }
-
-    .frame-sp-right{
-        top:0;
-
-        right:0;
-
-        width:65vw;
-    }
-
-   .frame-pc-bottom-left{
-    display:none;
-}
-
-.frame-sp-bottom-left{
-    display:block;
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:70vw;
-    height:auto;
-    z-index:3;
-    pointer-events:none;
-}
-
-
-    /* -------------------------------
-       問題数
-    ------------------------------- */
-
-    #progress-container{
-        top:70px;
-    }
-
-   @media (max-width:600px){
-
-    #current-number{
-        font-size:70px;
-    }
-
-    #total-number{
-        font-size:32px;
-        margin-left:4px;
-    }
-
-}
-
-    /* -------------------------------
-       質問
-    ------------------------------- */
-
-    #question-container{
-        width:90vw;
-
-        /*
-           大きくした数字との間隔
-        */
-        margin-top:150px;
-    }
-
-    #question{
-        margin:25px 10px;
-
-        font-size:20px;
-
-        line-height:1.7;
+    .frame-sp-left,
+    .frame-sp-right,
+    .frame-sp-bottom-left {
+        display: block;
     }
 
 
-    /* -------------------------------
-       選択肢
-    ------------------------------- */
+    .frame-sp-left {
+        top: 0;
+        left: 0;
 
-     #choices button{
-
-        width:95vw;
-
-        min-height:240px;
-
-        font-size:15px;
-
-        padding:20px 30px;
-
-        background-size:100% 100%;
-
-    }
-
-    /* 2つ目の選択肢を少し上へ */
-
-    #choices button.choice-b{
-
-        transform:translateY(-80px);
-
-    }
-
-   #choices button{
-    margin:0 auto;
-
-    /* -------------------------------
-       種
-    ------------------------------- */
-
-    #growth-progress{
-        width:85vw;
-
-        margin-top:25px;
-
-        gap:2px;
-    }
-
-    #growth-progress img{
-        width:8%;
+        width: clamp(180px, 60vw, 420px);
     }
 
 
-    /* -------------------------------
-       前の質問
-    ------------------------------- */
+    .frame-sp-right {
+        top: 0;
+        right: 0;
 
-    #back-btn{
-        margin-top:15px;
-
-        padding:12px;
-
-        font-size:15px;
+        width: clamp(150px, 50vw, 350px);
     }
 
 
-    /* -------------------------------
-       結果画面
-    ------------------------------- */
+    .frame-sp-bottom-left {
+        left: 0;
+        bottom: 0;
 
-    #result-title{
-        font-size:32px;
-    }
-
-    #result-text{
-        font-size:17px;
-
-        line-height:1.9;
-    }
-
-    #animal-image{
-        width:180px;
-        height:180px;
-
-        margin:25px auto;
+        width: clamp(230px, 70vw, 500px);
     }
 
 
-    /* -------------------------------
-       4軸
-    ------------------------------- */
+    /* 問題番号 */
 
-    #axis-result{
-        margin-top:35px;
+    #current-number {
+        font-size: clamp(55px, 18vw, 75px);
     }
 
-    .axis-item{
-        margin:27px 0;
+    #total-number {
+        font-size: clamp(24px, 8vw, 32px);
     }
 
-    .axis-label{
-        font-size:16px;
+
+    /* 質問 */
+
+    #question {
+        padding: 0 8px;
+
+        font-size: clamp(17px, 4.5vw, 22px);
+
+        line-height: 1.7;
     }
 
-}
 
+    /* 選択肢 */
 
-/* ========================================
-   23. 小さいスマートフォン
-======================================== */
+    #choices button {
+        width: 95%;
 
-@media (max-width:380px){
+        min-height: 240px;
 
-    body{
-        padding:8px;
+        padding:
+            30px
+            25px;
+
+        font-size: 15px;
+
+        line-height: 1.8;
     }
 
-    #app{
-        padding:18px;
+
+    #choices button.choice-b {
+        margin-top: -80px;
     }
 
-    #start-screen h1{
-        font-size:28px;
+
+    /* 成長UI */
+
+    #growth-progress {
+        width: 90%;
+
+        margin-top: 15px;
     }
 
-    #question{
-        font-size:19px;
+
+    .seeds .seed {
+        width: clamp(18px, 7vw, 30px);
     }
 
-    #choices button{
-        font-size:16px;
+
+    /* 前へ */
+
+    #back-btn {
+        width: 90%;
+
+        font-size: 13px;
     }
 
-    #progress-text{
-        font-size:62px;
+
+    /* 結果 */
+
+    #result-container {
+        width: calc(100% - 24px);
+
+        padding:
+            28px
+            18px;
     }
 
 }
