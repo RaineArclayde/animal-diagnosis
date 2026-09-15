@@ -758,9 +758,8 @@ exitBtn.onclick = () => {
     });
 
 
-    progressText.textContent =
-        `1 / ${questions.length}`;
-
+   document.getElementById("current-number").textContent = 1;
+document.getElementById("total-number").textContent = `/${questions.length}`;
 };
 
 
@@ -768,5 +767,6 @@ exitBtn.onclick = () => {
 // 初期設定
 // ========================================
 
-document.getElementById("current-number").textContent = 1;
-document.getElementById("total-number").textContent = `/${questions.length}`;
+document
+    .getElementById("question-container")
+    .classList.add("fade-in");
