@@ -768,6 +768,5 @@ exitBtn.onclick = () => {
 // 初期設定
 // ========================================
 
-document
-    .getElementById("question-container")
-    .classList.add("fade-in");
+document.getElementById("current-number").textContent = 1;
+document.getElementById("total-number").textContent = `/${questions.length}`;
