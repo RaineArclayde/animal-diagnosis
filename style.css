@@ -400,6 +400,8 @@ button:active{
 
     margin:30px auto 0;
 
+    margin-bottom: 10px;
+
     z-index:5;
 }
 .seeds{
@@ -486,19 +488,19 @@ button:active{
 ======================================== */
 
 #back-btn {
-    width: 300px;
-    height: 75px;
+    width: 280px;
+    height: 70px;
 
     border: none;
-    background-image: url("images/back-button.webp");
-    background-size: 300px auto;
-    background-position: center;
+    background-image: url("./images/戻るボタン書き込み多め.webp");
+    background-size: 280px auto;
+    background-position: center center;
     background-repeat: no-repeat;
     background-color: transparent;
 
     color: #331700;
     font-family: inherit;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
 
     cursor: pointer;
@@ -508,6 +510,7 @@ button:active{
     justify-content: center;
 
     padding: 0;
+    margin: 20px auto 0;
 
     position: relative;
     z-index: 10;
