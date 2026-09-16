@@ -291,7 +291,6 @@ button:active{
 ======================================== */
 
 #progress-container {
-    z-index: 3;
 
     width: fit-content;
 
@@ -400,10 +399,6 @@ button:active{
 
     transform:translateY(-150px);
 
-}
-
-#choices button{
-    margin:0 auto;
 }
 
 /* Aのフレーム */
@@ -995,10 +990,7 @@ button:active{
 
 #growth-progress{
     width:85vw;
-
     margin-top:25px;
-
-    gap:2px;
 }
 
     #growth-progress img{
