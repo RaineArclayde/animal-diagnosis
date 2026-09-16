@@ -357,10 +357,6 @@ button:active{
     text-align:center;
 }
 
-#question-lower{
-    transform:translateY(-40px);
-}
-
 /* ========================================
    10. 選択肢
 ======================================== */
