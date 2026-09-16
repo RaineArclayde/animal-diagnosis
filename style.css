@@ -213,7 +213,7 @@ button:active{
 #quiz-screen{
     position:relative;
 
-    width:100vw;
+    width:100%;
     min-height:100dvh;
     height:auto;
 
@@ -221,12 +221,11 @@ button:active{
     padding:40px;
 
     background-image:url("images/play-bg-pc.webp");
-
-    background-size:100% 100%;
+    background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 
-    overflow-y:auto;
+    overflow:hidden;
 
     overscroll-behavior:none;
 }
@@ -246,41 +245,45 @@ button:active{
     pointer-events:none;
 }
 
-/* PC */
+
+/* PC 上部 */
 
 .frame-pc-left{
     top:0;
     left:0;
-
     width:75vw;
 }
 
 .frame-pc-right{
     top:0;
     right:0;
-
     width:75vw;
 }
 
 
-/* PCではスマホフレームを隠す */
+/* PCではSPフレームを隠す */
 
 .frame-sp-left,
 .frame-sp-right{
     display:none;
 }
 
-.frame-pc-bottom-left{
-    position:absolute;
+
+/* PC 左下 */
+
+.frame-pc-bottom{
     left:0;
     bottom:0;
     width:84vw;
     height:auto;
+
     z-index:3;
-    pointer-events:none;
 }
 
-.frame-sp-bottom-left{
+
+/* SP左下はPCでは隠す */
+
+.frame-sp-bottom{
     display:none;
 }
 
@@ -288,16 +291,15 @@ button:active{
    08. 問題数
 ======================================== */
 
-#progress-container {
+#progress-container{
+    width:fit-content;
 
-    width: fit-content;
+    margin:0 auto 20px;
 
-    margin:
-        0
-        auto
-        clamp(10px, 2vh, 24px);
+    text-align:center;
 
-    text-align: center;
+    position:relative;
+    z-index:5;
 }
 
 
@@ -330,15 +332,15 @@ button:active{
 ======================================== */
 
 #question-container{
-    width:min(1000px,90vw);
+    width:100%;
+    max-width:700px;
 
-    /*
-       大きな 1 / 12 と
-       重ならないように少し下げる
-    */
-    margin:50px auto 0;
+    margin:20px auto 0;
 
     text-align:center;
+
+    position:relative;
+    z-index:5;
 }
 
 #question{
@@ -365,13 +367,8 @@ button:active{
 
 #choices button{
     position:relative;
-    background-color:transparent;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:100% 100%;
 
-    border:none;
-  width:600px;
+    width:min(600px,100%);
 
     min-height:280px;
 
@@ -379,11 +376,15 @@ button:active{
 
     padding:30px 50px;
 
-    font-size:20px;
-
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-position:center;
     background-size:100% 100%;
 
+    border:none;
+
     font-family:inherit;
+    font-size:20px;
     color:var(--title);
 
     cursor:pointer;
@@ -410,19 +411,15 @@ button:active{
    11. 成長する進捗UI
 ======================================== */
 
-#growth-progress {
-    position: relative;
+#growth-progress{
+    position:relative;
 
-    width: min(600px, 90%);
+    width:min(600px,100%);
 
-    margin:
-        clamp(15px, 3vh, 30px)
-        auto
-        0;
+    margin:30px auto 0;
 
-    z-index: 4;
+    z-index:5;
 }
-
 .seeds{
     position:relative;
     display:flex;
@@ -786,8 +783,8 @@ button:active{
 #quiz-screen.showing-result #progress-container{
     display:none;
 }
-#quiz-screen.showing-result .frame-pc-bottom-left,
-#quiz-screen.showing-result .frame-sp-bottom-left{
+#quiz-screen.showing-result .frame-pc-bottom,
+#quiz-screen.showing-result .frame-sp-bottom{
     display:none;
 }
 
@@ -843,22 +840,22 @@ button:active{
     ------------------------------- */
 
     #quiz-screen{
-        width:100vw;
+    width:100%;
 
-        height:100dvh;
+    height:auto;
 
-        min-height:100dvh;
+    min-height:100dvh;
 
-        padding:20px;
+    padding:20px;
 
-        background-image:url("images/play-bg-sp.webp");
+    background-image:url("images/play-bg-sp.webp");
 
-        background-size:100% 100%;
+    background-size:cover;
 
-        background-position:center;
+    background-position:center;
 
-        background-repeat:no-repeat;
-    }
+    background-repeat:no-repeat;
+}
 
 
     /* -------------------------------
@@ -886,11 +883,11 @@ button:active{
         width:65vw;
     }
 
-   .frame-pc-bottom-left{
+   .frame-pc-bottom{
     display:none;
 }
 
-.frame-sp-bottom-left{
+.frame-sp-bottom{
     display:block;
     position:absolute;
     left:0;
@@ -919,15 +916,12 @@ button:active{
        質問
     ------------------------------- */
 
-    #question-container{
-        width:90vw;
+   #question-container{
+    width:100%;
+    max-width:500px;
 
-        /*
-           大きくした数字との間隔
-        */
-        margin-top:60px;
-    }
-
+    margin:40px auto 0;
+}
     #question{
         margin:25px 10px;
 
@@ -974,8 +968,10 @@ button:active{
 ------------------------------- */
 
 #growth-progress{
-    width:85vw;
-    margin-top:25px;
+    width:100%;
+    max-width:500px;
+
+    margin:25px auto 0;
 }
 
     #growth-progress img{
