@@ -488,46 +488,33 @@ button:active{
 ======================================== */
 
 #back-btn {
-    width: 280px;
-    height: 70px;
+    width: 320px;
+    height: 80px;
 
     border: none;
-    background: transparent;
+    outline: none;
 
-    padding: 0;
-    margin: 20px 40px 0 auto;
+    background-image: url("./images/back-button.webp");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 
-    position: relative;
-    z-index: 10;
-
-    cursor: pointer;
-}
-
-#back-btn img {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    display: block;
-}
-
-#back-btn span {
-    position: absolute;
-    inset: 0;
+    color: #331700;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #331700;
-    font-family: inherit;
-    font-size: 17px;
-    font-weight: bold;
+    padding: 0;
+    margin: 20px 40px 0 auto;
 
-    z-index: 2;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 #back-btn:hover {
@@ -537,7 +524,6 @@ button:active{
 #back-btn:active {
     transform: scale(0.98);
 }
-
 #home-link{
     position:relative;
     z-index:20;
