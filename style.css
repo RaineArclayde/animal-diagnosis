@@ -488,35 +488,48 @@ button:active{
 ======================================== */
 
 #back-btn {
-    width: 260px;
-    height: 65px;
+    width: 280px;
+    height: 70px;
 
     border: none;
-    background-image: url("./images/戻るボタン書き込み多め.webp");
-    background-size: 260px auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
+    background: transparent;
+
+    padding: 0;
+    margin: 20px 40px 0 auto;
+
+    position: relative;
+    z-index: 10;
+
+    cursor: pointer;
+}
+
+#back-btn img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    display: block;
+}
+
+#back-btn span {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     color: #331700;
     font-family: inherit;
     font-size: 17px;
     font-weight: bold;
 
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-
-    /* 右寄せ */
-    margin: 20px 40px 0 auto;
-
-    position: relative;
-    z-index: 10;
+    z-index: 2;
 }
+
 #back-btn:hover {
     transform: scale(1.03);
 }
