@@ -490,7 +490,7 @@ button:active{
     height: 75px;
 
     border: none;
-    background-image: url("images/戻るボタン書き込み多め.webp");
+    background-image: url("images/back-button.webp");
     background-size: 300px auto;
     background-position: center;
     background-repeat: no-repeat;
