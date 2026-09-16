@@ -290,19 +290,17 @@ button:active{
    08. 問題数
 ======================================== */
 
-#progress-container{
-    position:absolute;
+#progress-container {
+    z-index: 3;
 
-    top:55px;
-    left:50%;
+    width: fit-content;
 
-    width:max-content;
+    margin:
+        0
+        auto
+        clamp(10px, 2vh, 24px);
 
-    margin:0;
-
-    transform:translateX(-50%);
-
-    z-index:5;
+    text-align: center;
 }
 
 
@@ -423,16 +421,17 @@ button:active{
    11. 成長する進捗UI
 ======================================== */
 
-#growth-progress{
-    position:absolute;
-    left:50%;
-    bottom:200px;
-    transform:translateX(-50%);
+#growth-progress {
+    position: relative;
 
-    width:min(600px,80vw);
-    margin:0;
+    width: min(600px, 90%);
 
-    z-index:5;
+    margin:
+        clamp(15px, 3vh, 30px)
+        auto
+        0;
+
+    z-index: 4;
 }
 
 .seeds{
