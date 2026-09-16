@@ -237,11 +237,7 @@ button:active{
 
 .play-frame{
     position:absolute;
-
-    z-index:10;
-
-    display:block;
-
+    z-index:1;
     pointer-events:none;
 }
 
@@ -517,6 +513,10 @@ button:active{
     white-space:nowrap;
 }
 
+#home-link{
+    position:relative;
+    z-index:20;
+}
 
 /* ========================================
    14. 質問切り替えアニメーション
