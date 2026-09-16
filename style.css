@@ -211,12 +211,11 @@ button:active{
 ======================================== */
 
 #quiz-screen{
-    position:fixed;
-
-    inset:0;
+    position:relative;
 
     width:100vw;
-    height:100dvh;
+    min-height:100dvh;
+    height:auto;
 
     margin:0;
     padding:40px;
@@ -238,7 +237,7 @@ button:active{
 ======================================== */
 
 .play-frame{
-    position:fixed;
+    position:absolute;
 
     z-index:10;
 
@@ -246,7 +245,6 @@ button:active{
 
     pointer-events:none;
 }
-
 
 /* PC */
 
@@ -872,16 +870,6 @@ button:active{
         display:none;
     }
 
-    .play-frame{
-        position:fixed;
-
-        z-index:10;
-
-        display:block;
-
-        pointer-events:none;
-    }
-
     .frame-sp-left{
         top:0;
 
@@ -955,7 +943,8 @@ button:active{
 
      #choices button{
 
-        width:95vw;
+        width:95%;
+        max-width:600px;
 
         min-height:240px;
 
