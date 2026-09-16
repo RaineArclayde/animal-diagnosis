@@ -214,7 +214,7 @@ button:active{
     position:relative;
 
     width:100%;
-    min-height:100dvh;
+    min-height:600px;
     height:auto;
 
     margin:0;
@@ -844,19 +844,16 @@ button:active{
 
     height:auto;
 
-    min-height:100dvh;
+    min-height:650px;
 
     padding:20px;
 
     background-image:url("images/play-bg-sp.webp");
 
     background-size:cover;
-
     background-position:center;
-
     background-repeat:no-repeat;
 }
-
 
     /* -------------------------------
        フレーム
