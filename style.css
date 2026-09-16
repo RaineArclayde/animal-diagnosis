@@ -338,7 +338,7 @@ button:active{
        大きな 1 / 12 と
        重ならないように少し下げる
     */
-    margin:120px auto 0;
+    margin:50px auto 0;
 
     text-align:center;
 }
@@ -937,7 +937,7 @@ button:active{
         /*
            大きくした数字との間隔
         */
-        margin-top:150px;
+        margin-top:60px;
     }
 
     #question{
