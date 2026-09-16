@@ -354,7 +354,7 @@ button:active{
 
     width:min(600px,100%);
 
-    min-height:280px;
+    min-height:160px;
 
     margin:0 auto;
 
@@ -374,10 +374,8 @@ button:active{
     cursor:pointer;
 }
 
-#choices button.choice-b{
-
-    transform:translateY(-150px);
-
+.choice-b {
+    transform: none;
 }
 
 /* Aのフレーム */
