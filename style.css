@@ -485,18 +485,40 @@ button:active{
    13. 前の質問へ
 ======================================== */
 
-#back-btn{
-    display:block;
+#back-btn {
+    width: 300px;
+    height: 75px;
 
-    width:100%;
+    border: none;
+    background-image: url("images/戻るボタン書き込み多め.webp");
+    background-size: 300px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
 
-    margin-top:20px;
+    color: #331700;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
 
-    padding:12px;
+    cursor: pointer;
 
-    font-size:16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    white-space:nowrap;
+    padding: 0;
+
+    position: relative;
+    z-index: 10;
+}
+
+#back-btn:hover {
+    transform: scale(1.03);
+}
+
+#back-btn:active {
+    transform: scale(0.98);
 }
 
 #home-link{
