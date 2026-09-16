@@ -575,10 +575,9 @@ button:active{
 ======================================== */
 
 #result-container{
-    width:100%;
-
+    position: relative;
+    z-index: 20;
     text-align:center;
-
     animation:fadeIn .8s;
 }
 
@@ -772,22 +771,19 @@ button:active{
    21. 結果画面への切り替え
 ======================================== */
 
-#quiz-screen.showing-result{
-    position:static;
+#quiz-screen.showing-result {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    height: auto;
 
-    width:auto;
-    height:auto;
-    min-height:0;
+    background-image: url("images/play-bg-pc.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    margin:0;
-    padding:0;
-
-    background-image:none;
-    background-color:transparent;
-
-    overflow:visible;
+    overflow: visible;
 }
-
 
 /* 結果画面では「○ / ○」を消す */
 
