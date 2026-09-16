@@ -927,12 +927,6 @@ button:active{
        問題数
     ------------------------------- */
 
-    #progress-container{
-        top:70px;
-    }
-
-   @media (max-width:600px){
-
     #current-number{
         font-size:70px;
     }
@@ -941,8 +935,6 @@ button:active{
         font-size:32px;
         margin-left:4px;
     }
-
-}
 
     /* -------------------------------
        質問
@@ -992,20 +984,22 @@ button:active{
 
     }
 
-   #choices button{
+  #choices button{
     margin:0 auto;
+}
 
-    /* -------------------------------
-       種
-    ------------------------------- */
 
-    #growth-progress{
-        width:85vw;
+/* -------------------------------
+   種
+------------------------------- */
 
-        margin-top:25px;
+#growth-progress{
+    width:85vw;
 
-        gap:2px;
-    }
+    margin-top:25px;
+
+    gap:2px;
+}
 
     #growth-progress img{
         width:8%;
