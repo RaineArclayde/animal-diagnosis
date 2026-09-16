@@ -488,19 +488,19 @@ button:active{
 ======================================== */
 
 #back-btn {
-    width: 280px;
-    height: 70px;
+    width: 260px;
+    height: 65px;
 
     border: none;
     background-image: url("./images/戻るボタン書き込み多め.webp");
-    background-size: 280px auto;
-    background-position: center center;
+    background-size: 260px auto;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
 
     color: #331700;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
 
     cursor: pointer;
@@ -510,12 +510,13 @@ button:active{
     justify-content: center;
 
     padding: 0;
-    margin: 20px auto 0;
+
+    /* 右寄せ */
+    margin: 20px 40px 0 auto;
 
     position: relative;
     z-index: 10;
 }
-
 #back-btn:hover {
     transform: scale(1.03);
 }
