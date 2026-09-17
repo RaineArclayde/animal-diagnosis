@@ -548,39 +548,51 @@ button:active{
    16. Backボタン
 ======================================== */
 
-#back-btn{
-    width:420px;
-    height:100px;
-   
-    border:none;
-    outline:none;
+#back-btn {
+    width: 420px;
+    height: 100px;
 
-    background-image:url("./images/back-button.webp");
-    background-color:transparent;
+    border: none;
+    outline: none;
 
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+    background-image: url("./images/back-button.webp");
+    background-color: transparent;
 
-    color:#331700;
-    font-family:inherit;
-    font-size:22px;
-    font-weight:bold;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color: #331700;
 
-    padding:0;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: bold;
 
-    margin:20px 40px 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    cursor:pointer;
+    padding: 0;
 
-    position:relative;
-    z-index:10;
+    margin: 20px 40px 0 auto;
+
+    cursor: pointer;
+
+    position: relative;
+    z-index: 10;
 }
 
+
+/* ホバー */
+#back-btn:hover {
+    transform: scale(1.03);
+}
+
+
+/* クリック */
+#back-btn:active {
+    transform: scale(0.98);
+}
 /* ========================================
    17. 質問切り替えアニメーション
 ======================================== */
