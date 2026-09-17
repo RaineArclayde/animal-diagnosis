@@ -340,7 +340,7 @@ button:active{
 
 #question-container{
     width:100%;
-    max-width:700px;
+    max-width:900px;
 
     margin:20px auto 0;
 
@@ -351,7 +351,10 @@ button:active{
 }
 
 #question{
-    margin:35px 0 30px;
+    width:100%;
+    max-width:900px;
+
+    margin:35px auto 30px;
 
     color:var(--darkGreen);
 
@@ -363,7 +366,6 @@ button:active{
 
     text-align:center;
 }
-
 
 /* ========================================
    13. 選択肢
