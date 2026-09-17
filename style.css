@@ -1342,3 +1342,13 @@ button:active{
     }
 
 }
+
+/* ========================================
+   結果画面ではSPフレームを非表示
+======================================== */
+
+#result-container .play-frame,
+#result-container .quiz-frame,
+#result-container .frame-sp {
+    display: none !important;
+}
