@@ -560,8 +560,7 @@ button:active{
 
     background-repeat:no-repeat;
 
-    background-size:150% 70%;
-
+    background-size:120% auto;
     background-position:center;
 
     color:#331700;
@@ -572,7 +571,6 @@ button:active{
     font-weight:bold;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -583,18 +581,8 @@ button:active{
     cursor:pointer;
 
     position:relative;
-
     z-index:10;
 }
-
-#back-btn:hover{
-    transform:scale(1.03);
-}
-
-#back-btn:active{
-    transform:scale(.98);
-}
-
 
 /* ========================================
    17. 質問切り替えアニメーション
