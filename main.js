@@ -371,21 +371,8 @@ if (q.choices.indexOf(choice) === 0) {
 function showResult() {
 
     document.body.style.overflow = "";
-
-
-    // 質問画面の全画面表示を解除
-
-    quizScreen.classList.add(
-        "showing-result"
-    );
-
-
-    // 質問を隠す
-
-    document
-        .getElementById("question-container")
-        .classList.add("hidden");
-
+    quizScreen.classList.add("hidden");
+    document.getElementById("question-container").classList.add("hidden");
 
     // ------------------------------------
     // 全ての種を成長状態にする
