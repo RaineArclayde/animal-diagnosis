@@ -574,11 +574,25 @@ button:active{
    15. 結果画面
 ======================================== */
 
-#result-container{
+#result-container {
     position: relative;
-    z-index: 20;
-    text-align:center;
-    animation:fadeIn .8s;
+    width: 100%;
+    min-height: 100dvh;
+
+    padding: 40px;
+
+    background-image: url("images/play-bg-pc.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: visible;
+    z-index: 5;
+}
+
+#result-container > * {
+    position: relative;
+    z-index: 10;
 }
 
 #result-label{
