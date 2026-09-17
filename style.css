@@ -38,7 +38,8 @@ body{
 
 body{
     min-height:100vh;
-    padding:20px;
+    margin:0;
+    padding:0;
 
     font-family:
         "Yu Mincho",
@@ -47,10 +48,6 @@ body{
 
     background:var(--bg);
     color:var(--text);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
 .hidden{
@@ -204,17 +201,19 @@ button:active{
 
 #quiz-screen{
     position:relative;
+
     width:100%;
     min-height:100dvh;
+
     margin:0;
     padding:40px;
-    
+
     background-image:url("images/play-bg-pc.webp");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    
-    overflow:hidden;
+
+    overflow:visible;
     overscroll-behavior:none;
 }
 
@@ -574,25 +573,35 @@ button:active{
    15. 結果画面
 ======================================== */
 
-#result-container {
-    position: relative;
-    width: 100%;
-    min-height: 100dvh;
+/* ========================================
+   15. 結果画面
+======================================== */
 
-    padding: 40px;
+#result-container{
+    position:relative;
 
-    background-image: url("images/play-bg-pc.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width:100%;
+    min-height:100dvh;
 
-    overflow: visible;
-    z-index: 5;
+    margin:0;
+    padding:40px;
+
+    background-image:url("images/play-bg-pc.webp");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:visible;
+
+    text-align:center;
+
+    z-index:5;
 }
 
-#result-container > * {
-    position: relative;
-    z-index: 10;
+
+#result-container > *{
+    position:relative;
+    z-index:10;
 }
 
 #result-label{
@@ -780,21 +789,6 @@ button:active{
     margin-top:25px;
 }
 
-
-/* ========================================
-   21. 結果画面への切り替え
-======================================== */
-
-/* 結果画面では「○ / ○」を消す */
-
-#quiz-screen.showing-result #progress-container{
-    display:none;
-}
-#quiz-screen.showing-result .frame-pc-bottom,
-#quiz-screen.showing-result .frame-sp-bottom{
-    display:none;
-}
-
 /* ========================================
    22. スマートフォン
 ======================================== */
@@ -802,25 +796,15 @@ button:active{
 @media (max-width:600px){
 
     body{
-        padding:12px;
-
-        align-items:flex-start;
+        padding:0;
     }
-
 
     #app{
-        width:100%;
-
-        max-width:100%;
-
-        margin:20px auto;
-
-        padding:22px;
-
-        border-width:3px;
-
-        border-radius:16px;
-    }
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+}
 
 
     /* -------------------------------
@@ -1000,7 +984,22 @@ button:active{
        結果画面
     ------------------------------- */
 
-    #result-title{
+    @media (max-width:600px){
+
+    #result-container{
+        width:100%;
+        min-height:100dvh;
+
+        padding:20px;
+
+        background-image:url("images/play-bg-sp.webp");
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+    }
+
+}
+   #result-title{
         font-size:32px;
     }
 
