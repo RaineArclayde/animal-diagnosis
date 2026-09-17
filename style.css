@@ -785,20 +785,6 @@ button:active{
    21. 結果画面への切り替え
 ======================================== */
 
-#quiz-screen.showing-result {
-    position: relative;
-    width: 100%;
-    min-height: 100dvh;
-    height: auto;
-
-    background-image: url("images/play-bg-pc.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    overflow: visible;
-}
-
 /* 結果画面では「○ / ○」を消す */
 
 #quiz-screen.showing-result #progress-container{
