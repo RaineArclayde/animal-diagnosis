@@ -23,7 +23,6 @@ const scores = {
 // ========================================
 
 const typeToAnimal = {
-
     ISTP: "fox",
     ISFP: "rabbit",
     ESTP: "badger",
@@ -43,7 +42,6 @@ const typeToAnimal = {
     ISFJ: "sheepAdult",
     ESTJ: "deerMale",
     ESFJ: "bird"
-
 };
 
 
@@ -52,7 +50,6 @@ const typeToAnimal = {
 // ========================================
 
 const compatibility = {
-
     ISTP: ["ENFP", "ESFJ"],
     ISFP: ["ENTJ", "ENFJ"],
     ESTP: ["INFJ", "ISFJ"],
@@ -72,7 +69,6 @@ const compatibility = {
     ISFJ: ["ESTP", "ESFP"],
     ESTJ: ["ISFP", "INTP"],
     ESFJ: ["ISTP", "ISFP"]
-
 };
 
 
@@ -80,41 +76,25 @@ const compatibility = {
 // HTML取得
 // ========================================
 
-const backBtn =
-    document.getElementById("back-btn");
+const backBtn = document.getElementById("back-btn");
 
-const startScreen =
-    document.getElementById("start-screen");
+const startScreen = document.getElementById("start-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const startBtn = document.getElementById("start-btn");
 
-const quizScreen =
-    document.getElementById("quiz-screen");
+const questionElement = document.getElementById("question");
+const choicesElement = document.getElementById("choices");
 
-const startBtn =
-    document.getElementById("start-btn");
+const resultContainer = document.getElementById("result-container");
+const resultTitle = document.getElementById("result-title");
+const resultText = document.getElementById("result-text");
 
-const questionElement =
-    document.getElementById("question");
-
-const choicesElement =
-    document.getElementById("choices");
-
-const resultContainer =
-    document.getElementById("result-container");
-
-const resultTitle =
-    document.getElementById("result-title");
-
-const resultText =
-    document.getElementById("result-text");
-
-const animalImage =
-    document.getElementById("animal-image");
+const animalImage = document.getElementById("animal-image");
 
 const growthPlants =
     document.querySelectorAll("#growth-progress img");
 
-const progressText =
-    document.getElementById("progress-text");
+const progressText = document.getElementById("progress-text");
 
 const keywordContainer =
     document.getElementById("result-keywords");
@@ -122,11 +102,8 @@ const keywordContainer =
 const compatibilityContainer =
     document.getElementById("compatibility");
 
-const restartBtn =
-    document.getElementById("restart-btn");
-
-const exitBtn =
-    document.getElementById("exit-btn");
+const restartBtn = document.getElementById("restart-btn");
+const exitBtn = document.getElementById("exit-btn");
 
 
 // ========================================
@@ -136,13 +113,11 @@ const exitBtn =
 startBtn.onclick = () => {
 
     startScreen.classList.add("hidden");
-
     quizScreen.classList.remove("hidden");
 
     document.body.style.overflow = "hidden";
 
     showQuestion();
-
 };
 
 
@@ -163,17 +138,21 @@ restartBtn.onclick = () => {
 
 backBtn.onclick = () => {
 
+    // 1問目では戻れない
     if (currentQuestion === 0) {
         return;
     }
 
+    // 現在の問題を1つ戻す
     currentQuestion--;
 
-    const lastType =
-        answerHistory.pop();
+    // 直前の回答を履歴から削除
+    const lastType = answerHistory.pop();
 
+    // MBTIスコアも元に戻す
     scores[lastType]--;
 
+    // 問題を再表示
     showQuestion();
 
 };
@@ -185,24 +164,25 @@ backBtn.onclick = () => {
 
 function showQuestion(growIndex = -1) {
 
-    const q =
-        questions[currentQuestion];
+    const q = questions[currentQuestion];
 
 
     // ------------------------------------
-    // 質問
+    // 質問文
     // ------------------------------------
 
-    questionElement.textContent =
-        q.question;
+    questionElement.textContent = q.question;
 
 
     // ------------------------------------
     // 問題数
     // ------------------------------------
 
-   document.getElementById("current-number").textContent = currentQuestion + 1;
-document.getElementById("total-number").textContent = `/${questions.length}`;
+    document.getElementById("current-number").textContent =
+        currentQuestion + 1;
+
+    document.getElementById("total-number").textContent =
+        `/${questions.length}`;
 
 
     // ------------------------------------
@@ -213,16 +193,13 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
 
         plant.classList.remove("growing");
 
-
         if (index < currentQuestion) {
 
-            plant.src =
-                "images/seed-grown.webp";
+            plant.src = "images/seed-grown.webp";
 
         } else {
 
-            plant.src =
-                "images/seed.webp";
+            plant.src = "images/seed.webp";
 
         }
 
@@ -238,21 +215,14 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
         growIndex < growthPlants.length
     ) {
 
-        const plant =
-            growthPlants[growIndex];
+        const plant = growthPlants[growIndex];
 
-
-        plant.src =
-            "images/seed-grown.webp";
-
+        plant.src = "images/seed-grown.webp";
 
         // アニメーションを確実に再発火
-
         void plant.offsetWidth;
 
-
         plant.classList.add("growing");
-
     }
 
 
@@ -263,44 +233,48 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
     choicesElement.innerHTML = "";
 
 
-    q.choices.forEach(choice => {
+    q.choices.forEach((choice, index) => {
 
         const button = document.createElement("button");
-button.textContent = choice.text;
 
-if (q.choices.indexOf(choice) === 0) {
-    button.classList.add("choice-a");
-} else {
-    button.classList.add("choice-b");
-}
+        button.textContent = choice.text;
 
+
+        // 1つ目 → A
+        // 2つ目 → B
+        if (index === 0) {
+
+            button.classList.add("choice-a");
+
+        } else {
+
+            button.classList.add("choice-b");
+
+        }
+
+
+        // --------------------------------
+        // 回答クリック
+        // --------------------------------
 
         button.onclick = () => {
 
-
-            // ----------------------------
             // 回答を記録
-            // ----------------------------
+            answerHistory.push(choice.type);
 
-            answerHistory.push(
-                choice.type
-            );
-
-
+            // MBTIスコアを加算
             scores[choice.type]++;
 
 
-            // ----------------------------
             // 次の質問へ
-            // ----------------------------
-
             currentQuestion++;
 
 
-            if (
-                currentQuestion <
-                questions.length
-            ) {
+            // --------------------------------
+            // まだ質問が残っている場合
+            // --------------------------------
+
+            if (currentQuestion < questions.length) {
 
                 const container =
                     document.getElementById(
@@ -308,30 +282,26 @@ if (q.choices.indexOf(choice) === 0) {
                     );
 
 
-                container.classList.add(
-                    "fade-out"
-                );
+                // フェードアウト
+                container.classList.add("fade-out");
 
 
                 setTimeout(() => {
 
-                    container.classList.remove(
-                        "fade-out"
-                    );
+                    container.classList.remove("fade-out");
 
 
                     // 今答えた問題の種を育てる
-
-                    showQuestion(
-                        currentQuestion - 1
-                    );
+                    showQuestion(currentQuestion - 1);
 
                 }, 300);
 
 
             } else {
 
+                // --------------------------------
                 // 全問終了
+                // --------------------------------
 
                 showResult();
 
@@ -351,13 +321,11 @@ if (q.choices.indexOf(choice) === 0) {
 
     if (currentQuestion === 0) {
 
-        backBtn.style.display =
-            "none";
+        backBtn.style.display = "none";
 
     } else {
 
-        backBtn.style.display =
-            "block";
+        backBtn.style.display = "block";
 
     }
 
@@ -370,16 +338,33 @@ if (q.choices.indexOf(choice) === 0) {
 
 function showResult() {
 
+    // ------------------------------------
+    // スクロールを解除
+    // ------------------------------------
+
     document.body.style.overflow = "";
 
-    // 質問画面を完全に非表示
+
+    // ------------------------------------
+    // 質問画面を非表示
+    // ------------------------------------
+
     quizScreen.classList.add("hidden");
 
+
+    // ------------------------------------
     // 結果画面を表示
+    // ------------------------------------
+
     resultContainer.classList.remove("hidden");
 
+
+    // ------------------------------------
     // 結果画面の先頭へ
+    // ------------------------------------
+
     window.scrollTo(0, 0);
+
 
     // ------------------------------------
     // 全ての種を成長状態にする
@@ -389,8 +374,7 @@ function showResult() {
 
         plant.classList.remove("growing");
 
-        plant.src =
-            "images/seed-grown.webp";
+        plant.src = "images/seed-grown.webp";
 
     });
 
@@ -399,8 +383,11 @@ function showResult() {
     // 問題数
     // ------------------------------------
 
-    document.getElementById("current-number").textContent = questions.length;
-document.getElementById("total-number").textContent = `/${questions.length}`;
+    document.getElementById("current-number").textContent =
+        questions.length;
+
+    document.getElementById("total-number").textContent =
+        `/${questions.length}`;
 
 
     // ====================================
@@ -410,36 +397,17 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
     let type = "";
 
 
-    type +=
-        scores.E >= scores.I
-            ? "E"
-            : "I";
-
-
-    type +=
-        scores.N >= scores.S
-            ? "N"
-            : "S";
-
-
-    type +=
-        scores.F >= scores.T
-            ? "F"
-            : "T";
-
-
-    type +=
-        scores.J >= scores.P
-            ? "J"
-            : "P";
+    type += scores.E >= scores.I ? "E" : "I";
+    type += scores.N >= scores.S ? "N" : "S";
+    type += scores.F >= scores.T ? "F" : "T";
+    type += scores.J >= scores.P ? "J" : "P";
 
 
     // ====================================
     // 動物取得
     // ====================================
 
-    const animal =
-        animals[typeToAnimal[type]];
+    const animal = animals[typeToAnimal[type]];
 
 
     // ====================================
@@ -451,18 +419,15 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
         (scores.E + scores.I) *
         100;
 
-
     const explorationRate =
         scores.N /
         (scores.N + scores.S) *
         100;
 
-
     const empathyRate =
         scores.F /
         (scores.F + scores.T) *
         100;
-
 
     const adaptabilityRate =
         scores.J /
@@ -474,41 +439,31 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
     // 動物画像
     // ====================================
 
-    animalImage.src =
-        animal.image;
-
-    animalImage.alt =
-        animal.name;
+    animalImage.src = animal.image;
+    animalImage.alt = animal.name;
 
 
     // ====================================
-    // 結果画面表示
+    // 4軸バー
     // ====================================
 
     requestAnimationFrame(() => {
 
         document
             .getElementById("axis-activity")
-            .style.left =
-            `${activityRate}%`;
-
+            .style.left = `${activityRate}%`;
 
         document
             .getElementById("axis-exploration")
-            .style.left =
-            `${explorationRate}%`;
-
+            .style.left = `${explorationRate}%`;
 
         document
             .getElementById("axis-empathy")
-            .style.left =
-            `${empathyRate}%`;
-
+            .style.left = `${empathyRate}%`;
 
         document
             .getElementById("axis-adaptability")
-            .style.left =
-            `${adaptabilityRate}%`;
+            .style.left = `${adaptabilityRate}%`;
 
     });
 
@@ -651,18 +606,13 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
     compatibilityContainer.innerHTML = "";
 
 
-    const compatibleTypes =
-        compatibility[type];
+    const compatibleTypes = compatibility[type];
 
 
     compatibleTypes.forEach(type => {
 
-        const animalKey =
-            typeToAnimal[type];
-
-
-        const animalData =
-            animals[animalKey];
+        const animalKey = typeToAnimal[type];
+        const animalData = animals[animalKey];
 
 
         compatibilityContainer.innerHTML += `
@@ -692,10 +642,9 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
 
 exitBtn.onclick = () => {
 
-    const confirmed =
-        confirm(
-            "診断を終了して最初の画面に戻りますか？"
-        );
+    const confirmed = confirm(
+        "診断を終了して最初の画面に戻りますか？"
+    );
 
 
     if (!confirmed) {
@@ -703,8 +652,11 @@ exitBtn.onclick = () => {
     }
 
 
-    currentQuestion = 0;
+    // ------------------------------------
+    // データをリセット
+    // ------------------------------------
 
+    currentQuestion = 0;
     answerHistory = [];
 
 
@@ -715,40 +667,57 @@ exitBtn.onclick = () => {
     });
 
 
+    // ------------------------------------
+    // 画面をリセット
+    // ------------------------------------
+
     quizScreen.classList.add("hidden");
 
-    quizScreen.classList.remove(
-        "showing-result"
-    );
+    quizScreen.classList.remove("showing-result");
+
+    resultContainer.classList.add("hidden");
+
+    startScreen.classList.remove("hidden");
 
 
-    resultContainer.classList.add(
-        "hidden"
-    );
-
-
-    startScreen.classList.remove(
-        "hidden"
-    );
-
+    // ------------------------------------
+    // 質問コンテナを表示
+    // ------------------------------------
 
     document
         .getElementById("question-container")
         .classList.remove("hidden");
 
 
+    // ------------------------------------
+    // 種をリセット
+    // ------------------------------------
+
     growthPlants.forEach(plant => {
 
         plant.classList.remove("growing");
 
-        plant.src =
-            "images/seed.webp";
+        plant.src = "images/seed.webp";
 
     });
 
 
-   document.getElementById("current-number").textContent = 1;
-document.getElementById("total-number").textContent = `/${questions.length}`;
+    // ------------------------------------
+    // 問題数をリセット
+    // ------------------------------------
+
+    document.getElementById("current-number").textContent = 1;
+
+    document.getElementById("total-number").textContent =
+        `/${questions.length}`;
+
+
+    // ------------------------------------
+    // スクロールを解除
+    // ------------------------------------
+
+    document.body.style.overflow = "";
+
 };
 
 
