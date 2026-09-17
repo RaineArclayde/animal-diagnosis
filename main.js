@@ -371,8 +371,15 @@ if (q.choices.indexOf(choice) === 0) {
 function showResult() {
 
     document.body.style.overflow = "";
+
+    // 質問画面を完全に非表示
     quizScreen.classList.add("hidden");
-    document.getElementById("question-container").classList.add("hidden");
+
+    // 結果画面を表示
+    resultContainer.classList.remove("hidden");
+
+    // 結果画面の先頭へ
+    window.scrollTo(0, 0);
 
     // ------------------------------------
     // 全ての種を成長状態にする
