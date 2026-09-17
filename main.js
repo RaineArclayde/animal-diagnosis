@@ -485,11 +485,6 @@ document.getElementById("total-number").textContent = `/${questions.length}`;
     // 結果画面表示
     // ====================================
 
-    resultContainer.classList.remove(
-        "hidden"
-    );
-
-
     requestAnimationFrame(() => {
 
         document
