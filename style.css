@@ -1162,24 +1162,32 @@ button:active{
     }
 
     #choices button{
+
     width:95%;
+
     max-width:600px;
 
     min-height:0;
-    height:120px;
 
-    margin:0 auto;
+    height:100px;              /* ← 縦幅を100pxに */
+
+    margin:0 auto 12px;       /* ← 選択肢の間に12px空ける */
 
     padding:15px 25px;
 
     background-size:100% 100%;
 
     font-size:15px;
-}
-    #choices button.choice-b{
-        transform:translateY(-40px);
-    }
 
+  }
+
+  #choices button.choice-b{
+
+    transform:translateY(0);  /* ← いったん通常位置に */
+
+  }
+
+}
 
     /* -------------------------------
        種
