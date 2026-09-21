@@ -1,807 +1,1248 @@
-:root {
-  --bg:#E6E3DC;
-  --paper:#F8F5EA;
-  --green:#B3C36A;
-  --beige:#BBA576;
-  --pink:#FCCCD0;
-  --yellow:#F1EEA2;
-  --olive:#7D8F16;
-  --darkGreen:#434C1F;
-  --brown:#6A4C25;
-  --blue:#BDDDE8;
-  --title:#331700;
-  --text:#434C1F;
+/* ========================================
+   01. カラーパレット
+======================================== */
+
+:root{
+    --bg:#E6E3DC;
+    --paper:#F8F5EA;
+
+    --green:#B3C36A;
+    --beige:#BBA576;
+
+    --pink:#FCCCD0;
+    --yellow:#F1EEA2;
+    --olive:#7D8F16;
+    --darkGreen:#434C1F;
+    --brown:#6A4C25;
+    --blue:#BDDDE8;
+
+    --title:#331700;
+    --text:#434C1F;
 }
 
-* {
-  box-sizing:border-box;
+
+/* ========================================
+   02. リセット
+======================================== */
+
+*{
+    box-sizing:border-box;
 }
 
 html,
-body {
-  width:100%;
-  height:100%;
-  margin:0;
-  padding:0;
-  overflow:hidden;
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+
+    overflow:hidden;
 }
 
-body {
-  min-height:100dvh;
-  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
-  background:var(--bg);
-  color:var(--text);
-  overscroll-behavior:none;
+body{
+    min-height:100dvh;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    background:var(--bg);
+    color:var(--text);
+
+    overscroll-behavior:none;
 }
 
-.hidden {
-  display:none !important;
-}
-
-
-/* =========================
-   APP
-========================= */
-
-#app {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100dvh;
-  margin:0;
-  padding:0;
-  overflow:hidden;
+.hidden{
+    display:none !important;
 }
 
 
-/* =========================
-   START / QUIZ / RESULT
-========================= */
+/* ========================================
+   03. アプリ本体
+======================================== */
+
+#app{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100dvh;
+
+    margin:0;
+    padding:0;
+
+    overflow:hidden;
+}
+
+
+/* ========================================
+   04. 共通ボタン
+======================================== */
+
+button{
+    display:block;
+    width:100%;
+
+    margin-top:10px;
+    padding:16px;
+
+    background:var(--beige);
+    color:var(--title);
+
+    border:2px solid var(--brown);
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:17px;
+    font-weight:bold;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+button:hover{
+    background:var(--brown);
+    color:var(--yellow);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+
+/* ========================================
+   05. 各画面を固定
+======================================== */
 
 #start-screen,
 #quiz-screen,
-#result-container {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100dvh;
-  margin:0;
-}
-
-
-/* =========================
-   START SCREEN
-========================= */
-
-#start-screen {
-  padding:60px 20px;
-  text-align:center;
-  background:var(--paper);
-  overflow:hidden;
-}
-
-#start-screen h1 {
-  margin:0 0 30px;
-  color:var(--title);
-  font-size:42px;
-}
-
-#start-screen p {
-  margin:0 auto 40px;
-  color:var(--text);
-  font-size:18px;
-  line-height:2;
-}
-
-#start-btn {
-  position:relative;
-  display:block;
-  width:min(300px,80vw);
-  margin:0 auto;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-}
-
-#start-btn img {
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-#start-btn span {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  color:var(--title);
-  font-family:inherit;
-  font-size:20px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-#home-link {
-  display:block;
-  margin-top:30px;
-  color:var(--darkGreen);
-  text-decoration:none;
-  font-size:15px;
-}
-
-
-/* =========================
-   QUIZ SCREEN
-========================= */
-
-#quiz-screen {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100dvh;
-  margin:0;
-  padding:40px;
-
-  background-image:url("images/play-bg-pc.webp");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-
-  overflow:hidden;
-  overscroll-behavior:none;
-}
-
-
-/* =========================
-   DECORATIVE FRAMES
-========================= */
-
-.play-frame {
-  position:absolute;
-  display:block;
-  pointer-events:none;
-  z-index:1;
-}
-
-.frame-pc-left {
-  top:0;
-  left:0;
-  width:75vw;
-}
-
-.frame-pc-right {
-  top:0;
-  right:0;
-  width:75vw;
-}
-
-.frame-pc-bottom {
-  left:0;
-  bottom:0;
-  width:84vw;
-  height:auto;
-  z-index:3;
-}
-
-.frame-sp-left,
-.frame-sp-right,
-.frame-sp-bottom {
-  display:none;
-}
-
-
-/* =========================
-   PROGRESS NUMBER
-========================= */
-
-#progress-container {
-  width:fit-content;
-  margin:0 auto 20px;
-  text-align:center;
-  position:relative;
-  z-index:5;
-}
-
-#progress-text {
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  color:var(--title);
-  line-height:1;
-  white-space:nowrap;
-}
-
-#current-number {
-  font-size:100px;
-  font-weight:normal;
-}
-
-#total-number {
-  font-size:45px;
-  font-weight:normal;
-  margin-left:5px;
-}
-
-
-/* =========================
-   QUESTION
-========================= */
-
-#question-container {
-  width:100%;
-  max-width:900px;
-  margin:20px auto 0;
-  text-align:center;
-  position:relative;
-  z-index:5;
-}
-
-#question {
-  width:100%;
-  max-width:900px;
-  margin:35px auto 30px;
-  color:var(--darkGreen);
-  font-size:26px;
-  font-weight:bold;
-  line-height:1.7;
-  text-align:center;
-}
-
-
-/* =========================
-   CHOICES
-========================= */
-
-#choices {
-  width:100%;
-}
-
-#choices button {
-  position:relative;
-
-  width:min(600px,100%);
-  min-height:160px;
-
-  margin:0 auto;
-  padding:30px 50px;
-
-  background-color:transparent;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:100% 100%;
-
-  border:none;
-
-  font-family:inherit;
-  font-size:20px;
-  color:var(--title);
-
-  cursor:pointer;
-}
-
-#choices button.choice-a {
-  background-image:url("images/choice-frame-a.webp");
-}
-
-#choices button.choice-b {
-  background-image:url("images/choice-frame-b.webp");
-}
-
-.choice-b {
-  transform:none;
-}
-
-
-/* =========================
-   GROWTH PROGRESS
-========================= */
-
-#growth-progress {
-  position:relative;
-  width:min(600px,100%);
-  margin:30px auto 10px;
-  z-index:5;
-}
-
-.seeds {
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:4px;
-  z-index:2;
-}
-
-.seeds .seed {
-  display:block;
-  width:8%;
-  height:auto;
-  object-fit:contain;
-}
-
-.soil-bar {
-  position:relative;
-  width:100%;
-  height:12px;
-  margin-top:-1px;
-  background:var(--brown);
-  border-radius:10px;
-  z-index:1;
-}
-
-
-/* =========================
-   BACK BUTTON
-========================= */
-
-#back-btn {
-  width:420px;
-  height:100px;
-
-  border:none;
-  outline:none;
-
-  background-image:url("./images/back-button.webp");
-  background-color:transparent;
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:center;
-
-  color:#331700;
-  font-family:inherit;
-  font-size:22px;
-  font-weight:bold;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:10px 0 0;
-  margin:20px 40px 0 auto;
-
-  cursor:pointer;
-
-  position:relative;
-  z-index:10;
-}
-
-#back-btn:hover {
-  transform:scale(1.03);
-}
-
-#back-btn:active {
-  transform:scale(.98);
-}
-
-
-/* =========================
-   RESULT SCREEN
-========================= */
-
-#result-container {
-  position:absolute;
-  top:0;
-  left:0;
-
-  width:100%;
-  height:100dvh;
-
-  margin:0;
-  padding:40px;
-
-  background-image:url("images/play-bg-pc.webp");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-
-  overflow-x:hidden;
-  overflow-y:auto;
-
-  overscroll-behavior-y:auto;
-
-  text-align:center;
-}
-
-
-/* Result frame */
-
-#result-container .play-frame {
-  pointer-events:none;
-}
-
-#result-container .frame-pc-bottom,
-#result-container .frame-sp-bottom {
-  display:none !important;
-}
-
-#result-container > :not(.play-frame) {
-  position:relative;
-  z-index:10;
-}
-
-
-/* =========================
-   RESULT CONTENT
-========================= */
-
-#result-label {
-  margin-top:30px;
-  color:var(--brown);
-  font-size:18px;
-}
-
-#result-title {
-  margin:15px 0 25px;
-  color:var(--title);
-  font-size:42px;
-}
-
-#animal-image {
-  display:block;
-  width:280px;
-  height:280px;
-  object-fit:contain;
-  margin:30px auto;
-}
-
-#result-keywords {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin:25px auto;
-}
-
-.keyword {
-  display:inline-block;
-  margin:7px;
-  padding:8px 18px;
-
-  background:var(--yellow);
-  border-radius:20px;
-
-  color:var(--brown);
-  font-size:16px;
-}
-
-#result-text {
-  width:min(800px,90%);
-  margin:30px auto;
-
-  color:var(--text);
-  font-size:18px;
-  line-height:2;
-  text-align:left;
-}
-
-
-/* =========================
-   AXIS RESULT
-========================= */
-
-#axis-result {
-  width:min(800px,90%);
-  margin:50px auto;
-}
-
-.axis-item {
-  margin:35px 0;
-}
-
-.axis-label {
-  margin-bottom:10px;
-  color:var(--darkGreen);
-  font-size:18px;
-  font-weight:bold;
-}
-
-
-/* =========================
-   COMPATIBILITY
-========================= */
-
-#compatibility {
-  width:min(800px,90%);
-  margin:50px auto;
-}
-
-#compatibility h3 {
-  color:var(--title);
-  font-size:24px;
-}
-
-.compatibility-card {
-  margin:20px 0;
-  padding:20px;
-
-  background:rgba(248,245,234,.8);
-  border-radius:15px;
-}
-
-.compatibility-card h4 {
-  margin:0 0 10px;
-  color:var(--brown);
-  font-size:22px;
-}
-
-.compatibility-card p {
-  margin:0;
-  color:var(--text);
-  font-size:16px;
-  line-height:1.8;
-}
-
-
-/* =========================
-   RESULT BUTTONS
-========================= */
-
-#restart-btn {
-  display:block;
-
-  width:300px;
-  min-height:80px;
-
-  margin:40px auto 20px;
-
-  border:none;
-  border-radius:50px;
-
-  background:var(--green);
-
-  color:var(--title);
-  font-family:inherit;
-  font-size:20px;
-  font-weight:bold;
-
-  cursor:pointer;
-}
-
-#exit-btn {
-  display:block;
-  margin:20px auto 50px;
-
-  color:var(--darkGreen);
-  font-size:15px;
-  text-decoration:none;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width:600px) {
-
-  body {
-    width:100%;
-    height:100%;
-    overflow:hidden;
-  }
-
-  #app {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100dvh;
-    overflow:hidden;
-  }
-
-
-  /* -------------------------
-     START
-  ------------------------- */
-
-  #start-screen {
-    width:100%;
-    height:100dvh;
-
-    padding:45px 15px;
-
-    overflow:hidden;
-  }
-
-  #start-screen h1 {
-    font-size:32px;
-  }
-
-  #start-screen p {
-    font-size:16px;
-    line-height:1.9;
-  }
-
-
-  /* -------------------------
-     QUIZ
-  ------------------------- */
-
-  #quiz-screen {
+#result-container{
     position:absolute;
+
     top:0;
     left:0;
 
     width:100%;
     height:100dvh;
 
-    min-height:0;
+    margin:0;
+}
 
-    padding:20px;
 
-    background-image:url("images/play-bg-sp.webp");
+/* ========================================
+   06. スタート画面
+======================================== */
+
+#start-screen{
+    padding:60px 30px;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+#start-screen h1{
+    margin-bottom:35px;
+
+    font-size:42px;
+    color:var(--title);
+}
+
+#start-screen p{
+    margin:35px 0;
+
+    color:var(--brown);
+
+    font-size:18px;
+    line-height:2;
+    letter-spacing:1px;
+}
+
+
+/* スタートボタン */
+
+#start-btn{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+
+    margin:auto;
+    padding:0;
+
+    background:none;
+    border:none;
+}
+
+#start-btn img{
+    display:block;
+
+    width:300px;
+    max-width:100%;
+}
+
+#start-btn span{
+    position:absolute;
+
+    top:47%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:#F1EEA2;
+
+    text-shadow:2px 2px 4px rgba(0,0,0,.4);
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    pointer-events:none;
+}
+
+#start-btn:hover{
+    transform:scale(1.05);
+}
+
+#start-btn:active{
+    transform:scale(.96);
+}
+
+
+/* ========================================
+   07. 本サイトへ戻る
+======================================== */
+
+#home-link{
+    position:absolute;
+
+    top:10px;
+    left:0;
+
+    z-index:50;
+}
+
+
+/* ========================================
+   08. 質問画面
+======================================== */
+
+#quiz-screen{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100dvh;
+
+    margin:0;
+    padding:40px;
+
+    background-image:url("images/play-bg-pc.webp");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 
     overflow:hidden;
-  }
+
+    overscroll-behavior:none;
+}
 
 
-  /* Frames */
+/* ========================================
+   09. フレーム共通
+======================================== */
 
-  .frame-pc-left,
-  .frame-pc-right {
-    display:none;
-  }
+.play-frame{
+    position:absolute;
 
-  .frame-sp-left {
     display:block;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* ========================================
+   10. PC 上フレーム
+======================================== */
+
+.frame-pc-left{
     top:0;
     left:0;
-    width:65vw;
-  }
 
-  .frame-sp-right {
-    display:block;
+    width:75vw;
+}
+
+.frame-pc-right{
     top:0;
     right:0;
-    width:65vw;
-  }
 
-  .frame-pc-bottom {
-    display:none;
-  }
+    width:75vw;
+}
 
-  .frame-sp-bottom {
-    display:block;
 
-    position:absolute;
+/* ========================================
+   11. PC 下フレーム
+======================================== */
+
+.frame-pc-bottom{
     left:0;
     bottom:0;
 
-    width:70vw;
+    width:84vw;
     height:auto;
 
     z-index:3;
-    pointer-events:none;
-  }
+}
 
 
-  /* -------------------------
-     PROGRESS NUMBER
-  ------------------------- */
+/* PCではSP用を非表示 */
 
-  #progress-container {
+.frame-sp-left,
+.frame-sp-right,
+.frame-sp-bottom{
+    display:none;
+}
+
+
+/* ========================================
+   12. 問題数
+======================================== */
+
+#progress-container{
     width:fit-content;
-    margin:35px auto 20px;
-  }
 
-  #current-number {
-    font-size:70px;
-  }
+    margin:0 auto 20px;
 
-  #total-number {
-    font-size:32px;
-    margin-left:4px;
-  }
+    text-align:center;
+
+    position:relative;
+    z-index:5;
+}
+
+#progress-text{
+    display:flex;
+
+    align-items:baseline;
+    justify-content:center;
+
+    color:var(--title);
+
+    line-height:1;
+
+    white-space:nowrap;
+}
+
+#current-number{
+    font-size:100px;
+    font-weight:normal;
+}
+
+#total-number{
+    font-size:45px;
+    font-weight:normal;
+
+    margin-left:5px;
+}
 
 
-  /* -------------------------
-     QUESTION
-  ------------------------- */
+/* ========================================
+   13. 質問
+======================================== */
 
-  #question-container {
+#question-container{
+    width:100%;
+    max-width:900px;
+
+    margin:20px auto 0;
+
+    text-align:center;
+
+    position:relative;
+    z-index:5;
+}
+
+#question{
+    width:100%;
+    max-width:900px;
+
+    margin:35px auto 30px;
+
+    color:var(--darkGreen);
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    line-height:1.7;
+
+    text-align:center;
+}
+
+
+/* ========================================
+   14. 選択肢
+======================================== */
+
+#choices{
+    width:100%;
+}
+
+#choices button{
+    position:relative;
+
+    width:min(600px,100%);
+
+    min-height:160px;
+
+    margin:0 auto;
+
+    padding:30px 50px;
+
+    background-color:transparent;
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
+
+    border:none;
+
+    font-family:inherit;
+
+    font-size:20px;
+
+    color:var(--title);
+
+    cursor:pointer;
+}
+
+#choices button.choice-a{
+    background-image:url("images/choice-frame-a.webp");
+}
+
+#choices button.choice-b{
+    background-image:url("images/choice-frame-b.webp");
+}
+
+.choice-b{
+    transform:none;
+}
+
+
+/* ========================================
+   15. 成長する進捗UI
+======================================== */
+
+#growth-progress{
+    position:relative;
+
+    width:min(600px,100%);
+
+    margin:30px auto 10px;
+
+    z-index:5;
+}
+
+.seeds{
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:flex-end;
+
+    gap:4px;
+
+    z-index:2;
+}
+
+.seeds .seed{
+    display:block;
+
+    width:8%;
+    height:auto;
+
+    object-fit:contain;
+}
+
+
+/* 土 */
+
+.soil-bar{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:12px;
+
+    background:
+        radial-gradient(
+            circle at 8% 45%,
+            rgba(70,45,20,.45) 0 2px,
+            transparent 2.5px
+        ),
+        radial-gradient(
+            circle at 22% 65%,
+            rgba(70,45,20,.35) 0 1.5px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 38% 35%,
+            rgba(70,45,20,.4) 0 2px,
+            transparent 2.5px
+        ),
+        radial-gradient(
+            circle at 55% 70%,
+            rgba(70,45,20,.35) 0 1.5px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 72% 40%,
+            rgba(70,45,20,.4) 0 2px,
+            transparent 2.5px
+        ),
+        radial-gradient(
+            circle at 88% 65%,
+            rgba(70,45,20,.35) 0 1.5px,
+            transparent 2px
+        ),
+        #8A6338;
+
+    border-radius:50% 50% 4px 4px;
+
+    box-shadow:
+        0 2px 0 rgba(70,45,20,.25),
+        inset 0 2px 2px rgba(255,255,255,.15);
+
+    z-index:1;
+}
+
+
+/* ========================================
+   16. 芽の成長アニメーション
+======================================== */
+
+.seed.growing{
+    animation:seedGrow .7s ease-out;
+}
+
+@keyframes seedGrow{
+
+    0%{
+        opacity:.3;
+
+        transform:
+            scale(.75)
+            translateY(5px);
+    }
+
+    55%{
+        opacity:1;
+
+        transform:
+            scale(1.08)
+            translateY(-2px);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* ========================================
+   17. Backボタン
+======================================== */
+
+#back-btn{
+    width:420px;
+    height:100px;
+
+    border:none;
+    outline:none;
+
+    background-image:url("./images/back-button.webp");
+    background-color:transparent;
+
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+
+    color:#331700;
+
+    font-family:inherit;
+
+    font-size:22px;
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 0 0;
+
+    margin:20px 40px 0 auto;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:10;
+}
+
+
+/* ホバー */
+
+#back-btn:hover{
+    transform:scale(1.03);
+}
+
+
+/* クリック */
+
+#back-btn:active{
+    transform:scale(.98);
+}
+
+
+/* ========================================
+   18. 質問切り替えアニメーション
+======================================== */
+
+.fade-out{
+    animation:fadeOut .3s ease forwards;
+}
+
+.fade-in{
+    animation:fadeIn .5s ease;
+}
+
+@keyframes fadeOut{
+
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* ========================================
+   19. 結果画面
+======================================== */
+
+#result-container{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100dvh;
+
+    margin:0;
+
+    padding:100px 40px 60px;
+
+    background-image:url("images/play-bg-pc.webp");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    text-align:center;
+
+    /* 結果画面だけスクロール */
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    overscroll-behavior-y:auto;
+
+    z-index:5;
+}
+
+
+/*
+   結果画面のフレーム
+*/
+
+#result-container .play-frame{
+    position:absolute;
+
+    display:block;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/*
+   結果コンテンツをフレームより前へ
+*/
+
+#result-container > :not(.play-frame){
+    position:relative;
+
+    z-index:10;
+}
+
+
+/* ========================================
+   20. 結果タイトル
+======================================== */
+
+#result-label{
+    margin-bottom:10px;
+
+    color:var(--brown);
+
+    letter-spacing:3px;
+}
+
+#result-title{
+    margin:10px 0;
+
+    color:var(--title);
+
+    font-size:40px;
+}
+
+#result-text{
+    margin:30px 0;
+
+    color:var(--text);
+
+    font-size:18px;
+
+    line-height:2;
+}
+
+
+/* ========================================
+   21. 動物画像
+======================================== */
+
+#animal-image{
+    display:block;
+
+    width:220px;
+    height:220px;
+
+    margin:30px auto;
+
+    padding:20px;
+
+    object-fit:contain;
+
+    background:var(--paper);
+
+    border:4px solid var(--beige);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.15);
+}
+
+
+/* ========================================
+   22. キーワード
+======================================== */
+
+#result-keywords{
+    margin:25px 0;
+}
+
+.keyword{
+    display:inline-block;
+
+    margin:6px;
+
+    padding:8px 18px;
+
+    background:var(--green);
+
+    color:var(--title);
+
+    border-radius:999px;
+
+    font-size:16px;
+}
+
+
+/* ========================================
+   23. 4軸性格バー
+======================================== */
+
+#axis-result{
     width:100%;
     max-width:500px;
-    margin:45px auto 0;
-  }
 
-  #question {
+    margin:40px auto;
+}
+
+.axis-item{
+    margin:30px 0;
+}
+
+.axis-label{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    color:var(--darkGreen);
+
+    font-size:17px;
+
+    font-weight:bold;
+}
+
+.axis-bar{
+    position:relative;
+
+    width:100%;
+    height:10px;
+
+    background:var(--paper);
+
+    border:2px solid var(--beige);
+
+    border-radius:999px;
+}
+
+.axis-point{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    width:16px;
+    height:16px;
+
+    transform:translate(-50%,-50%);
+
+    background:var(--brown);
+
+    border:3px solid var(--yellow);
+
+    border-radius:50%;
+
+    transition:left .6s ease;
+}
+
+
+/* ========================================
+   24. 相性動物
+======================================== */
+
+#compatibility{
+    width:100%;
+    max-width:500px;
+
+    margin:40px auto 0;
+}
+
+#compatibility h3{
+    margin-bottom:20px;
+
+    color:var(--darkGreen);
+
+    font-size:22px;
+}
+
+
+/* 相性カード */
+
+.compatibility-card{
+    margin-top:15px;
+
+    padding:18px;
+
+    background:var(--paper);
+
+    border:2px solid var(--beige);
+
+    border-radius:12px;
+}
+
+.compatibility-card h4{
+    margin:0;
+
+    color:var(--title);
+
+    font-size:22px;
+}
+
+.compatibility-card p{
+    margin:8px 0 0;
+
+    color:var(--text);
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+
+/* ========================================
+   25. やり直す
+======================================== */
+
+#restart-btn{
+    display:block;
+
+    width:min(400px,100%);
+
+    margin:35px auto 0;
+
+    padding:16px;
+
+    background:var(--beige);
+
+    color:var(--title);
+
+    border:2px solid var(--brown);
+
+    border-radius:10px;
+
+    font-family:inherit;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+/* ========================================
+   26. 診断終了
+======================================== */
+
+#exit-btn{
+    display:block;
+
+    width:fit-content;
+
+    margin:20px auto 40px;
+
+    color:var(--brown);
+
+    font-size:15px;
+
+    text-decoration:underline;
+
+    cursor:pointer;
+}
+
+
+/* ========================================
+   27. スマートフォン
+======================================== */
+
+@media (max-width:600px){
+
+    body{
+        width:100%;
+        height:100%;
+
+        overflow:hidden;
+    }
+
+    #app{
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        width:100%;
+        height:100dvh;
+
+        overflow:hidden;
+    }
+
+
+    /* -------------------------------
+       スタート画面
+    ------------------------------- */
+
+    #start-screen{
+        width:100%;
+        height:100dvh;
+
+        padding:45px 15px;
+
+        overflow:hidden;
+    }
+
+    #start-screen h1{
+        font-size:32px;
+    }
+
+    #start-screen p{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+
+    /* -------------------------------
+       質問画面
+    ------------------------------- */
+
+    #quiz-screen{
+        position:absolute;
+
+        top:0;
+        left:0;
+
+        width:100%;
+        height:100dvh;
+
+        min-height:0;
+
+        padding:20px;
+
+        background-image:url("images/play-bg-sp.webp");
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+
+        overflow:hidden;
+    }
+
+
+    /* -------------------------------
+       フレーム
+    ------------------------------- */
+
+    .frame-pc-left,
+    .frame-pc-right{
+        display:none;
+    }
+
+    .frame-sp-left{
+        display:block;
+
+        top:0;
+        left:0;
+
+        width:65vw;
+    }
+
+    .frame-sp-right{
+        display:block;
+
+        top:0;
+        right:0;
+
+        width:65vw;
+    }
+
+
+    .frame-pc-bottom{
+        display:none;
+    }
+
+    .frame-sp-bottom{
+        display:block;
+
+        position:absolute;
+
+        left:0;
+        bottom:0;
+
+        width:70vw;
+        height:auto;
+
+        z-index:3;
+
+        pointer-events:none;
+    }
+
+
+    /* -------------------------------
+       問題数
+    ------------------------------- */
+
+    #progress-container{
+        width:fit-content;
+
+        margin:35px auto 20px;
+    }
+
+    #current-number{
+        font-size:70px;
+    }
+
+    #total-number{
+        font-size:32px;
+
+        margin-left:4px;
+    }
+
+
+    /* -------------------------------
+       質問
+    ------------------------------- */
+
+    #question-container{
+        width:100%;
+        max-width:500px;
+
+        margin:45px auto 0;
+    }
+
+   #question{
+
     width:85%;
+
     max-width:85%;
 
-    height:58px;
+    height:58px;              /* 2行分の高さを確保 */
 
     margin:25px auto 20px;
 
     font-size:18px;
+
     line-height:1.6;
 
     text-align:center;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
   }
 
+    /* -------------------------------
+       選択肢
+    ------------------------------- */
 
-  /* -------------------------
-     CHOICES
-  ------------------------- */
+    #choices{
+        width:100%;
 
-  #choices {
-    width:100%;
-    margin:0 auto;
-  }
+        margin:0 auto;
+    }
 
-  #choices button {
+    #choices button{
+
     width:95%;
+
     max-width:600px;
 
     min-height:0;
-    height:100px;
 
-    margin:0 auto 12px;
+    height:100px;              /* ← 縦幅を100pxに */
+
+    margin:0 auto 12px;       /* ← 選択肢の間に12px空ける */
 
     padding:15px 25px;
 
     background-size:100% 100%;
 
     font-size:15px;
+
   }
 
-  #choices button.choice-b {
-    transform:translateY(0);
+  #choices button.choice-b{
+
+    transform:translateY(0);  /* ← いったん通常位置に */
+
   }
 
+}
 
-  /* -------------------------
-     GROWTH PROGRESS
-  ------------------------- */
+    /* -------------------------------
+       種
+    ------------------------------- */
 
-  #growth-progress {
-    width:85%;
-    max-width:400px;
+    #growth-progress{
+  width:75%;
+  max-width:350px;
+  margin:20px auto 0;
+}
+    .seeds{
+        gap:2px;
+    }
 
-    margin:20px auto 0;
-  }
-
-  .seeds {
-    gap:2px;
-  }
-
-  .seeds .seed {
-    width:8%;
-  }
-
-
-  /* -------------------------
-     BACK BUTTON
-  ------------------------- */
-
-  #back-btn {
-    width:280px;
-    height:80px;
-
-    margin:15px auto 0;
-
-    padding:8px 0 0;
-
-    background-size:contain;
-    background-position:center;
-
-    font-size:18px;
-  }
+    .seeds .seed{
+        width:8%;
+    }
 
 
-  /* -------------------------
-     RESULT
-  ------------------------- */
+    /* -------------------------------
+       Back
+    ------------------------------- */
 
-  #result-container {
+    #back-btn{
+        width:280px;
+        height:80px;
+
+        margin:15px auto 0;
+
+        padding:8px 0 0;
+
+        background-size:contain;
+        background-position:center;
+
+        font-size:18px;
+    }
+
+
+    /* -------------------------------
+       結果画面
+    ------------------------------- */
+
+    #result-container{
     position:absolute;
+
     top:0;
     left:0;
 
@@ -811,6 +1252,7 @@ body {
     min-height:0;
 
     margin:0;
+
     padding:20px;
 
     background-image:url("images/play-bg-sp.webp");
@@ -818,170 +1260,218 @@ body {
     background-position:center;
     background-repeat:no-repeat;
 
+    text-align:center;
+
+    /* 結果画面だけ縦スクロール */
     overflow-x:hidden;
     overflow-y:auto;
 
     -webkit-overflow-scrolling:touch;
 
     overscroll-behavior-y:auto;
-  }
 
-
-  /* Result frames */
-
-  #result-container .frame-sp-left {
-    display:block;
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:65vw;
-    z-index:1;
-  }
-
-  #result-container .frame-sp-right {
-    display:block;
-    position:absolute;
-
-    top:0;
-    right:0;
-
-    width:65vw;
-    z-index:1;
-  }
-
-  #result-container .frame-pc-left,
-  #result-container .frame-pc-right {
-    display:none;
-  }
-
-  #result-container > :not(.play-frame) {
-    position:relative;
-    z-index:10;
-  }
-
-
-  /* Result text */
-
-  #result-label {
-    margin-top:20px;
-  }
-
-  #result-title {
-    font-size:32px;
-  }
-
-  #result-text {
-    font-size:17px;
-    line-height:1.9;
-  }
-
-  #animal-image {
-    width:180px;
-    height:180px;
-    margin:25px auto;
-  }
-
-  #result-keywords {
-    margin:20px 0;
-  }
-
-  .keyword {
-    margin:5px;
-    padding:7px 14px;
-    font-size:14px;
-  }
-
-
-  /* Axis */
-
-  #axis-result {
-    width:100%;
-    max-width:500px;
-    margin:35px auto;
-  }
-
-  .axis-item {
-    margin:27px 0;
-  }
-
-  .axis-label {
-    font-size:16px;
-  }
-
-
-  /* Compatibility */
-
-  #compatibility {
-    margin-top:35px;
-  }
-
-  #compatibility h3 {
-    font-size:19px;
-  }
-
-  .compatibility-card {
-    padding:15px;
-  }
-
-  .compatibility-card h4 {
-    font-size:20px;
-  }
-
-  .compatibility-card p {
-    font-size:15px;
-    line-height:1.7;
-  }
-
-
-  /* Result buttons */
-
-  #restart-btn {
-    width:90%;
-    margin-top:30px;
-  }
-
-  #exit-btn {
-    margin-bottom:30px;
-  }
+    z-index:5;
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+    /* 結果画面の上フレーム */
 
-@media (max-width:380px) {
+    #result-container .frame-sp-left{
+        display:block;
 
-  #start-screen h1 {
-    font-size:28px;
-  }
+        position:absolute;
 
-  #question {
-    font-size:17px;
-  }
+        top:0;
+        left:0;
 
-  #choices button {
-    font-size:14px;
-    height:100px;
-  }
+        width:65vw;
 
-  #current-number {
-    font-size:62px;
-  }
+        z-index:1;
+    }
 
-  #total-number {
-    font-size:28px;
-  }
+    #result-container .frame-sp-right{
+        display:block;
 
-  #back-btn {
-    width:250px;
-    height:75px;
-    font-size:17px;
-  }
+        position:absolute;
 
-  #result-title {
-    font-size:28px;
-  }
+        top:0;
+        right:0;
+
+        width:65vw;
+
+        z-index:1;
+    }
+
+
+    /* 結果画面ではPCフレームを隠す */
+
+    #result-container .frame-pc-left,
+    #result-container .frame-pc-right{
+        display:none;
+    }
+
+
+    /* 結果コンテンツをフレームより前へ */
+
+    #result-container > :not(.play-frame){
+        position:relative;
+
+        z-index:10;
+    }
+
+
+    #result-label{
+        margin-top:20px;
+    }
+
+    #result-title{
+        font-size:32px;
+    }
+
+    #result-text{
+        font-size:17px;
+
+        line-height:1.9;
+    }
+
+
+    /* -------------------------------
+       動物画像
+    ------------------------------- */
+
+    #animal-image{
+        width:180px;
+        height:180px;
+
+        margin:25px auto;
+    }
+
+
+    /* -------------------------------
+       キーワード
+    ------------------------------- */
+
+    #result-keywords{
+        margin:20px 0;
+    }
+
+    .keyword{
+        margin:5px;
+
+        padding:7px 14px;
+
+        font-size:14px;
+    }
+
+
+    /* -------------------------------
+       4軸
+    ------------------------------- */
+
+    #axis-result{
+        width:100%;
+        max-width:500px;
+
+        margin:35px auto;
+    }
+
+    .axis-item{
+        margin:27px 0;
+    }
+
+    .axis-label{
+        font-size:16px;
+    }
+
+
+    /* -------------------------------
+       相性
+    ------------------------------- */
+
+    #compatibility{
+        margin-top:35px;
+    }
+
+    #compatibility h3{
+        font-size:19px;
+    }
+
+    .compatibility-card{
+        padding:15px;
+    }
+
+    .compatibility-card h4{
+        font-size:20px;
+    }
+
+    .compatibility-card p{
+        font-size:15px;
+
+        line-height:1.7;
+    }
+
+
+    /* -------------------------------
+       結果ボタン
+    ------------------------------- */
+
+    #restart-btn{
+        width:90%;
+
+        margin-top:30px;
+    }
+
+    #exit-btn{
+        margin-bottom:30px;
+    }
+}
+
+
+/* ========================================
+   28. 小さいスマートフォン
+======================================== */
+
+@media (max-width:380px){
+
+    #start-screen h1{
+        font-size:28px;
+    }
+
+    #question{
+        font-size:17px;
+    }
+
+    #choices button{
+        font-size:14px;
+        height:140px;
+    }
+
+    #current-number{
+        font-size:62px;
+    }
+
+    #total-number{
+        font-size:28px;
+    }
+
+    #back-btn{
+        width:250px;
+        height:75px;
+
+        font-size:17px;
+    }
+
+    #result-title{
+        font-size:28px;
+    }
+}
+
+
+/* ========================================
+   29. 結果画面では下フレームを非表示
+======================================== */
+
+#result-container .frame-pc-bottom,
+#result-container .frame-sp-bottom{
+    display:none !important;
 }
