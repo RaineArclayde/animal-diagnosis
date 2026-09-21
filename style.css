@@ -1204,12 +1204,10 @@ button:active{
     ------------------------------- */
 
     #growth-progress{
-        width:100%;
-        max-width:500px;
-
-        margin:25px auto 0;
-    }
-
+  width:75%;
+  max-width:350px;
+  margin:20px auto 0;
+}
     .seeds{
         gap:2px;
     }
