@@ -1057,50 +1057,60 @@ button:active{
     }
 
 
-    /* -------------------------------
-       質問
-    ------------------------------- */
+  /* -------------------------------
+   質問
+------------------------------- */
 
-    #question-container{
-        width:100%;
-        max-width:500px;
+#question-container{
+    width:100%;
+    max-width:500px;
 
-        margin:40px auto 0;
-    }
+    margin:40px auto 0;
+}
 
-    #question{
-        margin:25px 10px;
+#question{
+    width:85%;
+    max-width:85%;
 
-        font-size:20px;
+    margin:25px auto 20px;
 
-        line-height:1.7;
-    }
+    font-size:18px;
 
+    line-height:1.6;
 
-    /* -------------------------------
-       選択肢
-    ------------------------------- */
-
-    #choices button{
-        width:95%;
-        max-width:600px;
-
-        min-height:240px;
-
-        margin:0 auto;
-
-        padding:20px 30px;
-
-        background-size:100% 100%;
-
-        font-size:15px;
-    }
-
-    #choices button.choice-b{
-        transform:translateY(-80px);
-    }
+    text-align:center;
+}
 
 
+/* -------------------------------
+   選択肢
+------------------------------- */
+
+#choices{
+    width:100%;
+    margin:0 auto;
+}
+
+#choices button{
+    width:95%;
+    max-width:600px;
+
+    min-height:0;
+    height:150px;
+
+    margin:0 auto;
+
+    padding:15px 25px;
+
+    background-size:100% 100%;
+
+    font-size:15px;
+}
+
+#choices button.choice-b{
+    transform:translateY(-40px);
+}
+   
     /* -------------------------------
        種
     ------------------------------- */
@@ -1297,36 +1307,6 @@ button:active{
 
     #exit-btn{
         margin-bottom:30px;
-    }
-
-}
-
-/* ====================================
-   スマホ版：質問画面
-==================================== */
-
-@media (max-width: 600px) {
-
-    /* 質問文 */
-    #question {
-        width: 85%;
-        max-width: 85%;
-
-        margin: 25px auto 20px;
-
-        font-size: 20px;
-        line-height: 1.6;
-    }
-
-
-    /* 選択肢 */
-    #choices {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    #choices button {
-        height: 65px;
     }
 
 }
