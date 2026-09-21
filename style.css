@@ -1301,6 +1301,35 @@ button:active{
 
 }
 
+/* ====================================
+   スマホ版：質問画面
+==================================== */
+
+@media (max-width: 600px) {
+
+    /* 質問文 */
+    #question {
+        width: 85%;
+        max-width: 85%;
+
+        margin: 25px auto 20px;
+
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+
+    /* 選択肢 */
+    #choices {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #choices button {
+        height: 65px;
+    }
+
+}
 
 /* ========================================
    23. 小さいスマートフォン
