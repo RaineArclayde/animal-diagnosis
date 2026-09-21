@@ -1162,21 +1162,20 @@ button:active{
     }
 
     #choices button{
-        width:95%;
-        max-width:600px;
+    width:95%;
+    max-width:600px;
 
-        min-height:0;
-        height:150px;
+    min-height:0;
+    height:120px;
 
-        margin:0 auto;
+    margin:0 auto;
 
-        padding:15px 25px;
+    padding:15px 25px;
 
-        background-size:100% 100%;
+    background-size:100% 100%;
 
-        font-size:15px;
-    }
-
+    font-size:15px;
+}
     #choices button.choice-b{
         transform:translateY(-40px);
     }
