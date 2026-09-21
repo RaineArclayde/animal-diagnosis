@@ -982,12 +982,11 @@ button:active{
         width:100%;
         height:auto;
         min-height:650px;
-
-        padding:20px;
+        padding:80px 20px 30px;
 
         background-image:url("images/play-bg-sp.webp");
         background-size:cover;
-        background-position:center;
+        background-position:center 30px;
         background-repeat:no-repeat;
 
         overflow:hidden;
