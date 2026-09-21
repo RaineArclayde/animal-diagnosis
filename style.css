@@ -1137,19 +1137,29 @@ button:active{
         margin:45px auto 0;
     }
 
-    #question{
-        width:85%;
-        max-width:85%;
+   #question{
 
-        margin:25px auto 20px;
+    width:85%;
 
-        font-size:18px;
+    max-width:85%;
 
-        line-height:1.6;
+    height:58px;              /* 2行分の高さを確保 */
 
-        text-align:center;
-    }
+    margin:25px auto 20px;
 
+    font-size:18px;
+
+    line-height:1.6;
+
+    text-align:center;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+  }
 
     /* -------------------------------
        選択肢
