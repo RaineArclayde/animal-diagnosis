@@ -459,9 +459,11 @@ button:active{
 
   position:relative;
 
-  width:min(720px,100%);
+  width:800px;
 
-  margin:35px auto 10px;
+  max-width:90%;
+
+  margin:40px auto 15px;
 
   z-index:5;
 
@@ -477,7 +479,7 @@ button:active{
 
   align-items:flex-end;
 
-  gap:5px;
+  gap:6px;
 
   z-index:2;
 
@@ -487,13 +489,14 @@ button:active{
 
   display:block;
 
-  width:8.5%;
+  width:9%;
 
   height:auto;
 
   object-fit:contain;
 
 }
+
 /* 土 */
 
 .soil-bar{
@@ -503,7 +506,7 @@ button:active{
     bottom:0;
 
     width:100%;
-    height:16px;
+    height:20px;
 
     background:
         radial-gradient(
@@ -589,34 +592,49 @@ button:active{
 ======================================== */
 
 #back-btn {
-  width:500px;
-  height:120px;
+
+  width:560px;
+
+  height:135px;
 
   border:none;
+
   outline:none;
 
   background-image:url("./images/back-button.webp");
+
   background-color:transparent;
+
   background-repeat:no-repeat;
+
   background-size:contain;
+
   background-position:center;
 
   color:#331700;
+
   font-family:inherit;
-  font-size:25px;
+
+  font-size:27px;
+
   font-weight:bold;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
-  padding:12px 0 0;
-  margin:20px 40px 0 auto;
+  padding:15px 0 0;
+
+  margin:25px 30px 0 auto;
 
   cursor:pointer;
 
   position:relative;
+
   z-index:10;
+
 }
 
 /* ホバー */
@@ -1203,18 +1221,49 @@ button:active{
        種
     ------------------------------- */
 
-    #growth-progress{
-  width:75%;
-  max-width:350px;
-  margin:20px auto 0;
-}
-    .seeds{
-        gap:2px;
-    }
+    #growth-progress {
 
-    .seeds .seed{
-        width:8%;
-    }
+    width:85%;
+
+    max-width:400px;
+
+    margin:20px auto 0;
+
+  }
+
+  .seeds {
+
+    gap:2px;
+
+  }
+
+  .seeds .seed {
+
+    width:8%;
+
+  }
+
+  .soil-bar {
+
+    height:12px;
+
+  }
+
+  #back-btn {
+
+    width:280px;
+
+    height:80px;
+
+    margin:15px auto 0;
+
+    padding:8px 0 0;
+
+    font-size:18px;
+
+  }
+
+}
 
 
     /* -------------------------------
