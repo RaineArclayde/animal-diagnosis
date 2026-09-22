@@ -501,9 +501,10 @@ button:active{
 }
 
 @media (min-width:601px){
-    #choices button.question6-choice2{
+    #choices button.small-choice-b{
         font-size:19px !important;
     }
+}
 }
 
 #choices button.choice-a{
