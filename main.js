@@ -250,10 +250,9 @@ function showQuestion(growIndex = -1) {
 
     button.classList.add("choice-b");
 
-    // 6問目の2つ目の選択肢だけ文字を小さくする
-    if (currentQuestion === 5) {
-        button.classList.add("question6-choice2");
-    }
+    if (currentQuestion === 5 || currentQuestion === 8) {
+    button.classList.add("small-choice-b");
+}
 
 }
 
