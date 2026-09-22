@@ -457,24 +457,30 @@ button:active{
 
 #growth-progress {
     position:relative;
-    width:800px;          /* ← 全体を大きく */
-    max-width:90%;
-    margin:40px auto 15px;
+    width:min(600px,100%);
+    margin:30px auto 10px;
     z-index:5;
+    padding-top:55px;
 }
 
 .seeds {
-    position:relative;
+    position:absolute;
+    left:0;
+    bottom:10px;
+
+    width:100%;
+
     display:flex;
     justify-content:center;
     align-items:flex-end;
-    gap:6px;
+    gap:4px;
+
     z-index:2;
 }
 
 .seeds .seed {
     display:block;
-    width:9%;             /* ← 種も少し大きく */
+    width:8%;
     height:auto;
     object-fit:contain;
 }
@@ -482,8 +488,8 @@ button:active{
 .soil-bar {
     position:relative;
     width:100%;
-    height:12px;           /* ← 高さは元のまま */
-    margin-top:-1px;
+    height:12px;
+    margin-top:0;
 
     background:
         radial-gradient(
