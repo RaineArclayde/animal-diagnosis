@@ -577,56 +577,51 @@ button:active{
     }
 }
 
-
 /* ========================================
    17. Backボタン
 ======================================== */
 
 #back-btn {
-  width:360px;
-  height:90px;
+    width:360px;
+    height:90px;
 
-  border:none;
-  outline:none;
+    border:none;
+    outline:none;
 
-  background-image:url("./images/back-button.webp");
-  background-color:transparent;
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:center;
+    background-image:url("./images/back-button.webp");
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 
-  color:#331700;
-  font-family:inherit;
-  font-size:22px;
-  font-weight:bold;
+    color:#331700;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    font-family:inherit;
+    font-size:22px;
+    font-weight:bold;
 
-  padding:10px 0 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  margin:35px 8% 0 auto;
+    padding:10px 0 0;
 
-  cursor:pointer;
+    /* 少し右寄り */
+    margin:35px 8% 0 auto;
 
-  position:relative;
-  z-index:10;
+    cursor:pointer;
+
+    position:relative;
+    z-index:10;
 }
-
-/* ホバー */
 
 #back-btn:hover{
     transform:scale(1.03);
 }
 
-
-/* クリック */
-
 #back-btn:active{
     transform:scale(.98);
 }
-
 
 /* ========================================
    18. 質問切り替えアニメーション
@@ -1205,9 +1200,7 @@ button:active{
         margin:20px auto 0;
         transform:none;
     }
-}
-
-  .seeds {
+       .seeds {
 
     gap:2px;
 
@@ -1218,48 +1211,29 @@ button:active{
     width:8%;
 
   }
+}
 
-  .soil-bar {
+/* -------------------------------
+   Back
+------------------------------- */
 
-    height:12px;
-
-  }
-
-  #back-btn {
-
+@media (max-width:600px) {
+   #back-btn{
     width:280px;
-
     height:80px;
 
     margin:15px auto 0;
 
     padding:8px 0 0;
 
+    background-size:contain;
+    background-position:center;
+
     font-size:18px;
-
-  }
-
 }
+ } 
 
-
-    /* -------------------------------
-       Back
-    ------------------------------- */
-
-    #back-btn{
-        width:280px;
-        height:80px;
-
-        margin:15px auto 0;
-
-        padding:8px 0 0;
-
-        background-size:contain;
-        background-position:center;
-
-        font-size:18px;
-    }
-
+  
 
     /* -------------------------------
        結果画面
