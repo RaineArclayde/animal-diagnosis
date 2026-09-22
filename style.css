@@ -583,49 +583,35 @@ button:active{
 ======================================== */
 
 #back-btn {
-
-  width:560px;
-
-  height:135px;
+  width:360px;
+  height:90px;
 
   border:none;
-
   outline:none;
 
   background-image:url("./images/back-button.webp");
-
   background-color:transparent;
-
   background-repeat:no-repeat;
-
   background-size:contain;
-
   background-position:center;
 
   color:#331700;
-
   font-family:inherit;
-
-  font-size:27px;
-
+  font-size:22px;
   font-weight:bold;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
-  padding:15px 0 0;
+  padding:10px 0 0;
 
-  margin:25px 30px 0 auto;
+  margin:35px 8% 0 auto;
 
   cursor:pointer;
 
   position:relative;
-
   z-index:10;
-
 }
 
 /* ホバー */
