@@ -500,6 +500,12 @@ button:active{
     cursor:pointer;
 }
 
+@media (min-width:601px){
+    #choices button.question6-choice2{
+        font-size:17px !important;
+    }
+}
+
 #choices button.choice-a{
     background-image:url("images/choice-frame-a.webp");
 }
