@@ -243,25 +243,21 @@ function showQuestion(growIndex = -1) {
 
     // 2つ目 → B
 
-    if (index === 0) {
+    if(index === 0){
+    button.classList.add("choice-a");
+}else{
+    button.classList.add("choice-b");
 
-        button.classList.add("choice-a");
-
-    } else {
-
-        button.classList.add("choice-b");
-
-        // PCのみ
-
-        // 6問目・9問目のBだけ文字を小さくする
-
-        if (currentQuestion === 5 || currentQuestion === 8) {
-
-            button.classList.add("small-choice-b");
-
-        }
-
+    // 6問目
+    if(currentQuestion === 5){
+        button.classList.add("small-choice-b");
     }
+
+    // 9問目
+    if(currentQuestion === 8){
+        button.classList.add("smaller-choice-b");
+    }
+}
         // --------------------------------
         // 回答クリック
         // --------------------------------
