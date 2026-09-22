@@ -513,11 +513,18 @@ button:active{
 }
 
 @media (min-width:601px){
+
+    /* 6問目 B */
     #choices button.small-choice-b{
         font-size:19px !important;
     }
-}
 
+    /* 9問目 B */
+    #choices button.smaller-choice-b{
+        font-size:17px !important;
+    }
+
+}
 
 /* ========================================
    15. 成長する進捗UI
