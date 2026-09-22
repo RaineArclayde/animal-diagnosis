@@ -331,6 +331,16 @@ function showQuestion(growIndex = -1) {
 
 }
 
+// =========================
+// 右下メニュー
+// =========================
+
+const quizMenu = document.getElementById("quiz-menu");
+const menuToggle = document.getElementById("menu-toggle");
+
+menuToggle.addEventListener("click", () => {
+    quizMenu.classList.toggle("open");
+});
 
 // ========================================
 // 結果表示
