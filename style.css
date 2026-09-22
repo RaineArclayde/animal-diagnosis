@@ -1186,7 +1186,7 @@ button:active{
     max-width:400px;
     height:90px;
     margin:20px auto 0;
-    transform:translateY(-48px);
+    transform:translateY(-55px);
 }
 
     .seeds{
@@ -1213,7 +1213,7 @@ button:active{
     #back-btn{
     width:280px;
     height:80px;
-    margin:-60px auto 0;
+    margin:-60px 2% 0 auto;
     padding:8px 0 0;
     background-size:contain;
     background-position:center;
