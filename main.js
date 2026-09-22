@@ -233,29 +233,35 @@ function showQuestion(growIndex = -1) {
     choicesElement.innerHTML = "";
 
 
-    q.choices.forEach((choice, index) => {
+   q.choices.forEach((choice, index) => {
 
-        const button = document.createElement("button");
+    const button = document.createElement("button");
 
-        button.textContent = choice.text;
+    button.textContent = choice.text;
 
+    // 1つ目 → A
 
-        // 1つ目 → A
-        // 2つ目 → B
-        if (index === 0) {
+    // 2つ目 → B
 
-    button.classList.add("choice-a");
+    if (index === 0) {
 
-} else {
+        button.classList.add("choice-a");
 
-    button.classList.add("choice-b");
+    } else {
 
-    if (currentQuestion === 5 || currentQuestion === 8) {
-    button.classList.add("small-choice-b");
-}
+        button.classList.add("choice-b");
 
-}
+        // PCのみ
 
+        // 6問目・9問目のBだけ文字を小さくする
+
+        if (currentQuestion === 5 || currentQuestion === 8) {
+
+            button.classList.add("small-choice-b");
+
+        }
+
+    }
         // --------------------------------
         // 回答クリック
         // --------------------------------
