@@ -1181,17 +1181,13 @@ button:active{
     ------------------------------- */
 
     #growth-progress{
-        position:relative;
-
-        width:85%;
-        max-width:400px;
-
-        height:90px;
-
-        margin:20px auto 0;
-
-        transform:none;
-    }
+    position:relative;
+    width:68%;
+    max-width:400px;
+    height:90px;
+    margin:20px auto 0;
+    transform:none;
+}
 
     .seeds{
         gap:2px;
