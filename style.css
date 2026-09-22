@@ -1186,12 +1186,16 @@ button:active{
     max-width:400px;
     height:90px;
     margin:20px auto 0;
-    transform:translateY(-38px);
+    transform:translateY(-48px);
 }
 
     .seeds{
         gap:2px;
     }
+
+   .seeds{
+    bottom:2px;
+}
 
     .seeds .seed{
         width:8%;
