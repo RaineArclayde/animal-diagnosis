@@ -244,14 +244,18 @@ function showQuestion(growIndex = -1) {
         // 2つ目 → B
         if (index === 0) {
 
-            button.classList.add("choice-a");
+    button.classList.add("choice-a");
 
-        } else {
+} else {
 
-            button.classList.add("choice-b");
+    button.classList.add("choice-b");
 
-        }
+    // 6問目の2つ目の選択肢だけ文字を小さくする
+    if (currentQuestion === 5) {
+        button.classList.add("question6-choice2");
+    }
 
+}
 
         // --------------------------------
         // 回答クリック
