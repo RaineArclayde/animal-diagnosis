@@ -1186,7 +1186,7 @@ button:active{
     max-width:400px;
     height:90px;
     margin:20px auto 0;
-    transform:none;
+    transform:translateY(-38px);
 }
 
     .seeds{
