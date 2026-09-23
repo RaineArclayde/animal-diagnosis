@@ -189,6 +189,9 @@ function showQuestion(growIndex = -1) {
 }else if(currentQuestion === 7 && window.innerWidth <= 600){
     questionElement.innerHTML = "二つの道のどちらを選ぶか、<br>仲間と意見が分かれた。";
 
+}else if(currentQuestion === 9 && window.innerWidth <= 600){
+    questionElement.innerHTML = "明日の旅について、<br>まだ何も決まっていない。";
+
 }else{
     questionElement.textContent = q.question;
 }
