@@ -249,10 +249,10 @@ function showQuestion(growIndex = -1) {
 
     // 2つ目 → B
 
-    if(index === 0){
+   if(index === 0){
     button.classList.add("choice-a");
 
-    // 1問目 Aだけ少し小さくする
+    // 1問目 A
     if(currentQuestion === 0){
         button.classList.add("first-question-a");
     }
@@ -260,10 +260,17 @@ function showQuestion(growIndex = -1) {
 }else{
     button.classList.add("choice-b");
 
+    // 1問目 B
+    if(currentQuestion === 0){
+        button.classList.add("first-question-b");
+    }
+
+    // 6問目・12問目 B
     if(currentQuestion === 5 || currentQuestion === 11){
         button.classList.add("small-choice-b");
     }
 
+    // 9問目 B
     if(currentQuestion === 8){
         button.classList.add("smaller-choice-b");
     }
