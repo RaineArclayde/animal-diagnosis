@@ -1226,10 +1226,11 @@ button:active{
 }
    @media (max-width:600px){
     #question.question-5{
-        font-size:15px;
+        width:95%;
+        max-width:95%;
+        font-size:18px;
     }
 }
-
 
     /* -------------------------------
        選択肢
