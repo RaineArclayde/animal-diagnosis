@@ -202,6 +202,13 @@ if(currentQuestion === 4){
     questionElement.classList.add("question-5");
 }
 
+questionElement.classList.remove("question-7");
+
+if(currentQuestion === 6){
+    questionElement.classList.add("question-7");
+}
+
+    
     // ------------------------------------
     // 問題数
     // ------------------------------------
