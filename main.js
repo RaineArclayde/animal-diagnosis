@@ -173,9 +173,10 @@ function showQuestion(growIndex = -1) {
 
     questionElement.textContent = q.question;
 
-    questionElement.classList.remove("question-2");
-if(currentQuestion === 1){
-    questionElement.classList.add("question-2");
+   if(currentQuestion === 1 && window.innerWidth <= 600){
+    questionElement.innerHTML = "長い旅の途中、<br>あなたは一人で過ごす時間を得た。";
+}else{
+    questionElement.textContent = q.question;
 }
     
     if(currentQuestion === 0){
