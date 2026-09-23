@@ -1255,6 +1255,12 @@ button:active{
         transform:translateY(0);
     }
 
+   @media (max-width:600px){
+    #choices button.first-question-a{
+        font-size:14px;
+    }
+}
+
 
     /* -------------------------------
        進捗バー
