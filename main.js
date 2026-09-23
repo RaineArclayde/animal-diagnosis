@@ -274,9 +274,19 @@ if(currentQuestion === 4){
    if(index === 0){
     button.classList.add("choice-a");
 
-    // 1問目・3問目・4問目 A
+    // 1・3・4・5問目 A
 
-    if(currentQuestion === 0 || currentQuestion === 2 || currentQuestion === 3){
+    if(
+
+        currentQuestion === 0 ||
+
+        currentQuestion === 2 ||
+
+        currentQuestion === 3 ||
+
+        currentQuestion === 4
+
+    ){
 
         button.classList.add("first-question-a");
 
