@@ -196,6 +196,11 @@ function showQuestion(growIndex = -1) {
     questionElement.classList.remove("first-question");
 }
 
+questionElement.classList.remove("question-5");
+
+if(currentQuestion === 4){
+    questionElement.classList.add("question-5");
+}
 
     // ------------------------------------
     // 問題数
