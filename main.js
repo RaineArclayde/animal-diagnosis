@@ -265,9 +265,12 @@ function showQuestion(growIndex = -1) {
    if(index === 0){
     button.classList.add("choice-a");
 
-    // 1問目・3問目 A
-    if(currentQuestion === 0 || currentQuestion === 2){
+    // 1問目・3問目・4問目 A
+
+    if(currentQuestion === 0 || currentQuestion === 2 || currentQuestion === 3){
+
         button.classList.add("first-question-a");
+
     }
 
 }else{
