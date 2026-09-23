@@ -165,24 +165,6 @@ button:active{
     overflow:hidden;
 }
 
-#start-screen h1{
-    margin-bottom:35px;
-
-    font-size:42px;
-    color:var(--title);
-}
-
-#start-screen p{
-    margin:35px 0;
-
-    color:var(--brown);
-
-    font-size:18px;
-    line-height:2;
-    letter-spacing:1px;
-}
-
-
 /* スタートボタン */
 
 #start-btn{
