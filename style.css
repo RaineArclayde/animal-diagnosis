@@ -1262,12 +1262,14 @@ button:active{
         font-size:14px;
     }
 
-    /* 1・2問目 B */
-
-    #choices button.small-sp-choice-b{
-
+    /* 1問目 B */
+    #choices button.first-question-b{
         font-size:13px;
+    }
 
+    /* 2問目 B */
+    #choices button.second-question-b{
+        font-size:12px;
     }
 
 }
