@@ -266,9 +266,12 @@ function showQuestion(growIndex = -1) {
 }else{
     button.classList.add("choice-b");
 
-    // 1問目 B
-    if(currentQuestion === 0){
-        button.classList.add("first-question-b");
+    // 1・2問目 B
+
+    if(currentQuestion === 0 || currentQuestion === 1){
+
+        button.classList.add("small-sp-choice-b");
+
     }
 
     // 6問目・12問目 B
