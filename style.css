@@ -1256,9 +1256,17 @@ button:active{
     }
 
    @media (max-width:600px){
+
+    /* 1問目 A */
     #choices button.first-question-a{
         font-size:14px;
     }
+
+    /* 1問目 B */
+    #choices button.first-question-b{
+        font-size:13px;
+    }
+
 }
 
 
