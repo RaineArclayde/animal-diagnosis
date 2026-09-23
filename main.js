@@ -298,6 +298,10 @@ q.choices.forEach((choice,index)=>{
             button.classList.add("sixth-question-a");
         }
 
+        if(currentQuestion === 8){
+    button.classList.add("ninth-question-a");
+}
+
     }else{
         button.classList.add("choice-b");
 
