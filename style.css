@@ -1282,6 +1282,14 @@ button:active{
     #choices button.sixth-question-a{
         font-size:13px;
     }
+   
+    /* 6問目 B */
+
+    #choices button.sixth-question-b{
+
+        font-size:11px;
+
+    }
 }
 
     /* -------------------------------
