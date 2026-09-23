@@ -310,6 +310,9 @@ q.choices.forEach((choice,index)=>{
     button.classList.add("sixth-question-b");
 }
 
+        if(currentQuestion === 6){
+    button.classList.add("seventh-question-b");
+}
         // 6・12問目 B → PC用17px
         if(currentQuestion === 5 || currentQuestion === 11){
             button.classList.add("small-choice-b");
