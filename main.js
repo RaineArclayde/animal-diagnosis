@@ -248,12 +248,12 @@ function showQuestion(growIndex = -1) {
 }else{
     button.classList.add("choice-b");
 
-    // 6問目
-    if(currentQuestion === 5){
+    // 6問目・12問目 B
+    if(currentQuestion === 5 || currentQuestion === 11){
         button.classList.add("small-choice-b");
     }
 
-    // 9問目
+    // 9問目 B
     if(currentQuestion === 8){
         button.classList.add("smaller-choice-b");
     }
