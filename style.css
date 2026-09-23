@@ -208,28 +208,31 @@ button:active{
     max-width:100%;
 }
 
-#start-btn span{
-    position:absolute;
+#start-btn{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-    top:47%;
-    left:50%;
+    width:100%;
+    margin:auto;
+    padding:0;
 
-    transform:translate(-50%,-50%);
+    background:none;
+    border:none;
+}
 
-    color:#F1EEA2;
+#start-btn img:first-child{
+    display:block;
+    width:380px;
+    max-width:80%;
+}
 
-    text-shadow:2px 2px 4px rgba(0,0,0,.4);
-
-    font-family:
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-
-    font-size:22px;
-    font-weight:bold;
-    letter-spacing:2px;
-
-    pointer-events:none;
+#start-btn .start-button-label{
+    display:block;
+    width:230px;
+    max-width:60%;
+    margin-top:15px;
 }
 
 #start-btn:hover{
