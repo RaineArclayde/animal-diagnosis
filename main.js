@@ -179,6 +179,9 @@ function showQuestion(growIndex = -1) {
 }else if(currentQuestion === 2 && window.innerWidth <= 600){
     questionElement.innerHTML = "初めて訪れた街で、<br>あなたは新しい仲間を探している";
 
+}else if(currentQuestion === 3 && window.innerWidth <= 600){
+    questionElement.innerHTML = "見知らぬ森への分かれ道。<br>あなたならどちらへ進む？";
+
 }else{
     questionElement.textContent = q.question;
 }
