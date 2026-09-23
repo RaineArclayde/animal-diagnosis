@@ -278,15 +278,15 @@ q.choices.forEach((choice,index)=>{
     if(index === 0){
         button.classList.add("choice-a");
 
-        // 1・3・4・5問目 A → 14px
         if(
-            currentQuestion === 0 ||
-            currentQuestion === 2 ||
-            currentQuestion === 3 ||
-            currentQuestion === 4
-        ){
-            button.classList.add("first-question-a");
-        }
+    currentQuestion === 0 ||
+    currentQuestion === 2 ||
+    currentQuestion === 3 ||
+    currentQuestion === 4 ||
+    currentQuestion === 7
+){
+    button.classList.add("first-question-a");
+}
 
         // 6問目 A → 13px
         if(currentQuestion === 5){
