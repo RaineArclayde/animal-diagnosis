@@ -145,8 +145,18 @@ button:active{
 ======================================== */
 
 #start-screen{
+    width:100%;
+    height:100dvh;
+
     padding:60px 30px;
+
     text-align:center;
+
+    background-image:url("images/start_background.webp");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
     overflow:hidden;
 }
 
@@ -155,8 +165,10 @@ button:active{
 
 #start-book img{
     display:block;
+
     width:400px;
     max-width:80%;
+
     margin:0 auto;
 }
 
@@ -169,16 +181,19 @@ button:active{
     align-items:center;
 
     width:100%;
+
     margin:15px auto 0;
     padding:0;
 
     background:none;
     border:none;
+
     cursor:pointer;
 }
 
 #start-btn img{
     display:block;
+
     width:230px;
     max-width:60%;
 }
@@ -193,7 +208,6 @@ button:active{
 #start-btn:active{
     transform:scale(.96);
 }
-
 /* =========================
    質問画面：右下メニュー
 ========================= */
