@@ -286,13 +286,29 @@ q.choices.forEach((choice,index)=>{
    const button = document.createElement("button");
 
 if(currentQuestion === 8 && index === 1 && window.innerWidth <= 600){
-    button.innerHTML = "失敗した原因を整理し、<br>次に同じことが起きない方法を考える";
+
+    button.innerHTML =
+        "失敗した原因を整理し、<br>次に同じことが起きない方法を考える";
 
 }else if(currentQuestion === 9 && index === 0 && window.innerWidth <= 600){
-    button.innerHTML = "そのときの気分や状況を見て、<br>行き先を決める";
+
+    button.innerHTML =
+        "そのときの気分や状況を見て、<br>行き先を決める";
+
+}else if(currentQuestion === 11 && index === 0 && window.innerWidth <= 600){
+
+    button.innerHTML =
+        "必要なものだけを持ち、<br>あとは旅の途中で考える";
+
+}else if(currentQuestion === 11 && index === 1 && window.innerWidth <= 600){
+
+    button.innerHTML =
+        "持ち物や道のりを確認し、<br>準備を整えてから出発する";
 
 }else{
+
     button.textContent = choice.text;
+
 }
 
     if(index === 0){
