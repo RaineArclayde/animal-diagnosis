@@ -262,8 +262,8 @@ function showQuestion(growIndex = -1) {
    if(index === 0){
     button.classList.add("choice-a");
 
-    // 1問目 A
-    if(currentQuestion === 0){
+    // 1問目・3問目 A
+    if(currentQuestion === 0 || currentQuestion === 2){
         button.classList.add("first-question-a");
     }
 
@@ -275,8 +275,8 @@ function showQuestion(growIndex = -1) {
         button.classList.add("first-question-b");
     }
 
-    // 2問目 B
-    if(currentQuestion === 1){
+    // 2問目・3問目 B
+    if(currentQuestion === 1 || currentQuestion === 2){
         button.classList.add("second-question-b");
     }
 
