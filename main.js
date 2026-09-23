@@ -286,6 +286,9 @@ if(currentQuestion === 4){
 
         currentQuestion === 4
 
+    if(currentQuestion === 5){
+    button.classList.add("sixth-question-a");
+}
     ){
 
         button.classList.add("first-question-a");
@@ -300,17 +303,21 @@ if(currentQuestion === 4){
         button.classList.add("first-question-b");
     }
 
-    // 2問目・3問目 B
-    if(currentQuestion === 1 || currentQuestion === 2){
+    // 2・3・6問目 B → 12px
+    if(
+        currentQuestion === 1 ||
+        currentQuestion === 2 ||
+        currentQuestion === 5
+    ){
         button.classList.add("second-question-b");
     }
 
-    // 6問目・12問目 B
+    // 6・12問目 B → PC用17px
     if(currentQuestion === 5 || currentQuestion === 11){
         button.classList.add("small-choice-b");
     }
 
-    // 9問目 B
+    // 9問目 B → PC用14px
     if(currentQuestion === 8){
         button.classList.add("smaller-choice-b");
     }
