@@ -332,55 +332,10 @@ q.choices.forEach((choice,index)=>{
     choicesElement.appendChild(button);
 });
     
-        // --------------------------------
-        // 回答クリック
-        // --------------------------------
 
-        button.onclick = () => {
-
-            // 回答を記録
-            answerHistory.push(choice.type);
-
-            // MBTIスコアを加算
-            scores[choice.type]++;
-
-
-            // 次の質問へ
-            currentQuestion++;
-
-
-            // --------------------------------
-            // まだ質問が残っている場合
-            // --------------------------------
-
-            if (currentQuestion < questions.length) {
-
-                const container =
-                    document.getElementById(
-                        "question-container"
-                    );
-
-
-                // フェードアウト
-                container.classList.add("fade-out");
-
-
-                setTimeout(() => {
-
-                    container.classList.remove("fade-out");
-
-
-                    // 今答えた問題の種を育てる
-                    showQuestion(currentQuestion - 1);
-
-                }, 300);
-
-
-            } else {
-
-                // --------------------------------
-                // 全問終了
-                // --------------------------------
+// --------------------------------
+// 全問終了
+// --------------------------------
 
                 showResult();
 
