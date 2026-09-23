@@ -210,6 +210,7 @@ questionElement.classList.remove("question-7");
 if(currentQuestion === 6){
     questionElement.classList.add("question-7");
 }
+
 questionElement.classList.remove("question-9");
 
 if(currentQuestion === 8){
