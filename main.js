@@ -278,7 +278,12 @@ if(currentQuestion === 8){
 
 q.choices.forEach((choice,index)=>{
     const button = document.createElement("button");
+
+if(currentQuestion === 8 && index === 1 && window.innerWidth <= 600){
+    button.innerHTML = "失敗した原因を整理し、<br>次に同じことが起きない方法を考える";
+}else{
     button.textContent = choice.text;
+}
 
     if(index === 0){
         button.classList.add("choice-a");
