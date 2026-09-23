@@ -463,7 +463,6 @@ button:active{
     text-align:center;
 }
 
-
 /* ========================================
    14. 選択肢
 ======================================== */
@@ -1219,6 +1218,12 @@ button:active{
         align-items:center;
         justify-content:center;
     }
+
+   @media (max-width:600px){
+    #question.first-question{
+        font-size:17px;
+    }
+}
 
 
     /* -------------------------------
