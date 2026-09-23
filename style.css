@@ -1295,6 +1295,12 @@ button:active{
         font-size:11px;
 
     }
+
+   #choices button.seventh-question-b{
+
+        font-size:13px;
+
+    }
 }
 
     /* -------------------------------
