@@ -186,6 +186,9 @@ function showQuestion(growIndex = -1) {
 
     questionElement.innerHTML = "旅の途中、<br>予定にはなかった小さな村を見つけた。";
 
+}else if(currentQuestion === 7 && window.innerWidth <= 600){
+    questionElement.innerHTML = "二つの道のどちらを選ぶか、<br>仲間と意見が分かれた。";
+
 }else{
     questionElement.textContent = q.question;
 }
