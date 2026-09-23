@@ -181,6 +181,10 @@ function showQuestion(growIndex = -1) {
 
 }else if(currentQuestion === 3 && window.innerWidth <= 600){
     questionElement.innerHTML = "見知らぬ森への分かれ道。<br>あなたならどちらへ進む？";
+       
+}else if(currentQuestion === 4 && window.innerWidth <= 600){
+
+    questionElement.innerHTML = "旅の途中、<br>予定にはなかった小さな村を見つけた。";
 
 }else{
     questionElement.textContent = q.question;
