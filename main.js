@@ -172,6 +172,12 @@ function showQuestion(growIndex = -1) {
     // ------------------------------------
 
     questionElement.textContent = q.question;
+    
+    if(currentQuestion === 0){
+    questionElement.classList.add("first-question");
+}else{
+    questionElement.classList.remove("first-question");
+}
 
 
     // ------------------------------------
