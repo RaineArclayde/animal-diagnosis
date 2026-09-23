@@ -1263,7 +1263,7 @@ button:active{
 
    @media (max-width:600px){
 
-    /* 1問目 A */
+    /* 1・3・4・5問目 A */
     #choices button.first-question-a{
         font-size:14px;
     }
@@ -1273,13 +1273,16 @@ button:active{
         font-size:13px;
     }
 
-    /* 2問目 B */
+    /* 2・3・6問目 B */
     #choices button.second-question-b{
         font-size:12px;
     }
 
+    /* 6問目 A */
+    #choices button.sixth-question-a{
+        font-size:13px;
+    }
 }
-
 
     /* -------------------------------
        進捗バー
