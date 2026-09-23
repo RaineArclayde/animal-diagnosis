@@ -1313,6 +1313,12 @@ button:active{
         font-size:12px;
 
     }
+     
+      #choices button.tenth-question-b{
+
+        font-size:13px;
+
+    }
 }
 
     /* -------------------------------
