@@ -175,6 +175,10 @@ function showQuestion(growIndex = -1) {
 
    if(currentQuestion === 1 && window.innerWidth <= 600){
     questionElement.innerHTML = "長い旅の途中、<br>あなたは一人で過ごす時間を得た。";
+
+}else if(currentQuestion === 2 && window.innerWidth <= 600){
+    questionElement.innerHTML = "初めて訪れた街で、<br>あなたは新しい仲間を探している";
+
 }else{
     questionElement.textContent = q.question;
 }
