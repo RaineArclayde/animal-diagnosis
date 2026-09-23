@@ -192,6 +192,9 @@ function showQuestion(growIndex = -1) {
 }else if(currentQuestion === 9 && window.innerWidth <= 600){
     questionElement.innerHTML = "明日の旅について、<br>まだ何も決まっていない。";
 
+}else if(currentQuestion === 11 && window.innerWidth <= 600){
+    questionElement.innerHTML = "長い旅へ出ることになった。<br>出発前のあなたは？";
+
 }else{
     questionElement.textContent = q.question;
 }
