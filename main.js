@@ -294,11 +294,14 @@ q.choices.forEach((choice,index)=>{
         // 2・3・6問目 B → 12px
         if(
             currentQuestion === 1 ||
-            currentQuestion === 2 ||
-            currentQuestion === 5
+            currentQuestion === 2 
         ){
             button.classList.add("second-question-b");
         }
+
+        if(currentQuestion === 5){
+    button.classList.add("sixth-question-b");
+}
 
         // 6・12問目 B → PC用17px
         if(currentQuestion === 5 || currentQuestion === 11){
