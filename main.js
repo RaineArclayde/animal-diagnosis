@@ -261,67 +261,77 @@ if(currentQuestion === 4){
     choicesElement.innerHTML = "";
 
 
-   q.choices.forEach((choice, index) => {
-
+q.choices.forEach((choice,index)=>{
     const button = document.createElement("button");
-
     button.textContent = choice.text;
 
-    // 1つ目 → A
+    if(index === 0){
+        button.classList.add("choice-a");
 
-    // 2つ目 → B
+        // 1・3・4・5問目 A → 14px
+        if(
+            currentQuestion === 0 ||
+            currentQuestion === 2 ||
+            currentQuestion === 3 ||
+            currentQuestion === 4
+        ){
+            button.classList.add("first-question-a");
+        }
 
-   if(index === 0){
-    button.classList.add("choice-a");
+        // 6問目 A → 13px
+        if(currentQuestion === 5){
+            button.classList.add("sixth-question-a");
+        }
 
-    // 1・3・4・5問目 A
+    }else{
+        button.classList.add("choice-b");
 
-    if(
+        // 1問目 B → 13px
+        if(currentQuestion === 0){
+            button.classList.add("first-question-b");
+        }
 
-        currentQuestion === 0 ||
+        // 2・3・6問目 B → 12px
+        if(
+            currentQuestion === 1 ||
+            currentQuestion === 2 ||
+            currentQuestion === 5
+        ){
+            button.classList.add("second-question-b");
+        }
 
-        currentQuestion === 2 ||
+        // 6・12問目 B → PC用17px
+        if(currentQuestion === 5 || currentQuestion === 11){
+            button.classList.add("small-choice-b");
+        }
 
-        currentQuestion === 3 ||
-
-        currentQuestion === 4
-
-    if(currentQuestion === 5){
-    button.classList.add("sixth-question-a");
-}
-    ){
-
-        button.classList.add("first-question-a");
-
+        // 9問目 B → PC用14px
+        if(currentQuestion === 8){
+            button.classList.add("smaller-choice-b");
+        }
     }
 
-}else{
-    button.classList.add("choice-b");
+    button.onclick = ()=>{
+        answerHistory.push(choice.type);
+        scores[choice.type]++;
+        currentQuestion++;
 
-    // 1問目 B
-    if(currentQuestion === 0){
-        button.classList.add("first-question-b");
-    }
+        if(currentQuestion < questions.length){
+            const container = document.getElementById("question-container");
+            container.classList.add("fade-out");
 
-    // 2・3・6問目 B → 12px
-    if(
-        currentQuestion === 1 ||
-        currentQuestion === 2 ||
-        currentQuestion === 5
-    ){
-        button.classList.add("second-question-b");
-    }
+            setTimeout(()=>{
+                container.classList.remove("fade-out");
+                showQuestion(currentQuestion - 1);
+            },300);
+        }else{
+            showResult();
+        }
+    };
 
-    // 6・12問目 B → PC用17px
-    if(currentQuestion === 5 || currentQuestion === 11){
-        button.classList.add("small-choice-b");
-    }
-
-    // 9問目 B → PC用14px
-    if(currentQuestion === 8){
-        button.classList.add("smaller-choice-b");
-    }
-}
+    choicesElement.appendChild(button);
+});
+    
         // --------------------------------
         // 回答クリック
         // --------------------------------
