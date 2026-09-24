@@ -1535,7 +1535,7 @@ button:active{
 
    @media (max-width:600px){
     #axis-result{
-        width:78%;
+        width:70%;
         margin-left:auto;
         margin-right:auto;
     }
