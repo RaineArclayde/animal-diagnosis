@@ -994,6 +994,20 @@ button:active{
     line-height:1.8;
 }
 
+@media (min-width:601px){
+
+    #compatibility-cards{
+        display:flex;
+        justify-content:center;
+        gap:20px;
+    }
+
+    .compatibility-card{
+        width:calc(50% - 10px);
+        margin-top:15px;
+    }
+
+}
 /* ========================================
    25. やり直す
 ======================================== */
