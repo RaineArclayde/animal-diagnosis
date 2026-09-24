@@ -100,7 +100,7 @@ const keywordContainer =
     document.getElementById("result-keywords");
 
 const compatibilityContainer =
-    document.getElementById("compatibility");
+    document.getElementById("compatibility-cards");
 
 const restartBtn = document.getElementById("restart-btn");
 const exitBtn = document.getElementById("exit-btn");
@@ -527,11 +527,46 @@ function showResult() {
 
 
     // ====================================
-    // 動物画像
-    // ====================================
+// 相性・結果用アイコン
+// ====================================
 
-    animalImage.src = animal.image;
-    animalImage.alt = animal.name;
+const animalIcons = {
+
+    fox: "images/キツネアイコン.webp",
+    rabbit: "images/うさぎアイコン.webp",
+    badger: "images/アナグマアイコン.webp",
+    duck: "images/アヒルアイコン.webp",
+
+    deerFemale: "images/メスジカアイコン.webp",
+    sheepChild: "images/子供ヒツジアイコン.webp",
+    squirrel: "images/りすアイコン.webp",
+    flyingSquirrel: "images/モモンガアイコン.webp",
+
+    snake: "images/ヘビアイコン.webp",
+    hedgehog: "images/ハリネズミアイコン.webp",
+    cat: "images/猫アイコン.webp",
+
+    // ヤギ → フェレット
+    goat: "images/フェレットアイコン.webp",
+
+    turtle: "images/カメアイコン.webp",
+    sheepAdult: "images/大人ヒツジアイコン.webp",
+    deerMale: "images/オスジカアイコン.webp",
+
+    // 鳥 → フラミンゴ
+    bird: "images/フラミンゴアイコン.webp"
+
+};
+
+
+// ====================================
+// あなたの動物
+// ====================================
+
+const animalKey = typeToAnimal[type];
+
+animalImage.src = animalIcons[animalKey];
+animalImage.alt = "";
 
 
     // ====================================
@@ -691,40 +726,39 @@ function showResult() {
 
 
     // ====================================
-    // 相性の良い動物
-    // ====================================
+// 相性の良い動物
+// ====================================
 
-    compatibilityContainer.innerHTML = "";
-
-
-    const compatibleTypes = compatibility[type];
+compatibilityContainer.innerHTML = "";
 
 
-    compatibleTypes.forEach(type => {
-
-        const animalKey = typeToAnimal[type];
-        const animalData = animals[animalKey];
+const compatibleTypes = compatibility[type];
 
 
-        compatibilityContainer.innerHTML += `
+compatibleTypes.forEach(compatibleType => {
 
-            <div class="compatibility-card">
+    const animalKey = typeToAnimal[compatibleType];
+    const animalData = animals[animalKey];
 
-                <h4>
-                    ${animalData.name}
-                </h4>
 
-                <p>
-                    ${animalData.description}
-                </p>
+    compatibilityContainer.innerHTML += `
 
-            </div>
+        <div class="compatibility-card">
 
-        `;
+            <img
+                src="${animalIcons[animalKey]}"
+                alt=""
+            >
 
-    });
+            <p>
+                ${animalData.description}
+            </p>
 
-}
+        </div>
+
+    `;
+
+});
 
 
 // ========================================
