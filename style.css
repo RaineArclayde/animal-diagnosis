@@ -166,8 +166,8 @@ button:active{
 #start-book img{
     display:block;
 
-    width:400px;
-    max-width:80%;
+    width:450px;
+    max-width:90%;
 
     margin:0 auto;
 }
@@ -182,7 +182,7 @@ button:active{
 
     width:100%;
 
-    margin:-65px auto 0;
+    margin:-30px auto 0;
     padding:0;
 
     background:none;
@@ -194,8 +194,8 @@ button:active{
 #start-btn img{
     display:block;
 
-    width:230px;
-    max-width:60%;
+    width:280px;
+    max-width:70%;
 }
 
 
