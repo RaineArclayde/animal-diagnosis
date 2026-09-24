@@ -1533,6 +1533,14 @@ button:active{
         font-size:14px;
     }
 
+   @media (max-width:600px){
+    #axis-result{
+        width:88%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
 
     /* -------------------------------
        4軸
