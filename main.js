@@ -532,29 +532,27 @@ function showResult() {
 
 const animalIcons = {
 
-    fox: "images/キツネアイコン.webp",
-    rabbit: "images/うさぎアイコン.webp",
-    badger: "images/アナグマアイコン.webp",
-    duck: "images/アヒルアイコン.webp",
+    fox: "images/icon-fox.webp",
+    rabbit: "images/icon-rabbit.webp",
+    badger: "images/icon-badger.webp",
+    duck: "images/icon-duck.webp",
 
-    deerFemale: "images/メスジカアイコン.webp",
-    sheepChild: "images/子供ヒツジアイコン.webp",
-    squirrel: "images/りすアイコン.webp",
-    flyingSquirrel: "images/モモンガアイコン.webp",
+    deerFemale: "images/icon-deer-female.webp",
+    sheepChild: "images/icon-sheep-child.webp",
+    squirrel: "images/icon-squirrel.webp",
+    flyingSquirrel: "images/icon-flying-squirrel.webp",
 
-    snake: "images/ヘビアイコン.webp",
-    hedgehog: "images/ハリネズミアイコン.webp",
-    cat: "images/猫アイコン.webp",
+    snake: "images/icon-snake.webp",
+    hedgehog: "images/icon-hedgehog.webp",
+    cat: "images/icon-cat.webp",
 
-    // ヤギ → フェレット
-    goat: "images/フェレットアイコン.webp",
+    goat: "images/icon-ferret.webp",
 
-    turtle: "images/カメアイコン.webp",
-    sheepAdult: "images/大人ヒツジアイコン.webp",
-    deerMale: "images/オスジカアイコン.webp",
+    turtle: "images/icon-turtle.webp",
+    sheepAdult: "images/icon-sheep-adult.webp",
+    deerMale: "images/icon-deer-male.webp",
 
-    // 鳥 → フラミンゴ
-    bird: "images/フラミンゴアイコン.webp"
+    bird: "images/icon-flamingo.webp"
 
 };
 
