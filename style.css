@@ -175,6 +175,7 @@ button:active{
 /* スタートボタン */
 
 #start-btn{
+    position:relative;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -188,6 +189,30 @@ button:active{
     border:none;
 
     cursor:pointer;
+}
+
+#start-btn span{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:#331700;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    white-space:nowrap;
+
+    pointer-events:none;
 }
 
 #start-book,
