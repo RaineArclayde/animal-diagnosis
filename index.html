@@ -264,139 +264,142 @@
     </section>
 
     
+   <!-- ====================================
+     結果画面
+==================================== -->
+
+<section
+    id="result-container"
+    class="hidden"
+>
+
     <!-- ====================================
-         結果画面
+         結果内容
     ==================================== -->
 
-    <section
-        id="result-container"
-        class="hidden"
+    <div id="result-label">
+        診断結果
+    </div>
+
+
+    <h2 id="result-title"></h2>
+
+
+    <!-- あなたの動物 -->
+
+    <img
+        id="animal-image"
+        src=""
+        alt=""
     >
 
-    <!-- ====================================
-             結果内容
-    ==================================== -->
 
-        <div id="result-label">
-            診断結果
-        </div>
+    <div id="result-keywords"></div>
 
 
-        <h2 id="result-title"></h2>
+    <div id="result-text"></div>
 
 
-        <img
-            id="animal-image"
-            src=""
-            alt=""
-        >
+    <!-- =================================
+         4軸
+    ================================== -->
 
+    <div id="axis-result">
 
-        <div id="result-keywords"></div>
+        <div class="axis-item">
 
-
-        <div id="result-text"></div>
-
-
-        <!-- =================================
-             4軸
-        ================================== -->
-
-        <div id="axis-result">
-
-
-            <div class="axis-item">
-
-                <div class="axis-label">
-                    <span>旅立ちの性質</span>
-                    <span>静寂の性質</span>
-                </div>
-
-                <div class="axis-bar">
-
-                    <div
-                        class="axis-point"
-                        id="axis-activity"
-                    ></div>
-
-                </div>
-
+            <div class="axis-label">
+                <span>旅立ちの性質</span>
+                <span>静寂の性質</span>
             </div>
 
+            <div class="axis-bar">
 
-            <div class="axis-item">
-
-                <div class="axis-label">
-                    <span>未知の性質</span>
-                    <span>大地の性質</span>
-                </div>
-
-                <div class="axis-bar">
-
-                    <div
-                        class="axis-point"
-                        id="axis-exploration"
-                    ></div>
-
-                </div>
+                <div
+                    class="axis-point"
+                    id="axis-activity"
+                ></div>
 
             </div>
-
-
-            <div class="axis-item">
-
-                <div class="axis-label">
-                    <span>心の性質</span>
-                    <span>知恵の性質</span>
-                </div>
-
-                <div class="axis-bar">
-
-                    <div
-                        class="axis-point"
-                        id="axis-empathy"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="axis-item">
-
-                <div class="axis-label">
-                    <span>風の性質</span>
-                    <span>道標の性質</span>
-                </div>
-
-                <div class="axis-bar">
-
-                    <div
-                        class="axis-point"
-                        id="axis-adaptability"
-                    ></div>
-
-                </div>
-
-            </div>
-
 
         </div>
 
 
-        <!-- =================================
-             相性
-        ================================== -->
+        <div class="axis-item">
 
-        <div id="compatibility">
+            <div class="axis-label">
+                <span>未知の性質</span>
+                <span>大地の性質</span>
+            </div>
 
-            <h3>
-                相性の良いモチーフアニマル
-            </h3>
+            <div class="axis-bar">
+
+                <div
+                    class="axis-point"
+                    id="axis-exploration"
+                ></div>
+
+            </div>
 
         </div>
 
 
+        <div class="axis-item">
+
+            <div class="axis-label">
+                <span>心の性質</span>
+                <span>知恵の性質</span>
+            </div>
+
+            <div class="axis-bar">
+
+                <div
+                    class="axis-point"
+                    id="axis-empathy"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="axis-item">
+
+            <div class="axis-label">
+                <span>風の性質</span>
+                <span>道標の性質</span>
+            </div>
+
+            <div class="axis-bar">
+
+                <div
+                    class="axis-point"
+                    id="axis-adaptability"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         相性
+    ================================== -->
+
+    <div id="compatibility">
+
+        <h3 id="compatibility-title">
+            相性の良いモチーフアニマル
+        </h3>
+
+        <div id="compatibility-cards"></div>
+
+    </div>
+
+
+</section>
         <!-- =================================
              もう一度診断
         ================================== -->
