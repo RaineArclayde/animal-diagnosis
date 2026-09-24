@@ -1533,25 +1533,17 @@ button:active{
         font-size:14px;
     }
 
-   @media (max-width:600px){
-    #axis-result{
-        width:70%;
-        margin-left:auto;
-        margin-right:auto;
-    }
+
+   /* -------------------------------
+   4軸
+------------------------------- */
+
+#axis-result{
+    width:82%;
+    max-width:500px;
+
+    margin:35px auto;
 }
-
-
-    /* -------------------------------
-       4軸
-    ------------------------------- */
-
-    #axis-result{
-        width:100%;
-        max-width:500px;
-
-        margin:35px auto;
-    }
 
     .axis-item{
         margin:27px 0;
