@@ -929,41 +929,64 @@ button:active{
     top:50%;
     left:50%;
 
-    width:20px;
-    height:20px;
+    width:17px;
+    height:11px;
 
-    transform:translate(-50%,-50%) rotate(-18deg);
+    transform:translate(-50%,-50%) rotate(-28deg);
 
     background:var(--green);
 
-    border:2px solid var(--darkGreen);
+    border:1px solid var(--darkGreen);
 
-    border-radius:2px 12px 2px 12px;
+    border-radius:100% 0 100% 0;
 
     box-shadow:
-        2px 2px 0 rgba(106,76,37,.12);
+        0 1px 2px rgba(106,76,37,.12);
 
     transition:left .6s ease;
 }
+
+
+/* 葉の中央に細い葉脈 */
+
+.axis-point::before{
+    content:"";
+
+    position:absolute;
+
+    width:1px;
+    height:12px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) rotate(8deg);
+
+    background:var(--darkGreen);
+
+    opacity:.65;
+}
+
+
+/* 小さな茎 */
 
 .axis-point::after{
     content:"";
 
     position:absolute;
 
-    width:2px;
-    height:10px;
+    width:1px;
+    height:9px;
 
-    left:50%;
+    left:1px;
     bottom:-7px;
 
-    transform:translateX(-50%) rotate(20deg);
+    transform:rotate(-25deg);
 
     background:var(--brown);
 
-    border-radius:2px;
+    opacity:.7;
 }
-
 /* ========================================
    24. 相性動物
 ======================================== */
