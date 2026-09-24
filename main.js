@@ -759,7 +759,8 @@ compatibleTypes.forEach(compatibleType => {
     `;
 
 });
-
+    
+}  
 
 // ========================================
 // 診断終了
