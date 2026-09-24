@@ -973,12 +973,15 @@ button:active{
     border-radius:12px;
 }
 
-.compatibility-card h4{
-    margin:0;
+.compatibility-card img{
+    display:block;
 
-    color:var(--title);
+    width:150px;
+    height:150px;
 
-    font-size:22px;
+    object-fit:contain;
+
+    margin:0 auto 15px;
 }
 
 .compatibility-card p{
@@ -990,7 +993,6 @@ button:active{
 
     line-height:1.8;
 }
-
 
 /* ========================================
    25. やり直す
