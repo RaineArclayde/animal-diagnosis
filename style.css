@@ -190,6 +190,12 @@ button:active{
     cursor:pointer;
 }
 
+#start-book,
+#start-btn{
+    position:relative;
+    top:-80px;
+}
+
 #start-btn img{
     display:block;
 
