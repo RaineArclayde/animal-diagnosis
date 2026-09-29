@@ -938,47 +938,19 @@ button:active{
     position:absolute;
     top:50%;
     left:50%;
-    width:22px;
-    height:14px;
-    transform:translate(-50%,-50%) rotate(-32deg);
+    width:42px;
+    height:30px;
+    transform:translate(-50%,-50%) rotate(-8deg);
 
-    background:var(--green);
-    border:1px solid var(--darkGreen);
-    border-radius:100% 0 100% 0;
+    background-image:url("images/axis-leaf.webp");
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
 
-    box-shadow:1px 1px 2px rgba(106,76,37,.12);
+    border:none;
+    box-shadow:none;
+
     transition:left .6s ease;
-}
-
-/* 葉の中央の葉脈 */
-.axis-point::before{
-    content:"";
-    position:absolute;
-    left:2px;
-    top:50%;
-    width:18px;
-    height:1px;
-
-    background:var(--darkGreen);
-    opacity:.65;
-
-    transform:translateY(-50%) rotate(-8deg);
-}
-
-/* 茎 */
-.axis-point::after{
-    content:"";
-    position:absolute;
-    left:-5px;
-    bottom:-7px;
-
-    width:1px;
-    height:9px;
-
-    background:var(--brown);
-    opacity:.65;
-
-    transform:rotate(-25deg);
 }
 /* ========================================
    24. 相性動物
