@@ -890,7 +890,13 @@ button:active{
 .axis-item{
     margin:34px 0;
 }
-
+.axis-heading{
+    margin-bottom:8px;
+    color:var(--brown);
+    font-size:17px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
 .axis-label{
     display:flex;
 
@@ -1591,6 +1597,11 @@ button:active{
         font-size:16px;
     }
 
+   .axis-heading{
+    font-size:15px;
+    margin-bottom:7px;
+    letter-spacing:1.5px;
+}
 
     /* -------------------------------
        相性
