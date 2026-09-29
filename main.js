@@ -112,12 +112,17 @@ const exitBtn = document.getElementById("exit-btn");
 
 startBtn.onclick = () => {
 
-    startScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
 
     document.body.style.overflow = "hidden";
 
-    showQuestion();
+    startScreen.classList.add("page-turn");
+
+    setTimeout(() => {
+        startScreen.classList.add("hidden");
+        showQuestion();
+    }, 750);
+
 };
 
 
