@@ -1314,7 +1314,7 @@ button:active{
 
         background-size:100% 100%;
 
-        font-size:15px;
+        font-size:11px;
     }
 
     #choices button.choice-b{
@@ -1325,22 +1325,22 @@ button:active{
 
     /* 1・3・4・5問目 A */
     #choices button.first-question-a{
-        font-size:14px;
+        font-size:11px;
     }
 
     /* 1問目 B */
     #choices button.first-question-b{
-        font-size:13px;
+        font-size:11px;
     }
 
     /* 2・3・6問目 B */
     #choices button.second-question-b{
-        font-size:12px;
+        font-size:11px;
     }
 
     /* 6問目 A */
     #choices button.sixth-question-a{
-        font-size:12px;
+        font-size:11px;
     }
    
     /* 6問目 B */
@@ -1353,24 +1353,24 @@ button:active{
 
    #choices button.seventh-question-b{
 
-        font-size:13px;
+        font-size:11px;
 
     }
 
       #choices button.ninth-question-a{
 
-        font-size:12px;
+        font-size:11px;
 
     }
      
       #choices button.tenth-question-b{
 
-        font-size:13px;
+        font-size:11px;
 
     }
       #choices button.eleventh-question-b{
 
-        font-size:13px;
+        font-size:11px;
 
     }
 }
@@ -1649,7 +1649,7 @@ button:active{
 
     /* ここも100pxのまま */
     #choices button{
-        font-size:14px;
+        font-size:11px;
         height:100px;
     }
 
