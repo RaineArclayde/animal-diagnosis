@@ -116,12 +116,17 @@ startBtn.onclick = () => {
 
     document.body.style.overflow = "hidden";
 
+    // ページをめくる
     startScreen.classList.add("page-turn");
 
+    // めくり終わってからスタート画面を消す
     setTimeout(() => {
+
         startScreen.classList.add("hidden");
+
         showQuestion();
-    }, 750);
+
+    }, 850);
 
 };
 
