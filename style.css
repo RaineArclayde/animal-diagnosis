@@ -144,25 +144,113 @@ button:active{
    06. スタート画面
 ======================================== */
 
+/* ========================================
+   スタート → 質問画面
+   本をめくるアニメーション
+======================================== */
+
 #start-screen{
     position:relative;
     z-index:20;
+
     transform-origin:left center;
+    transform-style:preserve-3d;
     backface-visibility:hidden;
 }
 
 #start-screen.page-turn{
-    animation:bookPageTurn 0.75s ease-in-out forwards;
+    animation:bookPageTurn .85s cubic-bezier(.65,.05,.36,1) forwards;
 }
 
+
 @keyframes bookPageTurn{
+
     0%{
-        transform:perspective(1200px) rotateY(0deg);
+        transform:
+            perspective(1400px)
+            rotateY(0deg);
+        box-shadow:none;
+    }
+
+    25%{
+        transform:
+            perspective(1400px)
+            rotateY(-25deg);
+        box-shadow:
+            18px 0 25px rgba(67,76,31,.12);
+    }
+
+    55%{
+        transform:
+            perspective(1400px)
+            rotateY(-70deg);
+        box-shadow:
+            35px 0 45px rgba(67,76,31,.18);
+    }
+
+    80%{
+        transform:
+            perspective(1400px)
+            rotateY(-100deg);
+        box-shadow:
+            20px 0 30px rgba(67,76,31,.12);
     }
 
     100%{
-        transform:perspective(1200px) rotateY(-105deg);
+        transform:
+            perspective(1400px)
+            rotateY(-115deg);
+        box-shadow:none;
     }
+
+}
+
+#start-screen::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:var(--paper);
+
+    border:4px solid var(--beige);
+    border-radius:18px;
+
+    opacity:0;
+
+    pointer-events:none;
+    z-index:30;
+
+    transform:rotateY(180deg);
+    backface-visibility:visible;
+}
+
+#start-screen.page-turn::after{
+    animation:paperBack .85s ease-in-out forwards;
+}
+
+
+@keyframes paperBack{
+
+    0%{
+        opacity:0;
+    }
+
+    42%{
+        opacity:0;
+    }
+
+    55%{
+        opacity:.15;
+    }
+
+    70%{
+        opacity:.65;
+    }
+
+    100%{
+        opacity:1;
+    }
+
 }
 
 #start-screen{
