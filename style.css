@@ -158,49 +158,47 @@ button:active{
     backface-visibility:hidden;
 }
 
-#start-screen.page-turn{
-    animation:bookPageTurn .85s cubic-bezier(.65,.05,.36,1) forwards;
+/* ========================================
+   本をめくるアニメーション
+======================================== */
+
+#start-screen{
+    position:relative;
+    z-index:20;
+
+    transform-origin:left center;
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
 }
 
+#start-screen.page-turn{
+    animation:bookPageTurn .9s cubic-bezier(.4,0,.2,1) forwards;
+}
 
 @keyframes bookPageTurn{
 
     0%{
-        transform:
-            perspective(1400px)
-            rotateY(0deg);
-        box-shadow:none;
+        transform:perspective(1600px) rotateY(0deg);
     }
 
-    25%{
-        transform:
-            perspective(1400px)
-            rotateY(-25deg);
-        box-shadow:
-            18px 0 25px rgba(67,76,31,.12);
+    20%{
+        transform:perspective(1600px) rotateY(-12deg);
     }
 
-    55%{
-        transform:
-            perspective(1400px)
-            rotateY(-70deg);
-        box-shadow:
-            35px 0 45px rgba(67,76,31,.18);
+    45%{
+        transform:perspective(1600px) rotateY(-45deg);
     }
 
-    80%{
-        transform:
-            perspective(1400px)
-            rotateY(-100deg);
-        box-shadow:
-            20px 0 30px rgba(67,76,31,.12);
+    70%{
+        transform:perspective(1600px) rotateY(-82deg);
+    }
+
+    88%{
+        transform:perspective(1600px) rotateY(-103deg);
     }
 
     100%{
-        transform:
-            perspective(1400px)
-            rotateY(-115deg);
-        box-shadow:none;
+        transform:perspective(1600px) rotateY(-110deg);
     }
 
 }
