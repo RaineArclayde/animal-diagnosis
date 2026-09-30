@@ -126,7 +126,7 @@ startBtn.onclick = () => {
 
         showQuestion();
 
-    }, 850);
+    }, 1000);
 
 };
 const shareAnimalImage =
