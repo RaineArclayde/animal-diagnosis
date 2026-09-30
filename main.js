@@ -129,7 +129,14 @@ startBtn.onclick = () => {
     }, 850);
 
 };
+const shareAnimalImage =
+    document.getElementById("share-animal-image");
 
+const shareAnimalName =
+    document.getElementById("share-animal-name");
+
+const shareBtn =
+    document.getElementById("share-btn");
 
 // ========================================
 // やり直す
@@ -576,6 +583,10 @@ const animalKey = typeToAnimal[type];
 animalImage.src = animalIcons[animalKey];
 animalImage.alt = "";
 
+shareAnimalImage.src = animalIcons[animalKey];
+shareAnimalImage.alt = "";
+
+shareAnimalName.textContent = animal.name;
 
     // ====================================
     // 4軸バー
