@@ -162,95 +162,64 @@ button:active{
    本をめくるアニメーション
 ======================================== */
 
+
+
 #start-screen{
     position:relative;
     z-index:20;
-
     transform-origin:left center;
     transform-style:preserve-3d;
     backface-visibility:hidden;
 }
 
 #start-screen.page-turn{
-    animation:bookPageTurn .9s cubic-bezier(.4,0,.2,1) forwards;
+    animation:bookPageTurn 1.1s cubic-bezier(.65,0,.35,1) forwards;
 }
 
 @keyframes bookPageTurn{
 
     0%{
-        transform:perspective(1600px) rotateY(0deg);
+        transform:
+            perspective(1800px)
+            rotateY(0deg)
+            translateX(0);
     }
 
     20%{
-        transform:perspective(1600px) rotateY(-12deg);
+        transform:
+            perspective(1800px)
+            rotateY(-8deg)
+            translateX(-1%);
     }
 
     45%{
-        transform:perspective(1600px) rotateY(-45deg);
+        transform:
+            perspective(1800px)
+            rotateY(-35deg)
+            translateX(-3%);
     }
 
     70%{
-        transform:perspective(1600px) rotateY(-82deg);
+        transform:
+            perspective(1800px)
+            rotateY(-72deg)
+            translateX(-5%);
     }
 
     88%{
-        transform:perspective(1600px) rotateY(-103deg);
+        transform:
+            perspective(1800px)
+            rotateY(-100deg)
+            translateX(-6%);
     }
 
     100%{
-        transform:perspective(1600px) rotateY(-110deg);
+        transform:
+            perspective(1800px)
+            rotateY(-110deg)
+            translateX(-7%);
     }
-
 }
-
-#start-screen::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:var(--paper);
-
-    border:4px solid var(--beige);
-    border-radius:18px;
-
-    opacity:0;
-
-    pointer-events:none;
-    z-index:30;
-
-    transform:rotateY(180deg);
-    backface-visibility:visible;
-}
-
-#start-screen.page-turn::after{
-    animation:paperBack .85s ease-in-out forwards;
-}
-
-
-@keyframes paperBack{
-
-    0%{
-        opacity:0;
-    }
-
-    42%{
-        opacity:0;
-    }
-
-    55%{
-        opacity:.15;
-    }
-
-    70%{
-        opacity:.65;
-    }
-
-    100%{
-        opacity:1;
-    }
-
-}
-
 #start-screen{
     width:100%;
     height:100dvh;
