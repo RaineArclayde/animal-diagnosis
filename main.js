@@ -877,36 +877,47 @@ document
 // SNSシェア
 // ========================================
 
-const shareXBtn =
-    document.getElementById("share-x-btn");
+shareXBtn.onclick = () => {
 
-const shareInstagramBtn =
-    document.getElementById("share-instagram-btn");
+    const animalName =
+        shareAnimalName.textContent;
 
+    // Xの投稿画面を先に開く
+    const text =
+        `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`;
 
-// ========================================
-// SNSシェア
-// ========================================
+    const xUrl =
+        "https://twitter.com/intent/tweet?text=" +
+        encodeURIComponent(text);
 
-shareXBtn.onclick = async () => {
+    window.open(
+        xUrl,
+        "_blank",
+        "noopener,noreferrer"
+    );
 
-    await createAndShareResultImage();
+    // 診断結果画像を作成
+    createResultImage(true);
 
 };
 
 
-shareInstagramBtn.onclick = async () => {
+// ========================================
+// Instagram
+// ========================================
 
-    await createAndShareResultImage();
+shareInstagramBtn.onclick = () => {
+
+    createResultImage(false);
 
 };
 
 
 // ========================================
-// 診断結果画像を作成してシェア
+// 診断結果画像を作成
 // ========================================
 
-async function createAndShareResultImage() {
+function createResultImage(openInstagram) {
 
     const animalName =
         shareAnimalName.textContent;
@@ -916,6 +927,7 @@ async function createAndShareResultImage() {
 
     image.src =
         shareAnimalImage.src;
+
 
     image.onload = () => {
 
@@ -993,7 +1005,7 @@ async function createAndShareResultImage() {
 
 
         // --------------------------------
-        // 「あなたの旅の相棒は」
+        // キャッチコピー
         // --------------------------------
 
         ctx.fillStyle = "#434C1F";
@@ -1063,10 +1075,10 @@ async function createAndShareResultImage() {
 
 
         // --------------------------------
-        // PNG化
+        // PNGとして保存
         // --------------------------------
 
-        canvas.toBlob(async (blob) => {
+        canvas.toBlob((blob) => {
 
             if (!blob) {
 
@@ -1079,66 +1091,6 @@ async function createAndShareResultImage() {
             }
 
 
-            const file =
-                new File(
-                    [blob],
-                    "motif-animal-result.png",
-                    {
-                        type: "image/png"
-                    }
-                );
-
-
-            // --------------------------------
-            // 画像を直接共有できる場合
-            // --------------------------------
-
-            if (
-                navigator.share &&
-                navigator.canShare &&
-                navigator.canShare({
-                    files: [file]
-                })
-            ) {
-
-                try {
-
-                    await navigator.share({
-
-                        title:
-                            "モチーフアニマル診断",
-
-                        text:
-                            `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`,
-
-                        files: [file]
-
-                    });
-
-                } catch (error) {
-
-                    if (
-                        error.name !==
-                        "AbortError"
-                    ) {
-
-                        alert(
-                            "シェアできませんでした。"
-                        );
-
-                    }
-
-                }
-
-                return;
-
-            }
-
-
-            // --------------------------------
-            // 画像共有に対応していない場合
-            // --------------------------------
-
             const url =
                 URL.createObjectURL(blob);
 
@@ -1150,14 +1102,29 @@ async function createAndShareResultImage() {
             link.download =
                 "motif-animal-result.png";
 
+            document.body.appendChild(link);
+
             link.click();
+
+            document.body.removeChild(link);
 
             URL.revokeObjectURL(url);
 
 
-            alert(
-                "診断結果の画像を保存しました。\n保存した画像をXやInstagramに投稿できます。"
-            );
+            // Instagramの場合
+            if (openInstagram) {
+
+                setTimeout(() => {
+
+                    window.open(
+                        "https://www.instagram.com/",
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }, 500);
+
+            }
 
         }, "image/png");
 
@@ -1167,7 +1134,7 @@ async function createAndShareResultImage() {
     image.onerror = () => {
 
         alert(
-            "診断結果の画像を読み込めませんでした。"
+            "診断結果の画像を作成できませんでした。"
         );
 
     };
