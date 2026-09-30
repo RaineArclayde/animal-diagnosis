@@ -884,41 +884,38 @@ const shareInstagramBtn =
     document.getElementById("share-instagram-btn");
 
 
-// ----------------------------------------
-// Xでシェア
-// ----------------------------------------
+// ========================================
+// SNSシェア
+// ========================================
 
-shareXBtn.onclick = () => {
+shareXBtn.onclick = async () => {
 
-    const animalName =
-        shareAnimalName.textContent;
-
-    const text =
-        `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`;
-
-    const shareUrl =
-        "https://twitter.com/intent/tweet?text=" +
-        encodeURIComponent(text);
-
-    window.open(
-        shareUrl,
-        "_blank",
-        "noopener,noreferrer"
-    );
+    await createAndShareResultImage();
 
 };
 
 
-// ----------------------------------------
-// Instagramでシェア
-// ----------------------------------------
-
 shareInstagramBtn.onclick = async () => {
+
+    await createAndShareResultImage();
+
+};
+
+
+// ========================================
+// 診断結果画像を作成してシェア
+// ========================================
+
+async function createAndShareResultImage() {
 
     const animalName =
         shareAnimalName.textContent;
 
-    const image = new Image();
+    const image =
+        new Image();
+
+    image.src =
+        shareAnimalImage.src;
 
     image.onload = () => {
 
@@ -935,8 +932,12 @@ shareInstagramBtn.onclick = async () => {
         canvas.height = height;
 
 
+        // --------------------------------
         // 背景
+        // --------------------------------
+
         ctx.fillStyle = "#F8F5EA";
+
         ctx.fillRect(
             0,
             0,
@@ -945,7 +946,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
+        // --------------------------------
         // 外枠
+        // --------------------------------
+
         ctx.strokeStyle = "#BBA576";
         ctx.lineWidth = 5;
 
@@ -957,7 +961,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
+        // --------------------------------
         // タイトル
+        // --------------------------------
+
         ctx.textAlign = "center";
 
         ctx.fillStyle = "#6A4C25";
@@ -972,7 +979,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
-        // 動物
+        // --------------------------------
+        // 動物画像
+        // --------------------------------
+
         ctx.drawImage(
             image,
             width / 2 - 180,
@@ -982,7 +992,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
-        // 説明
+        // --------------------------------
+        // 「あなたの旅の相棒は」
+        // --------------------------------
+
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -995,7 +1008,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
+        // --------------------------------
         // 動物名
+        // --------------------------------
+
         ctx.fillStyle = "#331700";
 
         ctx.font =
@@ -1008,7 +1024,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
+        // --------------------------------
         // メッセージ
+        // --------------------------------
+
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -1027,7 +1046,10 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
-        // 下部
+        // --------------------------------
+        // 下部タイトル
+        // --------------------------------
+
         ctx.fillStyle = "#7D8F16";
 
         ctx.font =
@@ -1040,14 +1062,82 @@ shareInstagramBtn.onclick = async () => {
         );
 
 
-        // 画像として保存
-        canvas.toBlob((blob) => {
+        // --------------------------------
+        // PNG化
+        // --------------------------------
+
+        canvas.toBlob(async (blob) => {
 
             if (!blob) {
-                alert("シェア画像を作成できませんでした。");
+
+                alert(
+                    "シェア画像を作成できませんでした。"
+                );
+
                 return;
+
             }
 
+
+            const file =
+                new File(
+                    [blob],
+                    "motif-animal-result.png",
+                    {
+                        type: "image/png"
+                    }
+                );
+
+
+            // --------------------------------
+            // 画像を直接共有できる場合
+            // --------------------------------
+
+            if (
+                navigator.share &&
+                navigator.canShare &&
+                navigator.canShare({
+                    files: [file]
+                })
+            ) {
+
+                try {
+
+                    await navigator.share({
+
+                        title:
+                            "モチーフアニマル診断",
+
+                        text:
+                            `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`,
+
+                        files: [file]
+
+                    });
+
+                } catch (error) {
+
+                    if (
+                        error.name !==
+                        "AbortError"
+                    ) {
+
+                        alert(
+                            "シェアできませんでした。"
+                        );
+
+                    }
+
+                }
+
+                return;
+
+            }
+
+
+            // --------------------------------
+            // 画像共有に対応していない場合
+            // --------------------------------
 
             const url =
                 URL.createObjectURL(blob);
@@ -1065,20 +1155,8 @@ shareInstagramBtn.onclick = async () => {
             URL.revokeObjectURL(url);
 
 
-            // Instagramを開く
-            setTimeout(() => {
-
-                window.open(
-                    "https://www.instagram.com/",
-                    "_blank",
-                    "noopener,noreferrer"
-                );
-
-            }, 500);
-
-
             alert(
-                "診断結果の画像を保存しました！\nInstagramで画像を選んで投稿できます。"
+                "診断結果の画像を保存しました。\n保存した画像をXやInstagramに投稿できます。"
             );
 
         }, "image/png");
@@ -1086,7 +1164,12 @@ shareInstagramBtn.onclick = async () => {
     };
 
 
-    image.src =
-        shareAnimalImage.src;
+    image.onerror = () => {
 
-};
+        alert(
+            "診断結果の画像を読み込めませんでした。"
+        );
+
+    };
+
+}
