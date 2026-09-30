@@ -588,6 +588,131 @@ shareAnimalImage.alt = "";
 
 shareAnimalName.textContent = animal.name;
 
+shareBtn.onclick = async () => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const width = 900;
+    const height = 1200;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    // 背景
+    ctx.fillStyle = "#F8F5EA";
+    ctx.fillRect(0, 0, width, height);
+
+    // 外枠
+    ctx.strokeStyle = "#BBA576";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(35, 35, width - 70, height - 70);
+
+    // タイトル
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#6A4C25";
+    ctx.font = '28px "Yu Mincho", serif';
+    ctx.fillText("モチーフアニマル診断", width / 2, 100);
+
+    // 動物画像
+    const image = new Image();
+
+    image.onload = async () => {
+
+        ctx.drawImage(
+            image,
+            width / 2 - 180,
+            170,
+            360,
+            360
+        );
+
+        // 「あなたの旅の相棒は」
+        ctx.fillStyle = "#434C1F";
+        ctx.font = '30px "Yu Mincho", serif';
+        ctx.fillText("あなたの旅の相棒は", width / 2, 610);
+
+        // 動物名
+        ctx.fillStyle = "#331700";
+        ctx.font = 'bold 56px "Yu Mincho", serif';
+        ctx.fillText(shareAnimalName.textContent, width / 2, 690);
+
+        // メッセージ
+        ctx.fillStyle = "#434C1F";
+        ctx.font = '28px "Yu Mincho", serif';
+
+        ctx.fillText(
+            "あなたの旅の物語を",
+            width / 2,
+            790
+        );
+
+        ctx.fillText(
+            "一緒に歩むモチーフアニマル",
+            width / 2,
+            840
+        );
+
+        // 下部
+        ctx.fillStyle = "#7D8F16";
+        ctx.font = '22px "Yu Mincho", serif';
+        ctx.fillText(
+            "モチーフアニマル診断",
+            width / 2,
+            1060
+        );
+
+        canvas.toBlob(async (blob) => {
+
+            if (!blob) {
+                alert("シェア画像を作成できませんでした。");
+                return;
+            }
+
+            const file = new File(
+                [blob],
+                "motif-animal-result.png",
+                { type: "image/png" }
+            );
+
+            // スマホなど、画像シェアに対応している場合
+            if (
+                navigator.share &&
+                navigator.canShare &&
+                navigator.canShare({ files: [file] })
+            ) {
+                try {
+                    await navigator.share({
+                        title: "モチーフアニマル診断",
+                        text: `私の旅の相棒は「${shareAnimalName.textContent}」でした。`,
+                        files: [file]
+                    });
+                } catch (error) {
+                    // ユーザーが共有画面を閉じた場合は何もしない
+                    if (error.name !== "AbortError") {
+                        alert("シェアできませんでした。");
+                    }
+                }
+
+            } else {
+                // PCなど、画像シェアに対応していない場合
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+
+                link.href = url;
+                link.download = "motif-animal-result.png";
+                link.click();
+
+                URL.revokeObjectURL(url);
+
+                alert("シェア画像を保存しました。");
+            }
+
+        }, "image/png");
+    };
+
+    image.src = shareAnimalImage.src;
+};
+
     // ====================================
     // 4軸バー
     // ====================================
