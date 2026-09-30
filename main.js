@@ -75,7 +75,8 @@ const compatibility = {
 // ========================================
 // HTML取得
 // ========================================
-
+const startPage =
+    document.getElementById("start-page");
 const backBtn = document.getElementById("back-btn");
 
 const startScreen = document.getElementById("start-screen");
@@ -117,7 +118,7 @@ startBtn.onclick = () => {
     document.body.style.overflow = "hidden";
 
     // ページをめくる
-    startScreen.classList.add("page-turn");
+    startPage.classList.add("page-turn");
 
     // めくり終わってからスタート画面を消す
     setTimeout(() => {
@@ -126,7 +127,7 @@ startBtn.onclick = () => {
 
         showQuestion();
 
-    }, 1000);
+    }, 1200);
 
 };
 const shareAnimalImage =
