@@ -872,3 +872,221 @@ exitBtn.onclick = () => {
 document
     .getElementById("question-container")
     .classList.add("fade-in");
+
+// ========================================
+// SNSシェア
+// ========================================
+
+const shareXBtn =
+    document.getElementById("share-x-btn");
+
+const shareInstagramBtn =
+    document.getElementById("share-instagram-btn");
+
+
+// ----------------------------------------
+// Xでシェア
+// ----------------------------------------
+
+shareXBtn.onclick = () => {
+
+    const animalName =
+        shareAnimalName.textContent;
+
+    const text =
+        `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`;
+
+    const shareUrl =
+        "https://twitter.com/intent/tweet?text=" +
+        encodeURIComponent(text);
+
+    window.open(
+        shareUrl,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+};
+
+
+// ----------------------------------------
+// Instagramでシェア
+// ----------------------------------------
+
+shareInstagramBtn.onclick = async () => {
+
+    const animalName =
+        shareAnimalName.textContent;
+
+    const image = new Image();
+
+    image.onload = () => {
+
+        const canvas =
+            document.createElement("canvas");
+
+        const ctx =
+            canvas.getContext("2d");
+
+        const width = 900;
+        const height = 1200;
+
+        canvas.width = width;
+        canvas.height = height;
+
+
+        // 背景
+        ctx.fillStyle = "#F8F5EA";
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        // 外枠
+        ctx.strokeStyle = "#BBA576";
+        ctx.lineWidth = 5;
+
+        ctx.strokeRect(
+            35,
+            35,
+            width - 70,
+            height - 70
+        );
+
+
+        // タイトル
+        ctx.textAlign = "center";
+
+        ctx.fillStyle = "#6A4C25";
+
+        ctx.font =
+            '28px "Yu Mincho", serif';
+
+        ctx.fillText(
+            "モチーフアニマル診断",
+            width / 2,
+            100
+        );
+
+
+        // 動物
+        ctx.drawImage(
+            image,
+            width / 2 - 180,
+            170,
+            360,
+            360
+        );
+
+
+        // 説明
+        ctx.fillStyle = "#434C1F";
+
+        ctx.font =
+            '30px "Yu Mincho", serif';
+
+        ctx.fillText(
+            "あなたの旅の相棒は",
+            width / 2,
+            610
+        );
+
+
+        // 動物名
+        ctx.fillStyle = "#331700";
+
+        ctx.font =
+            'bold 56px "Yu Mincho", serif';
+
+        ctx.fillText(
+            animalName,
+            width / 2,
+            690
+        );
+
+
+        // メッセージ
+        ctx.fillStyle = "#434C1F";
+
+        ctx.font =
+            '28px "Yu Mincho", serif';
+
+        ctx.fillText(
+            "あなたの旅の物語を",
+            width / 2,
+            790
+        );
+
+        ctx.fillText(
+            "一緒に歩むモチーフアニマル",
+            width / 2,
+            840
+        );
+
+
+        // 下部
+        ctx.fillStyle = "#7D8F16";
+
+        ctx.font =
+            '22px "Yu Mincho", serif';
+
+        ctx.fillText(
+            "モチーフアニマル診断",
+            width / 2,
+            1060
+        );
+
+
+        // 画像として保存
+        canvas.toBlob((blob) => {
+
+            if (!blob) {
+                alert("シェア画像を作成できませんでした。");
+                return;
+            }
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+            const link =
+                document.createElement("a");
+
+            link.href = url;
+
+            link.download =
+                "motif-animal-result.png";
+
+            link.click();
+
+            URL.revokeObjectURL(url);
+
+
+            // Instagramを開く
+            setTimeout(() => {
+
+                window.open(
+                    "https://www.instagram.com/",
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }, 500);
+
+
+            alert(
+                "診断結果の画像を保存しました！\nInstagramで画像を選んで投稿できます。"
+            );
+
+        }, "image/png");
+
+    };
+
+
+    image.src =
+        shareAnimalImage.src;
+
+};
