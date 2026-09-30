@@ -877,12 +877,28 @@ document
 // SNSシェア
 // ========================================
 
-shareXBtn.onclick = () => {
+const shareXButton =
+    document.getElementById("share-x-btn");
+
+const shareInstagramButton =
+    document.getElementById("share-instagram-btn");
+
+const shareName =
+    document.getElementById("share-animal-name");
+
+const shareImage =
+    document.getElementById("share-animal-image");
+
+
+// ========================================
+// Xでシェア
+// ========================================
+
+shareXButton.onclick = () => {
 
     const animalName =
-        shareAnimalName.textContent;
+        shareName.textContent;
 
-    // Xの投稿画面を先に開く
     const text =
         `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`;
 
@@ -890,25 +906,25 @@ shareXBtn.onclick = () => {
         "https://twitter.com/intent/tweet?text=" +
         encodeURIComponent(text);
 
+    // まずXを開く
     window.open(
         xUrl,
-        "_blank",
-        "noopener,noreferrer"
+        "_blank"
     );
 
-    // 診断結果画像を作成
-    createResultImage(true);
+    // そのあと画像を保存
+    createResultImage();
 
 };
 
 
 // ========================================
-// Instagram
+// Instagramでシェア
 // ========================================
 
-shareInstagramBtn.onclick = () => {
+shareInstagramButton.onclick = () => {
 
-    createResultImage(false);
+    createResultImage();
 
 };
 
@@ -917,16 +933,16 @@ shareInstagramBtn.onclick = () => {
 // 診断結果画像を作成
 // ========================================
 
-function createResultImage(openInstagram) {
+function createResultImage() {
 
     const animalName =
-        shareAnimalName.textContent;
+        shareName.textContent;
 
     const image =
         new Image();
 
     image.src =
-        shareAnimalImage.src;
+        shareImage.src;
 
 
     image.onload = () => {
@@ -944,10 +960,7 @@ function createResultImage(openInstagram) {
         canvas.height = height;
 
 
-        // --------------------------------
         // 背景
-        // --------------------------------
-
         ctx.fillStyle = "#F8F5EA";
 
         ctx.fillRect(
@@ -958,10 +971,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // 外枠
-        // --------------------------------
-
         ctx.strokeStyle = "#BBA576";
         ctx.lineWidth = 5;
 
@@ -973,10 +983,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // タイトル
-        // --------------------------------
-
         ctx.textAlign = "center";
 
         ctx.fillStyle = "#6A4C25";
@@ -991,10 +998,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // 動物画像
-        // --------------------------------
-
         ctx.drawImage(
             image,
             width / 2 - 180,
@@ -1004,10 +1008,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // キャッチコピー
-        // --------------------------------
-
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -1020,10 +1021,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // 動物名
-        // --------------------------------
-
         ctx.fillStyle = "#331700";
 
         ctx.font =
@@ -1036,10 +1034,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // メッセージ
-        // --------------------------------
-
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -1058,10 +1053,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // 下部タイトル
-        // --------------------------------
-
         ctx.fillStyle = "#7D8F16";
 
         ctx.font =
@@ -1074,10 +1066,7 @@ function createResultImage(openInstagram) {
         );
 
 
-        // --------------------------------
         // PNGとして保存
-        // --------------------------------
-
         canvas.toBlob((blob) => {
 
             if (!blob) {
@@ -1109,22 +1098,6 @@ function createResultImage(openInstagram) {
             document.body.removeChild(link);
 
             URL.revokeObjectURL(url);
-
-
-            // Instagramの場合
-            if (openInstagram) {
-
-                setTimeout(() => {
-
-                    window.open(
-                        "https://www.instagram.com/",
-                        "_blank",
-                        "noopener,noreferrer"
-                    );
-
-                }, 500);
-
-            }
 
         }, "image/png");
 
