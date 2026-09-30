@@ -29,14 +29,14 @@ const animals = {
     },
 
     deerFemale: {
-        name: "シカ（メス）",
+        name: "メスジカ",
         image: "images/deer-female.webp",
         keywords: ["感受性", "思いやり", "洞察力"],
         description: "周囲への気配りができる優しいタイプです。"
     },
 
     sheepChild: {
-        name: "ヒツジ（幼体）",
+        name: "子供ヒツジ",
         image: "images/sheep-child.webp",
         keywords: ["純粋", "理想", "優しさ"],
         description: "素直で理想を大切にするタイプです。"
@@ -78,7 +78,7 @@ const animals = {
     },
 
     goat: {
-        name: "ヤギ",
+        name: "フェレット",
         image: "images/goat.webp",
         keywords: ["発想", "挑戦", "自由"],
         description: "新しいアイデアを形にすることが得意です。"
@@ -92,21 +92,21 @@ const animals = {
     },
 
     sheepAdult: {
-        name: "ヒツジ（成体）",
+        name: "大人ヒツジ",
         image: "images/sheep-adult.webp",
         keywords: ["安心感", "協調性", "責任感"],
         description: "仲間を大切にし、安心できる環境を作るタイプです。"
     },
 
     deerMale: {
-        name: "シカ（オス）",
+        name: "オスジカ",
         image: "images/deer-male.webp",
         keywords: ["統率力", "責任感", "計画性"],
         description: "周囲をまとめながら目標へ進むリーダータイプです。"
     },
 
     bird: {
-        name: "トリ",
+        name: "フラミンゴ",
         image: "images/bird.webp",
         keywords: ["協力", "思いやり", "社交性"],
         description: "仲間とのつながりを大切にするタイプです。"
