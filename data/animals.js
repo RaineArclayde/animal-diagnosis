@@ -36,7 +36,7 @@ const animals = {
     },
 
     sheepChild: {
-        name: "子供ヒツジ",
+        name: "子どもヒツジ",
         image: "images/sheep-child.webp",
         keywords: ["純粋", "理想", "優しさ"],
         description: "素直で理想を大切にするタイプです。"
