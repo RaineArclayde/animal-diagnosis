@@ -214,33 +214,26 @@ button:active{
         opacity:1;
     }
 
-    /* ② どんどん拡大 */
     55%{
-        transform:scale(2.8) rotate(0deg);
-        opacity:1;
-    }
+    transform:scale(2.3) rotate(0deg);
+}
 
-    /* ③ 画面いっぱい */
-    68%{
-        transform:scale(5) rotate(0deg);
-        opacity:1;
-    }
+68%{
+    transform:scale(3.4) rotate(0deg);
+}
 
-    /* ④ 一気にページをめくる */
-    82%{
-        transform:
-            scale(5)
-            rotateY(-70deg);
-        opacity:1;
-    }
+82%{
+    transform:
+        scale(3.4)
+        rotateY(-70deg);
+}
 
-    /* ⑤ 消える */
-    100%{
-        transform:
-            scale(5)
-            rotateY(-90deg);
-        opacity:0;
-    }
+100%{
+    transform:
+        scale(3.4)
+        rotateY(-90deg);
+    opacity:0;
+}
 
 }
 
