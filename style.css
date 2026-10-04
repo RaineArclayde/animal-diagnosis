@@ -309,19 +309,32 @@ button:active{
 
 #start-btn{
     position:relative;
-
     display:flex;
     justify-content:center;
     align-items:center;
 
     width:100%;
-    min-height:280px;
 
     margin:-120px auto 0;
-    padding:40px 0;
+    padding:0;
 
     background:none;
     border:none;
+
+    cursor:pointer;
+}
+
+#start-btn::before{
+    content:"";
+    position:absolute;
+
+    width:420px;
+    height:180px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
 
     cursor:pointer;
 }
