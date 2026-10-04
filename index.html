@@ -410,12 +410,15 @@
     <h3>旅の記録を残す</h3>
 
     <div id="share-card">
-
         <div class="share-card-label">
             モチーフアニマル診断
         </div>
 
-        <img id="share-animal-image" src="" alt="">
+        <img
+            id="share-animal-image"
+            src=""
+            alt=""
+        >
 
         <div class="share-card-title">
             あなたの旅の相棒は
@@ -427,20 +430,44 @@
             あなたの旅の物語を<br>
             一緒に歩むモチーフアニマル
         </div>
-
     </div>
+
+
+    <!-- 記録画像ダウンロード -->
+
+    <button
+        id="download-result-btn"
+        class="share-download-btn"
+    >
+        記録を画像として保存する
+    </button>
+
+    <p class="share-download-note">
+        ↑ SNSでシェアする画像はこちらから保存できます
+    </p>
+
+
+    <!-- SNS -->
 
     <div id="share-buttons">
 
-    <button id="share-x-btn" class="share-sns-btn">
-        <span class="share-sns-icon">𝕏</span>
-        <span>Xでシェア</span>
-    </button>
+        <button
+            id="share-x-btn"
+            class="share-sns-btn"
+        >
+            <span class="share-sns-icon">𝕏</span>
+            <span>Xでシェア</span>
+        </button>
 
-    <button id="share-instagram-btn" class="share-sns-btn">
-        <span class="share-sns-icon">◎</span>
-        <span>Instagramでシェア</span>
-    </button>
+        <button
+            id="share-instagram-btn"
+            class="share-sns-btn"
+        >
+            <span class="share-sns-icon">◎</span>
+            <span>Instagramを開く</span>
+        </button>
+
+    </div>
 
 </div>
 
