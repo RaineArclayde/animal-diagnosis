@@ -884,11 +884,25 @@ const shareXButton =
 const shareInstagramButton =
     document.getElementById("share-instagram-btn");
 
+const downloadResultButton =
+    document.getElementById("download-result-btn");
+
 const shareName =
     document.getElementById("share-animal-name");
 
 const shareImage =
     document.getElementById("share-animal-image");
+
+
+// ========================================
+// 画像ダウンロード
+// ========================================
+
+downloadResultButton.onclick = () => {
+
+    createResultImage();
+
+};
 
 
 // ========================================
@@ -900,32 +914,38 @@ shareXButton.onclick = () => {
     const animalName =
         shareName.textContent;
 
+    const gameUrl =
+        window.location.href;
+
     const text =
-        `私の旅の相棒は「${animalName}」でした！\n#モチーフアニマル診断`;
+        `私の旅の相棒は「${animalName}」でした！\n\n` +
+        `あなたはどんなタイプかな？\n` +
+        `モチーフアニマル診断で確かめてみて！👇\n` +
+        `${gameUrl}\n\n` +
+        `#モチーフアニマル診断`;
 
     const xUrl =
         "https://twitter.com/intent/tweet?text=" +
         encodeURIComponent(text);
 
-    // まずXを開く
     window.open(
         xUrl,
         "_blank"
     );
 
-    // そのあと画像を保存
-    createResultImage();
-
 };
 
 
 // ========================================
-// Instagramでシェア
+// Instagram
 // ========================================
 
 shareInstagramButton.onclick = () => {
 
-    createResultImage();
+    window.open(
+        "https://www.instagram.com/",
+        "_blank"
+    );
 
 };
 
@@ -962,6 +982,7 @@ function createResultImage() {
 
 
         // 背景
+
         ctx.fillStyle = "#F8F5EA";
 
         ctx.fillRect(
@@ -973,6 +994,7 @@ function createResultImage() {
 
 
         // 外枠
+
         ctx.strokeStyle = "#BBA576";
         ctx.lineWidth = 5;
 
@@ -985,6 +1007,7 @@ function createResultImage() {
 
 
         // タイトル
+
         ctx.textAlign = "center";
 
         ctx.fillStyle = "#6A4C25";
@@ -1000,6 +1023,7 @@ function createResultImage() {
 
 
         // 動物画像
+
         ctx.drawImage(
             image,
             width / 2 - 180,
@@ -1010,6 +1034,7 @@ function createResultImage() {
 
 
         // キャッチコピー
+
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -1023,6 +1048,7 @@ function createResultImage() {
 
 
         // 動物名
+
         ctx.fillStyle = "#331700";
 
         ctx.font =
@@ -1036,6 +1062,7 @@ function createResultImage() {
 
 
         // メッセージ
+
         ctx.fillStyle = "#434C1F";
 
         ctx.font =
@@ -1054,7 +1081,8 @@ function createResultImage() {
         );
 
 
-        // 下部タイトル
+        // 下部
+
         ctx.fillStyle = "#7D8F16";
 
         ctx.font =
@@ -1067,19 +1095,19 @@ function createResultImage() {
         );
 
 
-        // PNGとして保存
+        // 保存
+
         canvas.toBlob((blob) => {
 
             if (!blob) {
 
                 alert(
-                    "シェア画像を作成できませんでした。"
+                    "画像を作成できませんでした。"
                 );
 
                 return;
 
             }
-
 
             const url =
                 URL.createObjectURL(blob);
