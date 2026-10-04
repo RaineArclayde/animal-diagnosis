@@ -1860,3 +1860,26 @@ button:active{
 #result-container .frame-sp-bottom{
     display:none !important;
 }
+
+.share-download-btn{
+    display:block;
+    width:82%;
+    max-width:400px;
+    margin:25px auto 8px;
+    padding:14px 20px;
+    border:none;
+    border-radius:999px;
+    background:var(--green);
+    color:var(--title);
+    font-family:inherit;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.share-download-note{
+    margin:0 auto 25px;
+    color:var(--brown);
+    font-size:13px;
+    line-height:1.6;
+}
