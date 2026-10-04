@@ -124,14 +124,12 @@ startBtn.onclick = () => {
     startScreen.classList.add("book-open");
 
     // 光が広がったあとに質問画面へ
-    setTimeout(() => {
+   setTimeout(() => {
 
-        startScreen.classList.add("hidden");
+    startScreen.classList.add("hidden");
+    showQuestion();
 
-        showQuestion();
-
-    }, 1100);
-
+}, 1400);
 };
 
 const shareAnimalImage =
