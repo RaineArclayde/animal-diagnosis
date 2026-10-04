@@ -252,18 +252,13 @@ button:active{
 #start-screen.book-open::after{
     content:"";
     position:absolute;
-    z-index:25;
+    z-index:100;
 
-    left:50%;
-    top:50%;
+    inset:0;
 
-    width:30px;
-    height:30px;
-
-    border-radius:50%;
     background:#fff;
 
-    transform:translate(-50%,-50%) scale(0);
+    opacity:0;
 
     pointer-events:none;
 
@@ -273,35 +268,26 @@ button:active{
 
 @keyframes bookWhiteOut{
 
-    /* 本が動き始める */
     0%{
         opacity:0;
-        transform:translate(-50%,-50%) scale(0);
     }
 
-    /* 少しずつ光が広がる */
-    55%{
-        opacity:.05;
-        transform:translate(-50%,-50%) scale(2);
+    65%{
+        opacity:0;
     }
 
-    /* 本が大きくなる頃から光を強く */
-    75%{
+    80%{
         opacity:.25;
-        transform:translate(-50%,-50%) scale(12);
     }
 
-    /* めくり始める頃にはかなり白く */
-    88%{
+    90%{
         opacity:.7;
-        transform:translate(-50%,-50%) scale(35);
     }
 
-    /* 最後は完全に白飛び */
     100%{
         opacity:1;
-        transform:translate(-50%,-50%) scale(60);
     }
+
 }
 /* ========================================
    ボタンを消す
