@@ -111,25 +111,30 @@ const exitBtn = document.getElementById("exit-btn");
 // 診断開始
 // ========================================
 
+// ========================================
+// 診断開始
+// ========================================
+
 startBtn.onclick = () => {
 
     quizScreen.classList.remove("hidden");
 
     document.body.style.overflow = "hidden";
 
-    // ページをめくる
-    startPage.classList.add("page-turn");
+    // 本を開くような演出
+    startScreen.classList.add("book-open");
 
-    // めくり終わってからスタート画面を消す
+    // 光が広がったあとに質問画面へ
     setTimeout(() => {
 
         startScreen.classList.add("hidden");
 
         showQuestion();
 
-    }, 1200);
+    }, 1100);
 
 };
+
 const shareAnimalImage =
     document.getElementById("share-animal-image");
 
