@@ -168,11 +168,9 @@ button:active{
 ======================================== */
 
 #start-screen{
-    position:relative;
     z-index:20;
     overflow:hidden;
 }
-
 
 /* 本 */
 
