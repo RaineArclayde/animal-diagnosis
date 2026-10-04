@@ -309,14 +309,16 @@ button:active{
 
 #start-btn{
     position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
     width:100%;
+    min-height:280px;
 
     margin:-120px auto 0;
-    padding:0;
+    padding:40px 0;
 
     background:none;
     border:none;
@@ -348,12 +350,10 @@ button:active{
     pointer-events:none;
 }
 
-#start-book,
-#start-btn{
+#start-book{
     position:relative;
     top:-50px;
 }
-
 #start-btn img{
     display:block;
 
