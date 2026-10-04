@@ -75,8 +75,7 @@ const compatibility = {
 // ========================================
 // HTML取得
 // ========================================
-const startPage =
-    document.getElementById("start-page");
+
 const backBtn = document.getElementById("back-btn");
 
 const startScreen = document.getElementById("start-screen");
