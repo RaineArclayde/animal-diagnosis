@@ -120,18 +120,29 @@ startBtn.onclick = () => {
 
     document.body.style.overflow = "hidden";
 
-    // 本を開くような演出
+    // 本を拡大・回転
     startScreen.classList.add("book-open");
 
-    // 光が広がったあとに質問画面へ
-   setTimeout(() => {
+    // 白飛び開始
+    const whiteTransition =
+        document.getElementById("white-transition");
 
-    startScreen.classList.add("hidden");
-    showQuestion();
+    whiteTransition.classList.add("active");
 
-}, 2200);
+    // 白くなりきったところで質問画面へ
+    setTimeout(() => {
+
+        startScreen.classList.add("hidden");
+
+        showQuestion();
+
+        // 白飛びを消す
+        whiteTransition.classList.remove("active");
+        whiteTransition.style.opacity = "0";
+
+    }, 2200);
+
 };
-
 const shareAnimalImage =
     document.getElementById("share-animal-image");
 
