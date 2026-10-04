@@ -196,7 +196,7 @@ button:active{
 ======================================== */
 
 #start-screen.book-open #start-book{
-    animation:bookTurn 1.4s ease-in-out forwards;
+    animation:bookTurn 2.2s ease-in-out forwards;
     z-index:20;
 }
 /* ========================================
@@ -205,45 +205,45 @@ button:active{
 
 @keyframes bookTurn{
 
-    /* ① 中央を基準に通常状態 */
+    /* ① 通常 */
     0%{
         transform-origin:center center;
         transform:scale(1) rotateY(0deg);
         opacity:1;
     }
 
-    /* ② 中央のまま拡大 */
-    60%{
+    /* ② ゆっくり拡大 */
+    55%{
         transform-origin:center center;
-        transform:scale(1.8) rotateY(0deg);
+        transform:scale(1.7) rotateY(0deg);
         opacity:1;
     }
 
-    /* ③ 拡大完了 */
-    78%{
+    /* ③ さらに拡大 */
+    75%{
         transform-origin:center center;
         transform:scale(2.6) rotateY(0deg);
         opacity:1;
     }
 
-    /* ④ ここで左端を軸に切り替える */
+    /* ④ 拡大完了 */
     82%{
-        transform-origin:left center;
-        transform:scale(2.6) rotateY(0deg);
+        transform-origin:center center;
+        transform:scale(2.8) rotateY(0deg);
         opacity:1;
     }
 
-    /* ⑤ 左端を軸にページをめくる */
-    94%{
+    /* ⑤ 左端を軸にめくる */
+    93%{
         transform-origin:left center;
-        transform:scale(2.6) rotateY(-70deg);
+        transform:scale(2.8) rotateY(-65deg);
         opacity:1;
     }
 
-    /* ⑥ 消える */
+    /* ⑥ 最後に消える */
     100%{
         transform-origin:left center;
-        transform:scale(2.6) rotateY(-90deg);
+        transform:scale(2.8) rotateY(-90deg);
         opacity:0;
     }
 
