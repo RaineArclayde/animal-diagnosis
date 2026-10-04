@@ -305,10 +305,13 @@ button:active{
 }
 
 
-/* スタートボタン */
+/* ========================================
+   スタートボタン
+======================================== */
 
 #start-btn{
     position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -319,16 +322,33 @@ button:active{
     margin:-200px auto 0;
     padding:0;
 
-    background:none;
+    background:transparent;
     border:none;
 
     cursor:pointer;
+
+    z-index:5;
 }
+
+
+/* ボタン画像 */
+
+#start-btn img{
+    display:block;
+
+    width:280px;
+    max-width:70%;
+
+    pointer-events:none;
+}
+
+
+/* ボタン文字 */
 
 #start-btn span{
     position:absolute;
 
-    top:45%;
+    top:50%;
     left:50%;
 
     transform:translate(-50%,-50%);
@@ -349,19 +369,20 @@ button:active{
     pointer-events:none;
 }
 
+
+/* ボタンの位置調整 */
+
 #start-book{
     position:relative;
     top:-50px;
 }
-#start-btn img{
-    display:block;
 
-    width:280px;
-    max-width:70%;
+#start-btn{
+    top:-50px;
 }
 
 
-/* ボタンの動き */
+/* ホバー・クリック */
 
 #start-btn:hover{
     transform:scale(1.05);
