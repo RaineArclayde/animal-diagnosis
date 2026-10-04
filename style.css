@@ -199,13 +199,72 @@ button:active{
     animation:bookTurn 2.2s ease-in-out forwards;
     z-index:20;
 }
+
 /* ========================================
-   本の動き
+   本の回転＋白飛び
 ======================================== */
 
+#start-screen.book-open #start-book{
+    animation:bookTurn 2.2s ease-in-out forwards;
+    z-index:20;
+}
+
+
+/* 白飛び */
+
+#white-transition{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100dvh;
+
+    background:#fff;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+}
+
+#white-transition.active{
+    animation:whiteTransition 2.2s ease-in-out forwards;
+}
+
+
+@keyframes whiteTransition{
+
+    /* 本が拡大している間 */
+    0%{
+        opacity:0;
+    }
+
+    65%{
+        opacity:0;
+    }
+
+    /* 回転開始あたりから白く */
+    80%{
+        opacity:.2;
+    }
+
+    /* 本がめくれている間 */
+    90%{
+        opacity:.65;
+    }
+
+    /* 完全に白飛び */
+    100%{
+        opacity:1;
+    }
+
+}
 @keyframes bookTurn{
 
-    /* ① 通常 */
+    /* ① 本がある状態 */
     0%{
         transform-origin:center center;
         transform:scale(1) rotateY(0deg);
@@ -233,14 +292,14 @@ button:active{
         opacity:1;
     }
 
-    /* ⑤ 左端を軸にめくる */
+    /* ⑤ 左側を軸にめくる */
     93%{
         transform-origin:left center;
         transform:scale(2.8) rotateY(-65deg);
         opacity:1;
     }
 
-    /* ⑥ 最後に消える */
+    /* ⑥ 完全にめくれる */
     100%{
         transform-origin:left center;
         transform:scale(2.8) rotateY(-90deg);
@@ -249,46 +308,6 @@ button:active{
 
 }
 
-#start-screen.book-open::after{
-    content:"";
-    position:absolute;
-    z-index:100;
-
-    inset:0;
-
-    background:#fff;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    animation:bookWhiteOut 2.2s ease-in-out forwards;
-}
-
-
-@keyframes bookWhiteOut{
-
-    0%{
-        opacity:0;
-    }
-
-    65%{
-        opacity:0;
-    }
-
-    80%{
-        opacity:.25;
-    }
-
-    90%{
-        opacity:.7;
-    }
-
-    100%{
-        opacity:1;
-    }
-
-}
 /* ========================================
    ボタンを消す
 ======================================== */
@@ -303,27 +322,6 @@ button:active{
         opacity:0;
     }
 
-}
-
-
-/* ========================================
-   白い光
-======================================== */
-
-#start-screen.book-open::after{
-    content:"";
-    position:absolute;
-    z-index:10;
-    left:50%;
-    top:50%;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:#fff;
-    transform:translate(-50%,-50%) scale(0);
-    pointer-events:none;
-
-    animation:bookLight 1.1s ease-in forwards;
 }
 
 
