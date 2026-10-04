@@ -157,6 +157,8 @@ button:active{
     background-repeat:no-repeat;
 
     overflow:hidden;
+
+    perspective:1200px;
 }
 
 #start-page{
@@ -183,43 +185,65 @@ button:active{
 }
 
 
-/* 本を開く */
-
-#start-screen.book-open #start-book{
-    animation:bookOpen 1.1s ease-in forwards;
-}
-
-
 /* ボタンも一緒に消していく */
 
 #start-screen.book-open #start-btn{
     animation:buttonFade .45s ease-out forwards;
 }
 
-
 /* ========================================
-   本が大きくなる
+   本が拡大 → ページをめくる
 ======================================== */
 
-@keyframes bookOpen{
+#start-screen.book-open #start-book{
+    animation:bookTurn 1.4s ease-in-out forwards;
+    transform-origin:center center;
+    z-index:20;
+}
 
+
+/* ========================================
+   本の動き
+======================================== */
+
+@keyframes bookTurn{
+
+    /* ① 最初は普通 */
     0%{
-        transform:scale(1);
+        transform:scale(1) rotate(0deg);
+        opacity:1;
     }
 
-    45%{
-        transform:scale(1.35);
+    /* ② どんどん拡大 */
+    55%{
+        transform:scale(2.8) rotate(0deg);
+        opacity:1;
     }
 
-    75%{
-        transform:scale(2.2);
+    /* ③ 画面いっぱい */
+    68%{
+        transform:scale(5) rotate(0deg);
+        opacity:1;
     }
 
+    /* ④ 一気にページをめくる */
+    82%{
+        transform:
+            scale(5)
+            rotateY(-70deg);
+        opacity:1;
+    }
+
+    /* ⑤ 消える */
     100%{
-        transform:scale(4);
+        transform:
+            scale(5)
+            rotateY(-90deg);
+        opacity:0;
     }
 
 }
+
 
 
 /* ========================================
@@ -260,37 +284,6 @@ button:active{
 }
 
 
-@keyframes bookLight{
-
-    0%{
-        transform:
-            translate(-50%,-50%)
-            scale(0);
-        opacity:0;
-    }
-
-    45%{
-        transform:
-            translate(-50%,-50%)
-            scale(8);
-        opacity:.15;
-    }
-
-    70%{
-        transform:
-            translate(-50%,-50%)
-            scale(30);
-        opacity:.65;
-    }
-
-    100%{
-        transform:
-            translate(-50%,-50%)
-            scale(100);
-        opacity:1;
-    }
-
-}
 
 
 /* 図鑑 */
