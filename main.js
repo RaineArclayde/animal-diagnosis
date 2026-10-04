@@ -129,7 +129,7 @@ startBtn.onclick = () => {
     startScreen.classList.add("hidden");
     showQuestion();
 
-}, 1400);
+}, 2200);
 };
 
 const shareAnimalImage =
