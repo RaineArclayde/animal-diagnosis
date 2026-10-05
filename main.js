@@ -140,7 +140,7 @@ startBtn.onclick = () => {
         whiteTransition.classList.remove("active");
         whiteTransition.style.opacity = "0";
 
-    }, 2200);
+    }, 3000);
 
 };
 const shareAnimalImage =
