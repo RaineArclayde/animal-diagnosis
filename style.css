@@ -191,24 +191,32 @@ button:active{
     animation:buttonFade .45s ease-out forwards;
 }
 
-/* ========================================
-   本が拡大 → ページをめくる
-======================================== */
-
 #start-screen.book-open #start-book{
-    animation:bookTurn 2.2s ease-in-out forwards;
+    animation:bookTurn 3s ease-in-out forwards;
     z-index:20;
 }
 
-/* ========================================
-   本の回転＋白飛び
-======================================== */
+@keyframes bookTurn{
 
-#start-screen.book-open #start-book{
-    animation:bookTurn 2.2s ease-in-out forwards;
-    z-index:20;
+    0%{
+        transform-origin:center center;
+        transform:scale(1) rotateY(0deg);
+        opacity:1;
+    }
+
+    72%{
+        transform-origin:center center;
+        transform:scale(2.8) rotateY(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform-origin:left center;
+        transform:scale(2.8) rotateY(-90deg);
+        opacity:0;
+    }
+
 }
-
 
 /* 白飛び */
 
@@ -231,13 +239,11 @@ button:active{
 }
 
 #white-transition.active{
-    animation:whiteTransition 2.2s ease-in-out forwards;
+    animation:whiteTransition 3s ease-in-out forwards;
 }
-
 
 @keyframes whiteTransition{
 
-    /* 本が拡大している間 */
     0%{
         opacity:0;
     }
@@ -246,64 +252,16 @@ button:active{
         opacity:0;
     }
 
-    /* 回転開始あたりから白く */
     80%{
-        opacity:.2;
+        opacity:.15;
     }
 
-    /* 本がめくれている間 */
     90%{
-        opacity:.65;
+        opacity:.6;
     }
 
-    /* 完全に白飛び */
     100%{
         opacity:1;
-    }
-
-}
-@keyframes bookTurn{
-
-    /* ① 本がある状態 */
-    0%{
-        transform-origin:center center;
-        transform:scale(1) rotateY(0deg);
-        opacity:1;
-    }
-
-    /* ② ゆっくり拡大 */
-    55%{
-        transform-origin:center center;
-        transform:scale(1.7) rotateY(0deg);
-        opacity:1;
-    }
-
-    /* ③ さらに拡大 */
-    75%{
-        transform-origin:center center;
-        transform:scale(2.6) rotateY(0deg);
-        opacity:1;
-    }
-
-    /* ④ 拡大完了 */
-    82%{
-        transform-origin:center center;
-        transform:scale(2.8) rotateY(0deg);
-        opacity:1;
-    }
-
-    /* ⑤ 左側を軸にめくる */
-    93%{
-        transform-origin:left center;
-        transform:scale(2.8) rotateY(-65deg);
-        opacity:1;
-    }
-
-    /* ⑥ 完全にめくれる */
-    100%{
-        transform-origin:left center;
-        transform:scale(2.8) rotateY(-90deg);
-        opacity:0;
     }
 
 }
