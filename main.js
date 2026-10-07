@@ -156,10 +156,10 @@ const shareAnimalName =
 
 restartBtn.onclick = () => {
 
-    location.reload();
+    window.location.href =
+        "https://fioralune-game.github.io/animal-diagnosis/";
 
 };
-
 
 // ========================================
 // 前の質問へ戻る
