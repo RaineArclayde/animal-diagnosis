@@ -15,7 +15,7 @@ const animals = {
     },
 
     badger: {
-        name: "アナグマ",
+        name: "カワウソ",
         image: "images/badger.webp",
         keywords: ["行動力", "挑戦", "積極性"],
         description: "思い立ったらすぐ行動。挑戦を恐れないタイプです。"
